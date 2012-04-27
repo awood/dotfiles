@@ -1,0 +1,4 @@
+Place these two files in your /etc/profile.d directory
+if you are using bash.
+
+These files are not compatible with zsh.
