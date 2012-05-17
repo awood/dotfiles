@@ -1,0 +1,16 @@
+#! /bin/sh
+
+# Git hooks don't normally accept stdin so use a bit of 
+# hackery to assign stdin to the keyboard
+exec < /dev/tty
+while true; do
+    read -p "Did you run the unit tests and style checker? (y/n) " yn
+    if [ "$yn" = "" ]; then
+        yn='Y'
+    fi
+    case $yn in
+        [Yy] ) exit 0;;
+        [Nn] ) exit 1;;
+        * ) echo "Please answer y or n for yes or no.";;
+    esac
+done
