@@ -37,4 +37,6 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=5000
 SAVEHIST=5000
 
+unsetopt correct_all
+
 alias tomtail='screen -S log -t Tomcat less /var/log/tomcat6/catalina.out'
