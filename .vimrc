@@ -32,10 +32,12 @@ autocmd FileType mail setlocal spell
 "(mine)
 autocmd FileType python set softtabstop=4
 
-if !exists("autocommands_loaded")
-    let autocommands_loaded = 1
-    autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python.vim
-endif
+"highlight end of line whitespace (mine)
+highlight WhitespaceEOL ctermbg=red guibg=red
+autocmd FileType python match WhitespaceEOL /\s\+$/
+
+autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+runtime! macros/matchit.vim
 
 "Don't expand tabs for makefiles (mine)
 au FileType make setlocal noexpandtab
