@@ -32,6 +32,7 @@ ZSH_THEME="awood"
 plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.vij
 
 # Customize to your needs...
 HISTSIZE=5000

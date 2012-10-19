@@ -1,0 +1,45 @@
+#! /bin/zsh
+
+__dafiles ()
+{
+    cmd=$1
+    dafiles=$(find . -type f -name "$2" -printf '%p ')
+    matches=$(echo $dafiles | gawk '{print NF}')
+    echo $matches
+    case "$matches" in
+        0)
+           echo "No matches found"
+           show=""
+           ;;
+        1)
+           show=$dafiles
+           ;;
+        *)
+           echo
+           echo "Multiple matches found..."
+           i=1
+           for option in ${=dafiles}
+           do
+              echo "$i: $option"
+              i=$(($i + 1))
+           done
+           echo "q: Quit"
+           echo
+           read ans
+           if [[ "q" == "$ans" ]]; then
+              show=""
+           else
+              show=$(echo $dafiles | gawk '{print $'$ans'}')
+           fi
+           ;;
+    esac
+
+    if [[ "" != "$show" ]]; then
+       $cmd $show
+    fi
+}
+
+vij ()
+{
+    __dafiles "vim" $1
+}
