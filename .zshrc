@@ -35,9 +35,12 @@ source $ZSH/oh-my-zsh.sh
 source ~/.vij
 
 # Customize to your needs...
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
 
 unsetopt correct_all
+unsetopt share_history
+setopt inc_append_history
+
 alias tomtail='screen -S log -t Tomcat less /var/log/tomcat6/catalina.out'
