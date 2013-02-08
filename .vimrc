@@ -32,6 +32,11 @@ autocmd FileType mail setlocal spell
 "(mine)
 autocmd FileType python set softtabstop=4
 
+let python_highlight_all = 1
+" Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
+set omnifunc=pythoncomplete#Complete
+inoremap <Nul> <C-x><C-o>
+
 "highlight end of line whitespace (mine)
 highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python match WhitespaceEOL /\s\+$/
