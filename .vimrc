@@ -24,6 +24,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"Start pathogen (mine)
+execute pathogen#infect()
+
 "Spell-check in mutt (mine)
 set spellfile=~/vimspell.add
 autocmd FileType mail setlocal spell
@@ -55,6 +58,7 @@ set printoptions=paper:letter
 
 "Add some useful mappings (mine)
 map <F2> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 map <Leader>b :MiniBufExplorer<CR>
 map <Leader>t :TMiniBufExplorer<CR>
 map th :tabnext<CR>

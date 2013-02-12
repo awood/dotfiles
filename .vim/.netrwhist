@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/usr/lib64/python2.7/logging'
-let g:netrw_dirhist_2='/tmp/minibufexpl.vim'
-let g:netrw_dirhist_3='/home/awood/.ssh'
-let g:netrw_dirhist_4='/home/awood/skunkworks/python/jsonbrowser/src'
-let g:netrw_dirhist_5='/home/awood/devel/candlepin/proxy/buildr'
