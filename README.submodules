@@ -1,0 +1,8 @@
+To download the Vim plugins which are stored as git submodules, you must
+run
+
+git submodule init
+
+and then
+
+git submodule update
