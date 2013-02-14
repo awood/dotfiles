@@ -27,6 +27,9 @@ set expandtab
 "Start pathogen (mine)
 execute pathogen#infect()
 
+"Set TagBar to sort by order in file instead of by name (mine)
+let g:tagbar_sort = 0
+
 "Spell-check in mutt (mine)
 set spellfile=~/vimspell.add
 autocmd FileType mail setlocal spell
