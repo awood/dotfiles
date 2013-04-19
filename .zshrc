@@ -40,6 +40,7 @@ SAVEHIST=10000
 PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
 
 unsetopt correct_all
+unsetopt correct
 unsetopt share_history
 setopt inc_append_history
 
