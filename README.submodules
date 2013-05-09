@@ -5,4 +5,4 @@ and then
     git submodule update
 =======
 To add a submodule
-    git add git://some/url/ .vimrc/bundle/$BUNDLE_NAME
+    git submodule add git://some/url/ .vim/bundle/$BUNDLE_NAME
