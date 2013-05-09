@@ -8,6 +8,7 @@ endif
 set nocompatible
 
 "Provide a nice status line (mine)
+"(If not using vim-powerline)
 set laststatus=2
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
@@ -31,10 +32,11 @@ execute pathogen#infect()
 let g:tagbar_sort = 0
 
 "Set up syntastic (mine)
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checker_args='--ignore=E501,E121,E122,E123,E124,E125,E126,E127,E128'
+let g:syntastic_enable_signs = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
 "Spell-check in mutt (mine)
 set spellfile=~/vimspell.add
