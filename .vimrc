@@ -6,10 +6,12 @@ endif
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set laststatus=2
+set encoding=utf-8
+let g:Powerline_symbols = 'unicode'
 
 "Provide a nice status line (mine)
 "(If not using vim-powerline)
-set laststatus=2
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%f\                          " filename
