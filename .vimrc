@@ -22,6 +22,9 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%lL,%cC%V%)             " line, column, virtual-column
 set statusline+=%<%p%%                       " file position
 
+"Allow changing buffers without saving
+set hidden
+
 "Substitute 4 spaces for tabs (mine)
 set tabstop=4
 set shiftwidth=4
