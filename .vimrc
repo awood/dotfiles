@@ -60,7 +60,7 @@ inoremap <Nul> <C-x><C-o>
 
 "highlight end of line whitespace (mine)
 highlight WhitespaceEOL ctermbg=red guibg=red
-autocmd FileType python match WhitespaceEOL /\s\+$/
+autocmd FileType python,ruby match WhitespaceEOL /\s\+$/
 
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 runtime! macros/matchit.vim
