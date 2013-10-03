@@ -37,6 +37,7 @@ execute pathogen#infect()
 
 "Set TagBar to sort by order in file instead of by name (mine)
 let g:tagbar_sort = 0
+let g:tagbar_autofocus = 1
 
 "Set up syntastic (mine)
 let g:syntastic_enable_signs = 1
