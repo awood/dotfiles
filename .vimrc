@@ -37,6 +37,9 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 call pathogen#helptags()
 
+"Set wildmenu
+set wildmenu
+
 "Set TagBar to sort by order in file instead of by name (mine)
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
