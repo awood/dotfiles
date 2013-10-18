@@ -33,6 +33,7 @@ set shiftwidth=4
 set expandtab
 
 "Start pathogen (mine)
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 "Set TagBar to sort by order in file instead of by name (mine)
