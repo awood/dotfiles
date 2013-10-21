@@ -38,6 +38,8 @@ source ~/.vij
 HISTSIZE=10000
 SAVEHIST=10000
 PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
+EDITOR=vim
+VISUAL=vim
 
 unsetopt correct_all
 unsetopt correct
