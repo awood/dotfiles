@@ -4,7 +4,7 @@
 
 [core]
     pager = cat
-    excludesfile = /home/awood/.gitignore
+    excludesfile = ~/.gitignore
 
 [color]
     branch = auto
@@ -15,6 +15,7 @@
 
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    ctags = !.git/hooks/ctags
 
 [sendemail]
     smtpserver = smtp.corp.redhat.com
@@ -22,10 +23,6 @@
 
 [merge]
     tool = diffuse
-[gui]
-    fontdiff = -family courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-    recentrepo = /home/awood/legacy-cron
-[giggle]
-    compact-mode = false
-    main-window-maximized = false
-    main-window-geometry = 1272x876+0+56
+
+[init]
+    templatedir = ~/.git_template
