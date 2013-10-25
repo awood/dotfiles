@@ -29,7 +29,7 @@ ZSH_THEME="awood"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python)
+plugins=(git python colorize)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.vij
@@ -46,4 +46,4 @@ unsetopt correct
 unsetopt share_history
 setopt inc_append_history
 
-alias tomtail='screen -S log -t Tomcat less /var/log/tomcat6/catalina.out'
+alias tomtail='screen -S log -t Tomcat less /var/log/candlepin/candlepin.log'
