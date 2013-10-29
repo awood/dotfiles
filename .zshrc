@@ -37,9 +37,15 @@ source ~/.vij
 # Customize to your needs...
 HISTSIZE=10000
 SAVEHIST=10000
-PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
 EDITOR=vim
 VISUAL=vim
+
+path+=('/sbin')
+# Remove all path directories which don't exist
+# See http://stackoverflow.com/questions/9347478/how-to-edit-path-variable-in-zsh#9352979
+path=($^path(N))
+# Remove duplicates on the path
+typeset -U path
 
 unsetopt correct_all
 unsetopt correct
