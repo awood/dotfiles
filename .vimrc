@@ -89,6 +89,13 @@ map th :tabnext<CR>
 map tl :tabprev<CR>
 map tn :tabnew<CR>
 map td :tabclose<CR>
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 
 " Turn off the visual bell in both gui and terminal mode (mine)
 autocmd VimEnter * set vb t_vb= 
