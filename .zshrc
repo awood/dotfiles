@@ -51,5 +51,6 @@ unsetopt correct_all
 unsetopt correct
 unsetopt share_history
 setopt inc_append_history
+setopt extended_glob
 
 alias tomtail='screen -S log -t Tomcat less /var/log/candlepin/candlepin.log'
