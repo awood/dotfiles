@@ -41,5 +41,6 @@ __dafiles ()
 
 vij ()
 {
-    __dafiles "vim" $1
+    # If a .java is given, remove it.  Otherwise, leave $1 unchanged.
+    __dafiles "vim" ${1/%\.java/}.java
 }
