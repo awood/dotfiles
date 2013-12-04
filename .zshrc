@@ -40,6 +40,9 @@ SAVEHIST=10000
 EDITOR=vim
 VISUAL=vim
 
+export EDITOR
+export VISUAL
+
 path+=('/sbin')
 # Remove all path directories which don't exist
 # See http://stackoverflow.com/questions/9347478/how-to-edit-path-variable-in-zsh#9352979
