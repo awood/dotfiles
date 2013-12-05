@@ -6,4 +6,5 @@
 *.pyc
 *.pyo
 .netrwhist
+.noseids
 doc/tags
