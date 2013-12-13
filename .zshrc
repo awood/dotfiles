@@ -32,7 +32,7 @@ ZSH_THEME="awood"
 plugins=(git git-extras python colorize)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.vij
+[[ -e ~/.vij ]] && source ~/.vij
 
 # Customize to your needs...
 HISTSIZE=10000
