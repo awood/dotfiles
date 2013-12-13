@@ -56,4 +56,4 @@ unsetopt share_history
 setopt inc_append_history
 setopt extended_glob
 
-alias tomtail='screen -S log -t Tomcat less /var/log/candlepin/candlepin.log'
+alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
