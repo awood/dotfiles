@@ -39,6 +39,8 @@ call pathogen#helptags()
 
 "Set wildmenu
 set wildmenu
+"Set wildmode to complete the longest string and then each match
+set wildmode=longest,full
 
 "Set TagBar to sort by order in file instead of by name (mine)
 let g:tagbar_sort = 0
