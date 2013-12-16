@@ -1,0 +1,3 @@
+#! /bin/sh
+spec=$(rpm -qlp $1 | grep -E '\.spec$')
+rpm2cpio $1 | cpio -i --to-stdout $spec
