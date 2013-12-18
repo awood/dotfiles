@@ -56,4 +56,7 @@ unsetopt share_history
 setopt inc_append_history
 setopt extended_glob
 
+# See man zshcontrib. Best used with 'noglob'. Use -n for dry-run.
+autoload -U zmv
+
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
