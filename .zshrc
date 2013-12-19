@@ -32,7 +32,12 @@ ZSH_THEME="awood"
 plugins=(git git-extras python colorize)
 
 source $ZSH/oh-my-zsh.sh
-[[ -e ~/.vij ]] && source ~/.vij
+
+fpath=( ~/.zfunc "${fpath[@]}" )
+autoload -Uz vij find-and-exec
+
+# See the zshcontrib man page. Best used with 'noglob'. Use -n for dry-run.
+autoload -Uz zmv
 
 # Customize to your needs...
 HISTSIZE=10000
@@ -55,8 +60,5 @@ unsetopt correct
 unsetopt share_history
 setopt inc_append_history
 setopt extended_glob
-
-# See man zshcontrib. Best used with 'noglob'. Use -n for dry-run.
-autoload -U zmv
 
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"

@@ -1,0 +1,13 @@
+#! /bin/zsh
+
+# See http://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+
+# See http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
+autoload +X find-and-exec
+
+vij () {
+    # If a .java is given, remove it.  Otherwise, leave $1 unchanged.
+    find-and-exec "vim" ${1/%\.java/}.java
+}
+
+vij "$@"

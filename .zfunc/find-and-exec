@@ -1,0 +1,48 @@
+#! /bin/zsh
+
+find-and-exec () {
+    if (( $# == 1 )); then
+        cmd="cat"
+        f="$1"
+    else
+        cmd="$1"
+        f="$2"
+    fi
+    # Find files matching $f and print them delimited by NUL. Then have
+    # zsh split on NUL and place the results in an array.
+    # See Parameter Expansion Flags section of the zshexpn man page
+    found_files=(${(ps:\0:)"$(find . -type f -name "$f" -print0)"})
+    echo -n "$found_files"
+    case "$#found_files" in
+        0)
+           echo "No matches found"
+           show=""
+           ;;
+        1)
+           show="$found_files[1]"
+           ;;
+        *)
+           echo
+           echo "Multiple matches found..."
+           i=1
+           for option in $found_files; do
+              echo "$i: $option"
+              i=$(($i + 1))
+           done
+           echo "q: Quit"
+           echo
+           read ans
+           if [[ "q" == "$ans" ]]; then
+              show=""
+           else
+              show=$found_files[$ans]
+           fi
+           ;;
+    esac
+
+    if [[ "" != "$show" ]]; then
+       $cmd $show
+    fi
+}
+
+find-and-exec "$@"
