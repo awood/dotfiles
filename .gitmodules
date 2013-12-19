@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/tmux"]
 	path = .vim/bundle/tmux
 	url = git://github.com/zaiste/tmux.vim
+[submodule ".vim/bundle/spec.vim"]
+	path = .vim/bundle/spec.vim
+	url = git://github.com/vim-scripts/spec.vim.git
