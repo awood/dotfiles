@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/spec.vim"]
 	path = .vim/bundle/spec.vim
 	url = git://github.com/vim-scripts/spec.vim.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe
