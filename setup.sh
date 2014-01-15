@@ -1,7 +1,12 @@
 #! /bin/sh
 
 link() {
-    ln -s dotfiles/$1 $HOME
+    LOC=${2:-$HOME}
+    if [ -e $LOC/$1 ]; then
+        echo "Cowardly refusing to overwrite $LOC/$1"
+    else
+        ln -s dotfiles/$1 $LOC
+    fi
 }
 
 files=(.vimrc .vim .screenrc .tmux.conf .zshrc .zfunc/ .gitconfig
@@ -10,3 +15,7 @@ files=(.vimrc .vim .screenrc .tmux.conf .zshrc .zfunc/ .gitconfig
 for f in ${files[@]}; do
     link $f
 done;
+
+if [ -d $HOME/.oh-my-zsh/ ]; then
+    link awood.zsh-theme $HOME/.oh-my-zsh/custom
+fi
