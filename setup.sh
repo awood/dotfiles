@@ -5,7 +5,7 @@ link() {
     if [ -e $LOC/$1 ]; then
         echo "Cowardly refusing to overwrite $LOC/$1"
     else
-        ln -s dotfiles/$1 $LOC
+        ln -s $(pwd)/dotfiles/$1 $LOC
     fi
 }
 
