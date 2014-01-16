@@ -34,6 +34,10 @@ set expandtab
 
 "Start pathogen and write helptags (mine)
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+"YouCompleteMe only works on 7.3.584 and higher
+if v:version < 703 || v:version == 703 && !has("patch584")
+    let g:pathogen_disabled = ["YouCompleteMe"]
+endif
 execute pathogen#infect()
 call pathogen#helptags()
 
