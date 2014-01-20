@@ -50,6 +50,8 @@ set wildmode=longest,full
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
 
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 "Set up syntastic (mine)
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1

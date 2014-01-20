@@ -3,5 +3,5 @@ set -e
 PATH="/usr/local/bin:$PATH"
 GIT_DIR=$(git rev-parse --git-dir)
 trap "rm -f $GIT_DIR/tags.$$" EXIT
-ctags --tag-relative -Rf$GIT_DIR/tags.$$ --exclude=.git --languages=-javascript,sql
+ctags --tag-relative -Rf$GIT_DIR/tags.$$ --exclude=.git --languages=-javascript,sql --fields=+l
 mv $GIT_DIR/tags.$$ $GIT_DIR/tags
