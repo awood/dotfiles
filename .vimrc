@@ -83,7 +83,7 @@ runtime! macros/matchit.vim
 au FileType make setlocal noexpandtab
 
 "Set a standard backup directory (mine)
-set backupdir=~/.vim-backup/,/tmp/
+set backupdir=~/.vim/backup/
 
 "Print in letter size (mine)
 set printoptions=paper:letter 
