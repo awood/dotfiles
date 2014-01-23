@@ -18,6 +18,7 @@
     ctags = !.git/hooks/ctags
     oldest-ancestor = !bash -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
     branchdiff = !sh -c 'git diff `git oldest-ancestor master $1`..$1' -
+    visual-branchdiff = !sh -c 'git diff --name-only `git oldest-ancestor master $1`..$1 | xargs diffuse -s -r `git oldest-ancestor master $1`' -
 
 [sendemail]
     smtpserver = smtp.corp.redhat.com
