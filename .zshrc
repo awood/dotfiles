@@ -62,3 +62,4 @@ setopt inc_append_history
 setopt extended_glob
 
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
+alias docker-kill-containers="docker ps -a -q | xargs docker rm"
