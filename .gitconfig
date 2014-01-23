@@ -17,8 +17,8 @@
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     ctags = !.git/hooks/ctags
     oldest-ancestor = !bash -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
-    branchdiff = !sh -c 'git diff `git oldest-ancestor master $1`..$1' -
-    visual-branchdiff = !sh -c 'git diff --name-only `git oldest-ancestor master $1`..$1 | xargs diffuse -s -r `git oldest-ancestor master $1`' -
+    branchdiff = !sh -c 'git diff `git oldest-ancestor master ${1:-HEAD}`..${1:-HEAD}' -
+    visual-branchdiff = !sh -c 'git diff --name-only `git oldest-ancestor master ${1:-HEAD}`..${1:-HEAD} | xargs diffuse -s -r `git oldest-ancestor master ${1:-HEAD}`' -
 
 [sendemail]
     smtpserver = smtp.corp.redhat.com
