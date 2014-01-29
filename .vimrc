@@ -52,6 +52,7 @@ let g:tagbar_autofocus = 1
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_filetype_blacklist = { 'mail': 1 }
 
 "Set up syntastic (mine)
 let g:syntastic_enable_signs = 1
