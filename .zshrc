@@ -61,5 +61,11 @@ unsetopt share_history
 setopt inc_append_history
 setopt extended_glob
 
+# Don't bother caching the list of command completions; just
+# regenerate every time so I don't get a stale cache. See
+# http://unix.stackexchange.com/a/2180 (If you comment out
+# this option then "rehash" can refresh the cache.
+zstyle ":completion:*:commands" rehash 1
+
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
 alias docker-kill-containers="docker ps -a -q | xargs docker rm"
