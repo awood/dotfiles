@@ -132,10 +132,10 @@ set showmatch		" match parentheses
 map Q gq
 
 " In many terminal emulators the mouse works just fine, thus enable it. (This
-" breaks middle click pasting.)
-"if has('mouse')
-"  set mouse=a
-"endif
+" breaks middle click pasting unless you hold the shift key when highlighting.)
+if has('mouse')
+  set mouse=a
+endif
 
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
