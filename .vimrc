@@ -132,9 +132,10 @@ set showmatch		" match parentheses
 map Q gq
 
 " In many terminal emulators the mouse works just fine, thus enable it. (This
-" breaks middle click pasting unless you hold the shift key when highlighting.)
+" breaks middle click pasting unless you hold the shift key in insert mode,
+" so we'll just use the mouse in normal, visual, and command-line mode.)
 if has('mouse')
-  set mouse=a
+  set mouse=nvc
 endif
 
 " This is an alternative that also works in block mode, but the deleted
