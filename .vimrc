@@ -78,7 +78,7 @@ inoremap <Nul> <C-x><C-o>
 highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python,ruby match WhitespaceEOL /\s\+$/
 
-autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+autocmd FileType ruby,eruby,yaml,html set ai sw=2 sts=2 et
 runtime! macros/matchit.vim
 
 "Don't expand tabs for makefiles (mine)
