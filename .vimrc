@@ -92,13 +92,18 @@ set printoptions=paper:letter
 
 "Add some useful mappings (mine)
 map <F2> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
+map <F8> :TagbarToggle<CR>
 map <Leader>b :MiniBufExplorer<CR>
 map <Leader>t :TMiniBufExplorer<CR>
-map th :tabnext<CR>
-map tl :tabprev<CR>
-map tn :tabnew<CR>
-map td :tabclose<CR>
+
+" Swap definitions for :tag and :tjump. :tag just goes to the first match,
+" while :tjump goes to the first match unless there are multiple matches in
+" which case it shows a select list.
+nnoremap <C-]> g<C-]>
+vnoremap <C-]> g<C-]>
+nnoremap g<C-]> <C-]>
+vnoremap g<C-]> <C-]>
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
