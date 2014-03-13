@@ -78,7 +78,7 @@ inoremap <Nul> <C-x><C-o>
 highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python,ruby match WhitespaceEOL /\s\+$/
 
-autocmd FileType ruby,eruby,yaml,html set ai sw=2 sts=2 et
+autocmd FileType ruby,eruby,yaml,html,less set ai sw=2 sts=2 et
 runtime! macros/matchit.vim
 
 "Don't expand tabs for makefiles (mine)
@@ -103,6 +103,10 @@ nnoremap <C-]> g<C-]>
 vnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 vnoremap g<C-]> <C-]>
+
+" Opposite of 'J': split a line.  (By default 'K' runs man on the word under
+" the cursor.)
+nnoremap K i<CR><Esc>
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
