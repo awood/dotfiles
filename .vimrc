@@ -74,6 +74,7 @@ call pathogen#helptags()
 
 syntax enable
 colorscheme solarized
+call togglebg#map("<F5>")
 
 let g:Powerline_symbols = 'unicode'
 
