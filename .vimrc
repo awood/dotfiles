@@ -10,7 +10,6 @@ set nocompatible
 set t_Co=256
 set laststatus=2
 set encoding=utf-8
-let g:Powerline_symbols = 'unicode'
 
 " Provide a nice status line (if not using vim-powerline)
 set statusline=
@@ -28,6 +27,13 @@ if has("vms")
 else
   set backup        " keep a backup file
 endif
+
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+
 set hidden "Allow changing buffers without saving
 set tabstop=4
 set shiftwidth=4
@@ -65,6 +71,11 @@ if v:version < 703 || v:version == 703 && !has("patch584")
 endif
 execute pathogen#infect()
 call pathogen#helptags()
+
+syntax enable
+colorscheme solarized
+
+let g:Powerline_symbols = 'unicode'
 
 " Set TagBar to sort by order in file instead of by name
 let g:tagbar_sort = 0
