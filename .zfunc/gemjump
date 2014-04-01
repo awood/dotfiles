@@ -1,0 +1,6 @@
+#! /bin/zsh
+gemjump() {
+    cd $(dirname $(gem which $1))
+}
+
+gemjump "$@"

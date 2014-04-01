@@ -34,7 +34,7 @@ plugins=(git git-extras python colorize)
 source $ZSH/oh-my-zsh.sh
 
 fpath=( ~/.zfunc "${fpath[@]}" )
-autoload -Uz vij find-and-exec
+autoload -Uz vij find-and-exec gemjump
 
 # See the zshcontrib man page. Best used with 'noglob'. Use -n for dry-run.
 autoload -Uz zmv
