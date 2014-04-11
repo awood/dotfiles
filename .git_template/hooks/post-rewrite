@@ -1,5 +1,5 @@
 #!/bin/sh
 GIT_DIR=$(git rev-parse --git-dir)
 case "$1" in
-  rebase) exec $GIT_DIR/hooks/post-merge ;;
+  rebase) $GIT_DIR/hooks/ctags >/dev/null 2>&1 &;;
 esac
