@@ -34,7 +34,9 @@ plugins=(git git-extras python colorize)
 source $ZSH/oh-my-zsh.sh
 
 fpath=( ~/.zfunc "${fpath[@]}" )
-autoload -Uz vij find-and-exec gemjump mock-repoquery
+autoload -Uz vij find-and-exec gemjump mock-repoquery after-first-word
+zle -N after-first-word
+bindkey "^X^Z" after-first-word
 
 # See the zshcontrib man page. Best used with 'noglob'. Use -n for dry-run.
 autoload -Uz zmv
