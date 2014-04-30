@@ -34,7 +34,16 @@ plugins=(git git-extras python colorize)
 source $ZSH/oh-my-zsh.sh
 
 fpath=( ~/.zfunc "${fpath[@]}" )
-autoload -Uz vij find-and-exec gemjump mock-repoquery after-first-word
+
+function () {
+    local zfuncs
+    zfuncs=()
+    for f in ~/.zfunc/*(.); do
+        zfuncs+=$(basename $f)
+    done
+    autoload -Uz "$zfuncs[@]"
+}
+
 zle -N after-first-word
 bindkey "^X^Z" after-first-word
 
