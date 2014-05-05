@@ -29,7 +29,7 @@ ZSH_THEME="awood"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras python colorize)
+plugins=(git git-extras python colorize rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,3 +81,5 @@ zstyle ":completion:*:commands" rehash 1
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
 alias docker-kill-containers="docker ps -a -q | xargs docker rm"
 alias rpmbuild-local="rpmbuild --define \"_sourcedir $(pwd)\" --define \"_speccdir $(pwd)\""
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
