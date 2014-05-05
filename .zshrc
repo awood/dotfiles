@@ -60,6 +60,7 @@ export EDITOR
 export VISUAL
 
 path+=('/sbin')
+path+=("$HOME/.rvm/bin")
 # Remove all path directories which don't exist
 # See http://stackoverflow.com/questions/9347478/how-to-edit-path-variable-in-zsh#9352979
 path=($^path(N))
@@ -82,4 +83,3 @@ alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candl
 alias docker-kill-containers="docker ps -a -q | xargs docker rm"
 alias rpmbuild-local="rpmbuild --define \"_sourcedir $(pwd)\" --define \"_speccdir $(pwd)\""
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
