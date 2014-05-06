@@ -81,5 +81,4 @@ zstyle ":completion:*:commands" rehash 1
 
 alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
 alias docker-kill-containers="docker ps -a -q | xargs docker rm"
-alias rpmbuild-local="rpmbuild --define \"_sourcedir $(pwd)\" --define \"_speccdir $(pwd)\""
-
+alias rpmbuild-local='rpmbuild --define "_sourcedir ." --define "_speccdir ."'
