@@ -1,0 +1,28 @@
+#! /bin/zsh
+
+jarsearch() {
+    local package="$1"
+    local search_term="$2"
+
+    # Take all jars in an RPM and make them into an array
+    # See Parameter Expansion Flags section of the zshexpn man page and
+    # http://unix.stackexchange.com/a/29748
+    local jars
+    jars=("${(@f)$(rpm -ql $package | grep -E '\.jar$')}")
+
+    local output
+    for jar in $jars; do
+        output=$(jar -tvf $jar | grep -e $search_term)
+        if [ $? -eq 0 ]; then
+            local name=$jar
+            if [ -h $jar ]; then
+                name="$jar -> $(readlink $jar)"
+            fi
+            # See http://stackoverflow.com/a/20983251
+            echo "$(tput setaf 1)$name$(tput sgr0)"
+            echo "$output"
+        fi
+    done 
+}
+
+jarsearch "$@"
