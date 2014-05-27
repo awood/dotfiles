@@ -147,6 +147,11 @@ if has("autocmd")
   " Don't expand tabs for makefiles
   autocmd FileType make setlocal noexpandtab
 
+  " Turn off balloons in ruby.  See http://stackoverflow.com/a/1111363
+  if has("gui_running")
+    autocmd FileType ruby,eruby set noballooneval
+  endif
+
   " Indent two spaces for these types
   autocmd FileType ruby,eruby,yaml,html,less,vim set ai sw=2 sts=2 et
 
