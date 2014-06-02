@@ -1,0 +1,33 @@
+#! /bin/bash
+
+errmsg() {
+    echo "${RED}${1}${RESET_COLOR}" >&2
+}
+
+is_forced() {
+    local cmd=$(ps -ocommand= -p $PPID)
+    [[ $cmd =~ (--force|-f) ]]
+}
+
+run() {
+    local remote="$1"
+    local url="$2"
+
+    if is_forced; then
+        while read local_ref local_sha remote_ref remote_sha; do
+            if [[ $remote_ref =~ refs/heads/master ]]; then
+                errmsg $(printf '=%.0s' {1..60})
+                errmsg "You are trying to force push to master on $1"
+                errmsg "This is a bad idea"
+                errmsg "If you wish to continue with this folly, use --no-verify"
+                errmsg $(printf '=%.0s' {1..60})
+                exit 1
+            fi
+        done
+    fi
+}
+
+RED=$(tput setaf 1)
+RESET_COLOR=$(tput sgr0)
+run "$@"
+exit 0
