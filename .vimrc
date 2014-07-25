@@ -135,7 +135,7 @@ if has("autocmd")
   augroup vimrcEx
   " Clear vimrcEx group in case we are sourced twice
   autocmd!
-  autocmd FileType mail setlocal spell
+  autocmd FileType mail,python,ruby,markdown,gitcommit setlocal spell
 
   " treat four spaces together as a single character with backspacing
   autocmd FileType python set softtabstop=4
