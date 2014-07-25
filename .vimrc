@@ -87,10 +87,13 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_filetype_blacklist = { 'mail': 1 }
 
 " Set up syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': [] }
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_highlighting = 1
+
+let g:syntastic_java_javac_config_file_enabled = 1
+let g:syntastic_java_javac_custom_classpath_command = "buildr -s syntastic:echo"
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
