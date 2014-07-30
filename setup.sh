@@ -15,7 +15,7 @@ git submodule update --init --recursive
 popd
 
 files=(.vimrc .vim .screenrc .tmux.conf .zshrc .zfunc/ .gitconfig
-    .gitignore .git_template/ .irbrc .psqlrc .tigrc)
+    .gitignore .git_template/ .irbrc .psqlrc .tigrc .gdbinit)
 
 for f in ${files[@]}; do
     link $f
