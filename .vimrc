@@ -98,6 +98,8 @@ let g:syntastic_java_javac_custom_classpath_command = "buildr -s syntastic:echo"
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
+let g:syntastic_ruby_checkers = ['mri']
+
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
@@ -118,6 +120,9 @@ vnoremap g<C-]> <C-]>
 " Opposite of 'J': split a line.  (By default 'K' runs man on the word under
 " the cursor.)
 nnoremap K i<CR><Esc>
+
+" Change working directory to directory of current file
+command CDC cd %:p:h
 
 if &term =~ '^screen'
   " tmux will send xterm-style keys when its xterm-keys option is on
