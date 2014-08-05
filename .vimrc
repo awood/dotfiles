@@ -122,7 +122,9 @@ vnoremap g<C-]> <C-]>
 nnoremap K i<CR><Esc>
 
 " Change working directory to directory of current file
-command CDC cd %:p:h
+if !exists(":CDC")
+  command CDC cd %:p:h
+endif
 
 if &term =~ '^screen'
   " tmux will send xterm-style keys when its xterm-keys option is on
@@ -162,7 +164,7 @@ if has("autocmd")
   endif
 
   " Indent two spaces for these types
-  autocmd FileType ruby,eruby,yaml,html,less,vim set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant set ai sw=2 sts=2 et
 
   " Turn off the visual bell in both gui and terminal mode
   autocmd VimEnter * set vb t_vb= 
