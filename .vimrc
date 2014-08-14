@@ -92,6 +92,7 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_check_on_wq = 0
 
 let g:syntastic_java_javac_config_file_enabled = 1
 let g:syntastic_java_javac_custom_classpath_command = "buildr -s syntastic:echo"
@@ -164,7 +165,7 @@ if has("autocmd")
   endif
 
   " Indent two spaces for these types
-  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss set ai sw=2 sts=2 et
 
   " Turn off the visual bell in both gui and terminal mode
   autocmd VimEnter * set vb t_vb= 

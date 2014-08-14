@@ -53,11 +53,9 @@ autoload -Uz zmv
 # Customize to your needs...
 HISTSIZE=10000
 SAVEHIST=10000
-EDITOR=vim
-VISUAL=vim
-
-export EDITOR
-export VISUAL
+export EDITOR="vim"
+export VISUAL="vim"
+export PROJECT_HOME="$HOME/devel"
 
 path+=('/sbin')
 path+=("$HOME/.rvm/bin")
