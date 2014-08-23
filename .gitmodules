@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/vim-colors-solarized.git"]
 	path = .vim/bundle/vim-colors-solarized.git
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "mintty-colors-solarized"]
+	path = mintty-colors-solarized
+	url = git://github.com/karlin/mintty-colors-solarized

@@ -65,10 +65,7 @@ runtime! macros/matchit.vim
 
 " Start pathogen and write helptags
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-" YouCompleteMe only works on 7.3.584 and higher
-if v:version < 703 || v:version == 703 && !has("patch584")
-  let g:pathogen_disabled = ["YouCompleteMe"]
-endif
+let g:pathogen_disabled = ["YouCompleteMe", "nerdtree"]
 execute pathogen#infect()
 call pathogen#helptags()
 
@@ -76,7 +73,7 @@ syntax enable
 colorscheme solarized
 call togglebg#map("<F5>")
 
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'compatible'
 
 " Set TagBar to sort by order in file instead of by name
 let g:tagbar_sort = 0
@@ -102,7 +99,6 @@ let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E1
 let g:syntastic_ruby_checkers = ['mri']
 
 " Mappings
-map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
 map <Leader>b :MiniBufExplorer<CR>
 map <Leader>t :TMiniBufExplorer<CR>
