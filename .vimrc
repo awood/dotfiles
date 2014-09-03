@@ -46,6 +46,8 @@ set showcmd     " display incomplete commands
 set incsearch   " do incremental searching
 set hlsearch    " highlight search results
 set showmatch   " match parentheses
+set ignorecase
+set smartcase   " ignore case in searchs unless the string has a capital letter
 set backspace=indent,eol,start "backspace over everything in insert mode
 set printoptions=paper:letter  "Print in letter size
 set spellfile=~/.vim/vimspell.add
