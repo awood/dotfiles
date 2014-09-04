@@ -1,0 +1,10 @@
+gem-wrappers
+rubygems-bundler
+bundler
+rake
+rvm
+rhc
+pry
+gem-ctags
+gem-browse
+rubocop
