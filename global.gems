@@ -5,6 +5,8 @@ rake
 rvm
 rhc
 pry
+pry-byebug
+pry-stack_explorer
 gem-ctags
 gem-browse
 rubocop
