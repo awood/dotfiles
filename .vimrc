@@ -34,6 +34,7 @@ else
   set background=dark
 endif
 
+set modeline "Respect others modelines
 set hidden "Allow changing buffers without saving
 set tabstop=4
 set shiftwidth=4
@@ -102,6 +103,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
 let g:syntastic_ruby_checkers = ['mri']
+
+let g:syntastic_javascript_checkers = ['jshint']
 
 " Mappings
 map <F2> :NERDTreeToggle<CR>
