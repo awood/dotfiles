@@ -36,6 +36,8 @@ endif
 
 set modeline "Respect others modelines
 set hidden "Allow changing buffers without saving
+set linebreak "Break lines on whitespace only
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -106,6 +108,8 @@ let g:syntastic_ruby_checkers = ['mri']
 
 let g:syntastic_javascript_checkers = ['jshint']
 
+let g:unite_source_history_yank_enable = 1
+
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
@@ -126,6 +130,26 @@ vnoremap g<C-]> <C-]>
 " Opposite of 'J': split a line.  (By default 'K' runs man on the word under
 " the cursor.)
 nnoremap K i<CR><Esc>
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#profile('default', 'context', {
+\  'start_insert': 1,
+\  'winheight': 5,
+\  'direction': 'botright',
+\ })
+
+call unite#custom#source('file_rec/async,file_mru,file,grep',
+\ 'ignore_pattern', '\.git\|\.class\|\.pyc\|\.pyo'
+\ )
+
+" Use \f to find stuff
+map <leader>f :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
+" Use \y to search yank history
+map <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
+" Use \l to emulate :ls
+map <leader>l :<C-u>Unite -buffer-name=buffers buffer<CR>
+" Use \r to show registers
+map <leader>r :<C-u>Unite -buffer-name=registers register<CR>
 
 " Change working directory to directory of current file
 if !exists(":CDC")
@@ -153,9 +177,6 @@ if has("autocmd")
   " Clear vimrcEx group in case we are sourced twice
   autocmd!
   autocmd FileType mail,python,ruby,markdown,gitcommit setlocal spell
-
-  " treat four spaces together as a single character with backspacing
-  autocmd FileType python set softtabstop=4
 
   " highlight end of line whitespace
   highlight WhitespaceEOL ctermbg=red guibg=red

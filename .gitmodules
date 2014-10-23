@@ -43,3 +43,9 @@
 [submodule ".vim/bundle/vim-colors-solarized.git"]
 	path = .vim/bundle/vim-colors-solarized.git
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/Unite"]
+	path = .vim/bundle/Unite
+	url = git://github.com/Shougo/unite.vim
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = git://github.com/Shougo/vimproc
