@@ -58,6 +58,11 @@ set spelllang=en_us
 set wildmenu
 set wildmode=longest,full "complete the longest string and then each match
 
+set undodir=~/.vim/undo
+set undofile
+set undolevels=400
+set undoreload=400
+
 " In many terminal emulators the mouse works just fine, thus enable it. (This
 " breaks middle click pasting unless you hold the shift key in insert mode,
 " so we'll just use the mouse in normal, visual, and command-line mode.)
