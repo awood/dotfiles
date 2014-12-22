@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = git://github.com/Shougo/vimproc
+[submodule ".vim/bundle/ShowTrailingWhitespace"]
+	path = .vim/bundle/ShowTrailingWhitespace
+	url = https://github.com/vim-scripts/ShowTrailingWhitespace

@@ -184,8 +184,7 @@ if has("autocmd")
   autocmd FileType mail,python,ruby,markdown,gitcommit setlocal spell
 
   " highlight end of line whitespace
-  highlight WhitespaceEOL ctermbg=red guibg=red
-  autocmd FileType python,ruby match WhitespaceEOL /\s\+$/
+  highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
 
   " Don't expand tabs for makefiles
   autocmd FileType make setlocal noexpandtab
