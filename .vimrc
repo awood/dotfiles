@@ -115,6 +115,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 let g:unite_source_history_yank_enable = 1
 
+let g:NERDTreeChDirMode = 2
+
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
