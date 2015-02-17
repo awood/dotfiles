@@ -97,7 +97,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_filetype_blacklist = { 'mail': 1 }
 
 " Set up syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_highlighting = 1
