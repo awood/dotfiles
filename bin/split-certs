@@ -1,0 +1,23 @@
+#!/bin/awk -f
+
+# This script expects a list of concatenated certificates on input and
+# produces a collection of individual numbered files each containing
+# a single certificate.
+
+# From http://blog.oddbit.com/2013/07/16/split-concatenated-c/
+# Written by Lars Kellogg-Stedman
+
+BEGIN {incert=0}
+
+/-----BEGIN( TRUSTED)? CERTIFICATE-----/ {
+certno++
+certfile=sprintf("cert-%d.crt", certno)
+incert=1
+}
+
+/-----END( TRUSTED)? CERTIFICATE-----/ {
+print >> certfile
+incert=0
+}
+
+incert==1 { print >> certfile }
