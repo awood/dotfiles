@@ -1,6 +1,18 @@
 #! /bin/sh
 
-# Git hooks don't normally accept stdin so use a bit of 
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# Don't run this hook if Tito is making a commit
+if git diff --cached --name-only --diff-filter=M -z $against | grep -q 'rel-eng/packages'; then
+    exit 0
+fi
+
+# Git hooks don't normally accept stdin so use a bit of
 # hackery to assign stdin to the keyboard
 exec < /dev/tty
 while true; do
