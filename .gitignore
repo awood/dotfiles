@@ -12,3 +12,4 @@ doc/tags
 .zanata-cache
 .vim/eclim
 .vim/plugin/eclim.vim
+.vim/vimspell.*
