@@ -57,6 +57,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 export PROJECT_HOME="$HOME/devel"
 
+path=("$HOME/bin" $path)
 path+=('/sbin')
 path+=("$HOME/.rvm/bin")
 # Remove all path directories which don't exist
