@@ -41,6 +41,7 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
 set backupdir=~/.vim/backup/ "Set a standard backup directory
 set viminfo='20,\"50         " .viminfo file with no more than 50 lines
 set history=100 " keep 100 lines of command line history
@@ -50,7 +51,7 @@ set incsearch   " do incremental searching
 set hlsearch    " highlight search results
 set showmatch   " match parentheses
 set ignorecase
-set smartcase   " ignore case in searchs unless the string has a capital letter
+set smartcase   " ignore case in search strings unless the string has a capital letter
 set backspace=indent,eol,start "backspace over everything in insert mode
 set printoptions=paper:letter  "Print in letter size
 set spellfile=~/.vim/vimspell.add
@@ -193,17 +194,17 @@ if has("autocmd")
 
   " Turn off balloons in ruby.  See http://stackoverflow.com/a/1111363
   if has("gui_running")
-    autocmd FileType ruby,eruby set noballooneval
+    autocmd FileType ruby,eruby setlocal noballooneval
   endif
 
   " Indent two spaces for these types
-  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss setlocal ai sw=2 sts=2 et
 
   " Turn off the visual bell in both gui and terminal mode
   autocmd VimEnter * set vb t_vb= 
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files wrap at 80 characters
+  autocmd FileType text,markdown setlocal textwidth=80
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
