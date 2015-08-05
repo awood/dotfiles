@@ -82,3 +82,7 @@ alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candl
 alias docker-kill-containers="docker ps -a -q | xargs docker rm"
 alias rpmbuild-local='rpmbuild --define "_sourcedir ." --define "_specdir ."'
 alias npm-exec='PATH=$(npm bin):$PATH'
+
+if [ -f ~/.less_colors ]; then
+    source ~/.less_colors
+fi
