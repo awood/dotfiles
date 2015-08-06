@@ -57,15 +57,6 @@ export EDITOR="vim"
 export VISUAL="vim"
 export PROJECT_HOME="$HOME/devel"
 
-path=("$HOME/bin" $path)
-path+=('/sbin')
-path+=("$HOME/.rvm/bin")
-# Remove all path directories which don't exist
-# See http://stackoverflow.com/questions/9347478/how-to-edit-path-variable-in-zsh#9352979
-path=($^path(N))
-# Remove duplicates on the path
-typeset -U path
-
 unsetopt correct_all
 unsetopt correct
 unsetopt share_history
@@ -86,3 +77,13 @@ alias npm-exec='PATH=$(npm bin):$PATH'
 if [ -f ~/.less_colors ]; then
     source ~/.less_colors
 fi
+
+path=("$HOME/bin" $path)
+path+=('/sbin')
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Remove all path directories which don't exist
+# See http://stackoverflow.com/questions/9347478/how-to-edit-path-variable-in-zsh#9352979
+path=($^path(N))
+# Remove duplicates on the path
+typeset -U path
