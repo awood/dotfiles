@@ -14,8 +14,13 @@ mock-repoquery() {
     for ((i=1; i <= ${#repo_urls}; i++)); do
         repo_args+="--repofrompath=r${i},$repo_urls[i]"
         repo_args+="--repoid=r${i}"
-    done 
-    repoquery "${repo_args[@]}" "$@[2,-1]"
+    done
+    if type dnf; then
+        prefix="dnf"
+    else
+        prefix=""
+    fi
+    $prefix repoquery --disablerepo='*' "${repo_args[@]}" "$@[2,-1]"
 }
 
 mock-repoquery "$@"
