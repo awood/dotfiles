@@ -79,7 +79,7 @@ if [ -f ~/.less_colors ]; then
     source ~/.less_colors
 fi
 
-path=("$HOME/bin" $path)
+path+=("$HOME/bin")
 path+=('/sbin')
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
