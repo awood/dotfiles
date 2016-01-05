@@ -56,6 +56,7 @@ SAVEHIST=10000
 export EDITOR="vim"
 export VISUAL="vim"
 export PROJECT_HOME="$HOME/devel"
+export VAGRANT_DEFAULT_PROVIDER="libvirt"
 
 unsetopt correct_all
 unsetopt correct
