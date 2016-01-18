@@ -1,0 +1,9 @@
+#! /bin/zsh
+
+viewspec() {
+    local package="$1"
+    spec=$(rpm -qlp $package | grep -E '\.spec$')
+    rpm2cpio $package | cpio -i --to-stdout $spec
+}
+
+viewspec "$@"
