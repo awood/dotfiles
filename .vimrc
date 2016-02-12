@@ -199,6 +199,9 @@ if has("autocmd")
 
   " Indent two spaces for these types
   autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss setlocal ai sw=2 sts=2 et
+  " Something about RVM and rubycomplete together results in error
+  " messages printed to the console about gems missing native extensions
+  autocmd FileType ruby setlocal omnifunc=syntaxcomplete#Complete
 
   " Turn off the visual bell in both gui and terminal mode
   autocmd VimEnter * set vb t_vb= 
