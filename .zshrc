@@ -29,7 +29,7 @@ ZSH_THEME="awood"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras python colorize rvm)
+plugins=(git git-extras python colorize rvm django)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,6 +57,8 @@ export EDITOR="vim"
 export VISUAL="vim"
 export PROJECT_HOME="$HOME/devel"
 export VAGRANT_DEFAULT_PROVIDER="libvirt"
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
+export VIRTUALENVWRAPPER_VIRTUALENV="/usr/bin/virtualenv"
 
 unsetopt correct_all
 unsetopt correct
