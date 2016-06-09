@@ -217,9 +217,6 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
   augroup END
-else
-  " always set autoindenting on
-  set autoindent
 endif
 
 " Convenient command to see the difference between the current buffer and the
