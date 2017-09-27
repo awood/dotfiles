@@ -16,7 +16,7 @@ popd
 
 files=(.vimrc .vim .screenrc .tmux.conf .zshrc .zfunc/ .gitconfig
     .gitignore .git_template/ .irbrc .psqlrc .tigrc .gdbinit .pryrc
-    .less_colors)
+    .less_colors .ackrc)
 
 for f in ${files[@]}; do
     link $f
