@@ -55,6 +55,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 export EDITOR="vim"
 export VISUAL="vim"
+export LESS="-M --jump-target=5 --shift 4"
 export PROJECT_HOME="$HOME/devel"
 export WORKON_HOME="$HOME/.virtualenvs"
 export VAGRANT_DEFAULT_PROVIDER="libvirt"
