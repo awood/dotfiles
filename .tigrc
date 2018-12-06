@@ -1,4 +1,4 @@
-bind generic 9 !@sh -c "echo -n %(commit) | xclip"
+bind generic 9 !@sh -c "echo -n '%(commit)' | xclip"
 bind main B !git rebase -i %(commit)
 bind generic + !git commit --amend
 set editor-line-number = true
