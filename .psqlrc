@@ -2,7 +2,6 @@
 \pset null '[null]'
 \set HISTSIZE 2000
 \x auto
-\timing
 \encoding unicode
 \set index_hits 'select relname, 100*idx_scan/(seq_scan + idx_scan) percent_index_used, n_live_tup rows_in_table from pg_stat_user_tables where seq_scan + idx_scan > 0 order by n_live_tup desc;'
 \set cache_hits 'select sum(heap_blks_read) as heap_read, sum(heap_blks_hit) as heap_hit, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio from pg_statio_user_tables;'
