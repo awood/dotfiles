@@ -1,0 +1,22 @@
+#! /bin/zsh
+
+gradleup() {
+    local curdir="$PWD"
+
+    while [[ "`pwd`" != "$HOME" && "`pwd`" != '/' ]]; do
+        if [[ -e gradlew ]]; then
+            local result=$(realpath ./gradlew)
+            break
+        fi
+        cd ..
+    done
+    cd "$curdir"
+
+    if [[ -v result ]]; then
+        eval "$result $@"
+    else
+        echo "gradlew not found"
+    fi
+}
+
+gradleup "$@"
