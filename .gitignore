@@ -13,3 +13,7 @@ doc/tags
 .vim/eclim
 .vim/plugin/eclim.vim
 .vim/vimspell.*
+dev_scratch
+.gradle
+buildSrc
+.gradletasknamecache
