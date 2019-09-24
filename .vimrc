@@ -56,6 +56,7 @@ set backspace=indent,eol,start "backspace over everything in insert mode
 set printoptions=paper:letter  "Print in letter size
 set spellfile=~/.vim/vimspell.add
 set spelllang=en_us
+set tags^=./.git/tags;
 set wildmenu
 set wildmode=longest,full "complete the longest string and then each match
 
