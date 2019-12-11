@@ -11,7 +11,7 @@ set t_Co=256
 set laststatus=2
 set encoding=utf-8
 
-" Provide a nice status line (if not using vim-powerline)
+" Provide a nice status line (if not using vim-airline)
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%f\                          " filename
@@ -88,7 +88,12 @@ syntax enable
 colorscheme solarized
 call togglebg#map("<F5>")
 
-let g:Powerline_symbols = 'unicode'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#buffer_min_count = 2
+
+let g:airline_powerline_fonts = 1
 
 " Set TagBar to sort by order in file instead of by name
 let g:tagbar_sort = 0
@@ -124,8 +129,6 @@ let g:NERDTreeChDirMode = 2
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
-map <Leader>b :MiniBufExplorer<CR>
-map <Leader>t :TMiniBufExplorer<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
