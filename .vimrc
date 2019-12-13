@@ -91,8 +91,9 @@ call togglebg#map("<F5>")
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#buffer_min_count = 2
-
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline_powerline_fonts = 1
 
 " Set TagBar to sort by order in file instead of by name
@@ -129,6 +130,8 @@ let g:NERDTreeChDirMode = 2
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
+map <Leader>b :MBEOpen<CR>
+map <Leader>t :MBEToggle<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
