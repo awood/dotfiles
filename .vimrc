@@ -193,7 +193,7 @@ if has("autocmd")
   augroup vimrcEx
   " Clear vimrcEx group in case we are sourced twice
   autocmd!
-  autocmd FileType mail,python,ruby,markdown,gitcommit setlocal spell
+  autocmd FileType mail,python,ruby,markdown,md,gitcommit setlocal spell
 
   " highlight end of line whitespace
   highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
