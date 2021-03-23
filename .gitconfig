@@ -29,7 +29,10 @@
     from = awood@redhat.com
 
 [merge]
-    tool = diffuse
+    tool = meld
+
+[diff]
+    tool = meld
 
 [init]
     templatedir = ~/.git_template
@@ -39,5 +42,13 @@
 
 [branch]
     autosetuprebase = always
+
 [http]
 	sslVerify = true
+
+[cola]
+	spellcheck = false
+	tabwidth = 4
+
+[help]
+	autocorrect = 1
