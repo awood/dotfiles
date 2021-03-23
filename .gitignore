@@ -10,6 +10,8 @@
 .noseids
 doc/tags
 .zanata-cache
+.idea/
+*.iml
 .vim/eclim
 .vim/plugin/eclim.vim
 .vim/vimspell.*
