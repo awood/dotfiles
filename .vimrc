@@ -75,18 +75,9 @@ endif
 " Matching for Ruby
 runtime! macros/matchit.vim
 
-" Start pathogen and write helptags
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-" YouCompleteMe only works on 7.3.584 and higher
-if v:version < 703 || v:version == 703 && !has("patch584")
-  let g:pathogen_disabled = ["YouCompleteMe"]
-endif
-execute pathogen#infect()
-call pathogen#helptags()
-
 syntax enable
 colorscheme solarized
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
@@ -123,7 +114,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_javascript_checkers = ['jshint']
 
-let g:unite_source_history_yank_enable = 1
+" let g:unite_source_history_yank_enable = 1
 
 let g:NERDTreeChDirMode = 2
 
@@ -148,25 +139,25 @@ vnoremap g<C-]> <C-]>
 " the cursor.)
 nnoremap K i<CR><Esc>
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#profile('default', 'context', {
-\  'start_insert': 1,
-\  'winheight': 5,
-\  'direction': 'botright',
-\ })
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"call unite#custom#profile('default', 'context', {
+"\  'start_insert': 1,
+"\  'winheight': 5,
+"\  'direction': 'botright',
+"\ })
 
-call unite#custom#source('file_rec/async,file_mru,file,grep',
-\ 'ignore_pattern', '\.git\|\.class\|\.pyc\|\.pyo'
-\ )
+"call unite#custom#source('file_rec/async,file_mru,file,grep',
+"\ 'ignore_pattern', '\.git\|\.class\|\.pyc\|\.pyo'
+" \ )
 
 " Use \f to find stuff
-map <leader>f :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
+" map <leader>f :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
 " Use \y to search yank history
-map <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
+" map <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
 " Use \l to emulate :ls
-map <leader>l :<C-u>Unite -buffer-name=buffers buffer<CR>
+" map <leader>l :<C-u>Unite -buffer-name=buffers buffer<CR>
 " Use \r to show registers
-map <leader>r :<C-u>Unite -buffer-name=registers register<CR>
+" map <leader>r :<C-u>Unite -buffer-name=registers register<CR>
 
 " Change working directory to directory of current file
 if !exists(":CDC")

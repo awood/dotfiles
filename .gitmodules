@@ -1,60 +1,51 @@
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-pathogen"]
-	path = .vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-commentary"]
-	path = .vim/bundle/vim-commentary
-	url = git://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/tmux"]
-	path = .vim/bundle/tmux
-	url = git://github.com/zaiste/tmux.vim
-[submodule ".vim/bundle/spec.vim"]
-	path = .vim/bundle/spec.vim
-	url = git://github.com/vim-scripts/spec.vim.git
-[submodule ".vim/bundle/YouCompleteMe"]
-	path = .vim/bundle/YouCompleteMe
-	url = git://github.com/Valloric/YouCompleteMe
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = git://github.com/groenewege/vim-less
-[submodule ".vim/bundle/vim-colors-solarized.git"]
-	path = .vim/bundle/vim-colors-solarized.git
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/Unite"]
-	path = .vim/bundle/Unite
-	url = git://github.com/Shougo/unite.vim
-[submodule ".vim/bundle/vimproc"]
-	path = .vim/bundle/vimproc
-	url = git://github.com/Shougo/vimproc
-[submodule ".vim/bundle/ShowTrailingWhitespace"]
-	path = .vim/bundle/ShowTrailingWhitespace
-	url = https://github.com/vim-scripts/ShowTrailingWhitespace
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/bundle/minibufexpl.vim"]
-	path = .vim/bundle/minibufexpl.vim
-	url = https://github.com/fholgado/minibufexpl.vim
+[submodule ".vim/pack/colors/start/vim-colors-solarized"]
+	path = .vim/pack/colors/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/pack/plugins/start/vim-unimpaired"]
+	path = .vim/pack/plugins/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/pack/plugins/start/vim-commentary"]
+	path = .vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule ".vim/pack/plugins/start/vim-surround"]
+	path = .vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/pack/plugins/start/vim-airline-themes"]
+	path = .vim/pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule ".vim/pack/plugins/start/minibufexpl.vim"]
+	path = .vim/pack/plugins/start/minibufexpl.vim
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule ".vim/pack/plugins/start/tagbar"]
+	path = .vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim/pack/plugins/start/syntastic"]
+	path = .vim/pack/plugins/start/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/pack/plugins/start/spec.vim"]
+	path = .vim/pack/plugins/start/spec.vim
+	url = https://github.com/vim-scripts/spec.vim.git
+[submodule ".vim/pack/syntax/start/tmux.vim"]
+	path = .vim/pack/syntax/start/tmux.vim
+	url = https://github.com/zaiste/tmux.vim.git
+[submodule ".vim/pack/plugins/start/ShowTrailingWhitespace"]
+	path = .vim/pack/plugins/start/ShowTrailingWhitespace
+	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/plugins/start/YouCompleteMe"]
+	path = .vim/pack/plugins/start/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/pack/plugins/start/unite.vim"]
+	path = .vim/pack/plugins/start/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule ".vim/pack/plugins/start/vimproc"]
+	path = .vim/pack/plugins/start/vimproc
+	url = https://github.com/Shougo/vimproc.git
