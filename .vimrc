@@ -1,13 +1,20 @@
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  if has('autocmd')
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endif
+
+if has('autocmd')
+    " Run PlugInstall if there are missing plugins
+    autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | source $MYVIMRC
+      \| endif
 endif
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-
-" Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -33,14 +40,14 @@ Plug 'zaiste/tmux.vim'
 
 " Create helptags for vim-plug itself
 Plug 'junegunn/vim-plug'
-
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+function! PlugLoaded(name)
+    return (
+        \ has_key(g:plugs, a:name) &&
+        \ isdirectory(g:plugs[a:name].dir) &&
+        \ stridx(&rtp, g:plugs[a:name].dir) >= 0)
+endfunction
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -51,8 +58,18 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+if !PlugLoaded('tpope/vim-sensible')
+    set autoindent
+    set backspace=indent,eol,start "backspace over everything in insert mode
+    set incsearch " do incremental searching
+    set wildmenu
+    set laststatus=2
+    set ruler " show the cursor position all the time
+    set history=1000 " keep 1000 lines of command line history
+    runtime! macros/matchit.vim
+endif
+
 set t_Co=256
-set laststatus=2
 set encoding=utf-8
 
 " Provide a nice status line (if not using vim-airline)
@@ -66,11 +83,7 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%lL,%cC%V%)             " line, column, virtual-column
 set statusline+=%<%p%%                       " file position
 
-if has("vms")
-  set nobackup      " do not keep a backup file, use versions instead
-else
-  set backup        " keep a backup file
-endif
+set backup " keep a backup file
 
 if has('gui_running')
   set background=light
@@ -85,23 +98,17 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set autoindent
 set backupdir=~/.vim/backup/ "Set a standard backup directory
 set viminfo='20,\"50         " .viminfo file with no more than 50 lines
-set history=100 " keep 100 lines of command line history
-set ruler       " show the cursor position all the time
-set showcmd     " display incomplete commands
-set incsearch   " do incremental searching
-set hlsearch    " highlight search results
-set showmatch   " match parentheses
+set showcmd " display incomplete commands
+set hlsearch " highlight search results
+set showmatch " match parentheses
 set ignorecase
-set smartcase   " ignore case in search strings unless the string has a capital letter
-set backspace=indent,eol,start "backspace over everything in insert mode
-set printoptions=paper:letter  "Print in letter size
+set smartcase " ignore case in search strings unless the string has a capital letter
+set printoptions=paper:letter "Print in letter size
 set spellfile=~/.vim/vimspell.add
 set spelllang=en_us
 set tags^=./.git/tags;
-set wildmenu
 set wildmode=longest,full "complete the longest string and then each match
 
 set undodir=~/.vim/undo
@@ -116,12 +123,8 @@ if has('mouse')
   set mouse=nvc
 endif
 
-" Matching for Ruby
-runtime! macros/matchit.vim
-
 syntax enable
 colorscheme solarized
-"call togglebg#map("<F5>")
 
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
