@@ -13,6 +13,16 @@ if has('autocmd')
       \| endif
 endif
 
+function! BuildYCM(info)
+    " info is a dictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status == 'installed' || a:info.force
+      !./install.py
+    endif
+endfunction
+
 " Updating a plugin
 " * Run :PlugUpdate
 " * Press D in the window or run :PlugDiff to view differences
@@ -46,6 +56,8 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'majutsushi/tagbar'
 
 Plug 'zaiste/tmux.vim'
+
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 
 " Create helptags for vim-plug itself
 Plug 'junegunn/vim-plug'
@@ -143,6 +155,13 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" Default is \ue0a3 which is in a private use area and not available in my
+" typeface.  Use Black-Letter C instead
+let g:airline_symbols.colnr = "\u212D"
+
 " Set TagBar to sort by order in file instead of by name
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
@@ -173,6 +192,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 " let g:unite_source_history_yank_enable = 1
 
 let g:NERDTreeChDirMode = 2
+
+" See https://github.com/junegunn/vim-plug/issues/75
+let g:plug_timeout = 300
 
 " Mappings
 map <F2> :NERDTreeToggle<CR>
