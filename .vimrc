@@ -13,6 +13,15 @@ if has('autocmd')
       \| endif
 endif
 
+" Updating a plugin
+" * Run :PlugUpdate
+" * Press D in the window or run :PlugDiff to view differences
+
+" Removing a plugin
+" * Delete or comment out Plug commands for the plugins you want to remove.
+" * Save and reload vimrc (:source ~/.vimrc) or restart Vim
+" * Run :PlugClean. It will detect and remove undeclared plugins.
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'tpope/vim-sensible'
