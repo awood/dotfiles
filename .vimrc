@@ -71,6 +71,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': function('BuildVimProc') }
+Plug 'Shougo/neoyank.vim'
 
 " Create helptags for vim-plug itself
 Plug 'junegunn/vim-plug'
@@ -201,8 +202,6 @@ let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E1
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:syntastic_javascript_checkers = ['jshint']
-
-" let g:unite_source_history_yank_enable = 1
 
 let g:NERDTreeChDirMode = 2
 
