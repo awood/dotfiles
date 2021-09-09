@@ -49,6 +49,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
