@@ -1,0 +1,40 @@
+let mapleader = "\"
+
+" Emulated Plugins
+set surround
+
+" Ignore case in searching unless the search pattern contains upper case
+set ignorecase
+set smartcase
+
+" Use Idea to join lines intelligently
+set ideajoin
+
+" 3 lines above/below cursor when scrolling
+set scrolloff=3
+
+map Q gq
+
+" Mappings like Vim Unimpaired
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+" Tabs
+nnoremap [b :action PreviousTab<cr>
+nnoremap ]b :action NextTab<cr>
+
+" Closing tabs
+nmap <leader>q :action CloseContent<cr>
+nmap <leader>Q :action ReopenClosedTab<cr>
+
+" Other useful mappings
+nmap <leader>u :action FindUsages<cr>
+nmap <leader>T :action ActivateTerminalToolWindow<cr>
+nmap <leader>d :action ShowErrorDescription<cr>
+nmap <leader>i :action GotoImplementation<cr>
