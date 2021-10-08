@@ -56,6 +56,7 @@ Plug 'scrooloose/syntastic'
 
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 Plug 'altercation/vim-colors-solarized'
 
