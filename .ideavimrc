@@ -9,6 +9,8 @@ set smartcase
 
 " Use Idea to join lines intelligently
 set ideajoin
+" Set Idea bookmarks when marking
+set ideamarks
 
 " 3 lines above/below cursor when scrolling
 set scrolloff=3
@@ -24,6 +26,8 @@ nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
 
 " Tabs
 nnoremap [b :action PreviousTab<cr>
