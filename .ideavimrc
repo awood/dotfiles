@@ -15,6 +15,9 @@ set ideamarks
 " 3 lines above/below cursor when scrolling
 set scrolloff=3
 
+set hls
+set smartcase
+
 map Q gq
 
 " Mappings like Vim Unimpaired
