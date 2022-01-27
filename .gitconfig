@@ -44,11 +44,11 @@
     autosetuprebase = always
 
 [http]
-	sslVerify = true
+    sslVerify = true
 
 [cola]
-	spellcheck = false
-	tabwidth = 4
+    spellcheck = false
+    tabwidth = 4
 
 [help]
-	autocorrect = 1
+    autocorrect = 1
