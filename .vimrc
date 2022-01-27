@@ -57,6 +57,7 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/restore_view.vim'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -77,6 +78,7 @@ Plug 'Shougo/neoyank.vim'
 
 " Create helptags for vim-plug itself
 Plug 'junegunn/vim-plug'
+
 call plug#end()
 
 function! PlugLoaded(name)
@@ -152,6 +154,12 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=400
 set undoreload=400
+
+" restore_view.vim (:mkview under the covers) will remember cursor position,
+" code folds, backslash to forward slash conversion, and end-of-line format.
+" The 'slash' and 'unix' options are primarily beneficial for Windows
+" interoperability.
+set viewoptions=cursor,folds,slash,unix
 
 " In many terminal emulators the mouse works just fine, thus enable it. (This
 " breaks middle click pasting unless you hold the shift key in insert mode,
