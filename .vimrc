@@ -59,6 +59,8 @@ Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/restore_view.vim'
 
+Plug 'pedrohdz/vim-yaml-folds'
+
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'vim-airline/vim-airline'
