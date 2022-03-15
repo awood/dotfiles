@@ -2,3 +2,24 @@ bind generic 9 !@sh -c "echo -n '%(commit)' | xclip -sel c"
 bind main B !git rebase -i %(commit)
 bind generic + !git commit --amend
 set editor-line-number = true
+
+
+set main-view-date = custom
+set main-view-date-local = true
+set main-view-date-format = "%Y-%m-%d %H:%M"
+
+set blame-view-date = custom
+set blame-view-date-local = true
+set blame-view-date-format = "%Y-%m-%d %H:%M"
+
+set tree-view-date = custom
+set tree-view-date-local = true
+set tree-view-date-format = "%Y-%m-%d %H:%M"
+
+set stash-view-date = custom
+set stash-view-date-local = true
+set stash-view-date-format = "%Y-%m-%d %H:%M"
+
+set refs-view-date = custom
+set refs-view-date-local = true
+set refs-view-date-format = "%Y-%m-%d %H:%M"
