@@ -26,6 +26,10 @@ if [ -d $HOME/.oh-my-zsh/ ]; then
     link awood.zsh-theme $HOME/.oh-my-zsh/custom/themes
 
     for d in $(find "$(pwd)/dotfiles/custom-zsh-plugins" -maxdepth 1 -mindepth 1 -type d -printf '%f\n'); do
-        link "custom-zsh-plugins/$d" $HOME/.oh-my-zsh/custom/plugins
+        if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/$d" ]; then
+            link "custom-zsh-plugins/$d" "$HOME/.oh-my-zsh/custom/plugins"
+        else
+            echo "Plugin directory for $d already exists"
+        fi
     done
 fi
