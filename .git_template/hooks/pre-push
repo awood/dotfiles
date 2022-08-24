@@ -15,7 +15,7 @@ validate_push() {
 
     if is_forced; then
         while read local_ref local_sha remote_ref remote_sha; do
-            if [[ $remote_ref =~ refs/heads/master ]]; then
+            if [[ $remote_ref =~ refs/heads/master || $remote_ref =~ refs/heads/main ]]; then
                 errmsg $(printf '=%.0s' {1..60})
                 errmsg "You are trying to force push to master on $remote"
                 errmsg "This is a bad idea"
