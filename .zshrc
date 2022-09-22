@@ -7,10 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="awood"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -44,9 +40,6 @@ function () {
     autoload -Uz "$zfuncs[@]"
 }
 
-zle -N after-first-word
-bindkey "^X^Z" after-first-word
-
 # See the zshcontrib man page. Best used with 'noglob'. Use -n for dry-run.
 autoload -Uz zmv
 
@@ -71,11 +64,6 @@ setopt extended_glob
 # http://unix.stackexchange.com/a/2180 (If you comment out
 # this option then "rehash" can refresh the cache.
 zstyle ":completion:*:commands" rehash 1
-
-alias tomtail="tmux new-session -s logging -n candlepin.log 'less /var/log/candlepin/candlepin.log' \; neww -n catalina.out 'less /var/log/tomcat/catalina.out' \; selectw -t 1"
-alias docker-kill-containers="docker ps -a -q | xargs docker rm"
-alias rpmbuild-local='rpmbuild --define "_sourcedir ." --define "_specdir ."'
-alias npm-exec='PATH=$(npm bin):$PATH'
 
 if [ -f ~/.less_colors ]; then
     source ~/.less_colors
