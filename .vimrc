@@ -54,6 +54,13 @@ Plug 'tpope/vim-git'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 
+" Create helptags for vim-plug itself
+Plug 'junegunn/vim-plug'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'machakann/vim-highlightedyank'
+
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/ReplaceWithRegister'
@@ -66,8 +73,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'fholgado/minibufexpl.vim'
-
 Plug 'majutsushi/tagbar'
 
 Plug 'zaiste/tmux.vim'
@@ -77,9 +82,6 @@ Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': function('BuildVimProc') }
 Plug 'Shougo/neoyank.vim'
-
-" Create helptags for vim-plug itself
-Plug 'junegunn/vim-plug'
 
 call plug#end()
 
@@ -223,8 +225,16 @@ let g:plug_timeout = 300
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
-map <Leader>b :MBEOpen<CR>
-map <Leader>t :MBEToggle<CR>
+
+" Pull up the current file in NERDTree then refocus on the current file pane
+map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
+
+" FZF.vim bindings
+noremap <Leader>b :Buffers<CR>
+noremap <Leader>m :Marks<CR>
+noremap <leader>f :Files<CR>
+noremap <leader>g :GFiles<CR>
+noremap <leader>s :Rg<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -252,14 +262,10 @@ call unite#custom#source('file_rec/async,file_mru,file,grep',
 \ 'ignore_pattern', '\.git\|\.class\|\.pyc\|\.pyo'
  \ )
 
-" Use \f to find stuff
-map <leader>f :<C-u>Unite -buffer-name=files file_rec/async:!<CR>
 " Use \y to search yank history
-map <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
-" Use \l to emulate :ls
-map <leader>l :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
 " Use \r to show registers
-map <leader>r :<C-u>Unite -buffer-name=registers register<CR>
+nnoremap <leader>r :<C-u>Unite -buffer-name=registers register<CR>
 
 " Change working directory to directory of current file
 if !exists(":CDC")
