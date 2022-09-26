@@ -3,15 +3,75 @@
     email = awood@redhat.com
 
 [core]
-    pager = cat
     excludesfile = ~/.gitignore
+    pager = delta
 
-[color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
-    ui = auto
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[delta]
+    features = solarized-delta
+    # use n and N to move between diff sections
+    navigate = true
+    light = false
+
+[merge]
+    conflictstyle = diff3
+
+[delta "solarized-delta"]
+    dark = true
+    syntax-theme = Solarized (dark)
+    line-numbers = true
+    keep-plus-minus-markers = false
+
+    file-style = "#839496" bold
+    file-decoration-style = "#586e75" ul
+
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-modified-label = [M]
+    file-removed-label = [-]
+    file-renamed-label = [=>]
+
+    commit-decoration-style = bold box ul "#34fd50"
+
+    hunk-header-decoration-style =
+    hunk-header-line-number-style = "#586e75"
+
+    line-numbers-left-format = "{nm:>3} │"
+    line-numbers-left-style = "#586e75"
+    line-numbers-minus-style = "#dc322f"
+
+    line-numbers-right-format = "{np:>3} │"
+    line-numbers-right-style = "#586e75"
+    line-numbers-plus-style = "#859900"
+
+    line-numbers-zero-style = "#586e75"
+
+    minus-style = "#dc322f" "#93a1a1"
+    minus-emph-style = reverse "#dc322f" "#eee8d5"
+
+    plus-style = "#859900" "#fdf6e3"
+    plus-emph-style = reverse "#859900" "#073642"
+
+    zero-style = syntax
+    blame-code-style = syntax
+
+    blame-format = "{author:<10} ({commit:>8}) {timestamp:^12}"
+    blame-palette = "#002b36" "#073642" "#586e75" "#657b83" "#839496" "#93a1a1" "#eee8d5" "#fdf6e3"
+
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = "#b58900" bold
+    merge-conflict-ours-diff-header-decoration-style = "#586e75" ul ol
+    merge-conflict-theirs-diff-header-style = "#6c71c4" bold
+    merge-conflict-theirs-diff-header-decoration-style ="#586e75" ul ol
+
+[diff]
+    colorMoved = default
 
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
