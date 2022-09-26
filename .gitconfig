@@ -1,6 +1,7 @@
 [user]
     name = Alex Wood
     email = awood@redhat.com
+    signingkey = 298D1D5499779B18
 
 [core]
     excludesfile = ~/.gitignore
@@ -112,3 +113,6 @@
 
 [help]
     autocorrect = 1
+
+[commit]
+    gpgsign = true
