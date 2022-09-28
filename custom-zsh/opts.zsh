@@ -1,0 +1,5 @@
+unsetopt correct_all
+unsetopt correct
+unsetopt share_history
+setopt inc_append_history
+setopt extended_glob
