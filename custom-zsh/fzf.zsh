@@ -83,19 +83,50 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0 --select-1) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
-# vg - fuzzy grep open via rg with line number
-vg() {
+# vrg - fuzzy ripgrep. Uses fzf as a secondary filter
+vrg() {
   local file
   local line
 
   # The preview window bit is described in the man page section for the --preview-window option but basically: ~2 is
   # the top 2 lines as a fixed header, +{2} is the base scroll offset extracted from the second field, +2 is an extra
   # 2 line offset to account for the header, /2 is put in the middle of the preview area
-  read -r file line <<<"$(rg -n --no-heading $@ | fzf --exit-0 --select-1 --layout reverse --delimiter : --preview-window '~2,+{2}+2/2' --bind '?:toggle-preview' --header='Press ? to toggle preview' --preview 'bat --style=full --color=always --highlight-line {2} {1}' | awk -F: '{print $1, $2}')"
+  read -r file line <<<$(
+    rg --color=always --line-number --smart-case --no-heading ${*:-} |
+    fzf --ansi --exit-0 --select-1 \
+        --color "hl:-1:underline,hl+:-1:underline:reverse" \
+        --layout reverse \
+        --delimiter : \
+        --preview-window 'up,60%,border-bottom,~2,+{2}+2/2' \
+        --bind '?:toggle-preview' \
+        --header='Press ? to toggle preview' \
+        --preview 'bat --style=full --color=always --highlight-line {2} {1}' | awk -F: '{print $1, $2}'
+  )
 
-  if [[ -n $file ]]
-  then
-     vim $file +$line
+  if [[ -n "$file" ]]; then
+     vim "$file" "+$line"
+  fi
+}
+
+# irg - interactive ripgrep.  Searches for text using Ripgrep which can be restarted with the reload action
+irg() {
+  local file
+  local line
+  local RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+  local INITIAL_QUERY="${*:-}"
+  read -r file line <<<$(
+    FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
+    fzf --ansi \
+    --disabled --query "$INITIAL_QUERY" \
+    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+    --layout reverse \
+    --delimiter : \
+    --preview-window 'up,60%,border-bottom,~2,+{2}+2/2' \
+    --preview 'bat --style=full --color=always --highlight-line {2} {1}' | awk -F: '{print $1, $2}'
+  )
+
+  if [[ -n "$file" ]]; then
+     vim "$file" "+$line"
   fi
 }
 
@@ -103,10 +134,22 @@ vg() {
 cdf() {
    local file
    local dir
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+   file=$(fzf --no-multi --query "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
 # podrmi - Select a podman image or images to remove. Use TAB for making selections
 podrmi() {
-  podman images | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r podman rmi
+  podman images | sed 1d | fzf-tmux -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r podman rmi
 }
+
+
+# CTRL-G CTRL-F for Files
+# CTRL-G CTRL-B for Branches
+# CTRL-G CTRL-T for Tags
+# CTRL-G CTRL-R for Remotes
+# CTRL-G CTRL-H for commit Hashes
+# CTRL-G CTRL-S for Stashes
+# CTRL-G CTRL-E for Each ref (git for-each-ref)
+if [[ -f "$ZSH_CUSTOM/fzf-git/fzf-git.sh" ]]; then
+    source "$ZSH_CUSTOM/fzf-git/fzf-git.sh"
+fi

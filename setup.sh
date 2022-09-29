@@ -43,11 +43,11 @@ if [ -d $HOME/.oh-my-zsh/ ]; then
         fi
     done
 
-    for f in $(find "$(pwd)/dotfiles/custom-zsh" -maxdepth 1 -mindepth 1 -type f -printf '%f\n'); do
+    for f in $(find "$(pwd)/dotfiles/custom-zsh" -maxdepth 1 -mindepth 1 \( -name '*.zsh' -o -type d \) -printf '%f\n'); do
         if [ ! -d "$HOME/.oh-my-zsh/custom/$f" ]; then
             link "custom-zsh/$f" "$HOME/.oh-my-zsh/custom/$f"
         else
-            echo "File $f already exists in .oh-my-zsh/custom"
+            echo "$f already exists in .oh-my-zsh/custom"
         fi
     done
 fi
