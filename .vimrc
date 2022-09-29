@@ -23,16 +23,6 @@ function! BuildYCM(info)
     endif
 endfunction
 
-function! BuildVimProc(info)
-    " info is a dictionary with 3 fields
-    " - name:   name of the plugin
-    " - status: 'installed', 'updated', or 'unchanged'
-    " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status == 'installed' || a:info.force
-      !make
-    endif
-endfunction
-
 " Updating a plugin
 " * Run :PlugUpdate
 " * Press D in the window or run :PlugDiff to view differences
@@ -58,6 +48,7 @@ Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 
 Plug 'machakann/vim-highlightedyank'
 
@@ -79,9 +70,6 @@ Plug 'zaiste/tmux.vim'
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', { 'do': function('BuildVimProc') }
-Plug 'Shougo/neoyank.vim'
 
 call plug#end()
 
@@ -222,6 +210,8 @@ let g:NERDTreeChDirMode = 2
 " See https://github.com/junegunn/vim-plug/issues/75
 let g:plug_timeout = 300
 
+let g:peekaboo_delay = 750
+
 " Mappings
 map <F2> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
@@ -230,8 +220,8 @@ map <F8> :TagbarToggle<CR>
 map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
 
 " FZF.vim bindings
-noremap <Leader>b :Buffers<CR>
-noremap <Leader>m :Marks<CR>
+noremap <leader>b :Buffers<CR>
+noremap <leader>m :Marks<CR>
 noremap <leader>f :Files<CR>
 noremap <leader>g :GFiles<CR>
 noremap <leader>s :Rg<CR>
@@ -250,22 +240,6 @@ vnoremap g<C-]> <C-]>
 " Opposite of 'J': split a line.  (By default 'K' runs man on the word under
 " the cursor.)
 nnoremap K i<CR><Esc>
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#profile('default', 'context', {
-\  'start_insert': 1,
-\  'winheight': 5,
-\  'direction': 'botright',
-\ })
-
-call unite#custom#source('file_rec/async,file_mru,file,grep',
-\ 'ignore_pattern', '\.git\|\.class\|\.pyc\|\.pyo'
- \ )
-
-" Use \y to search yank history
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<CR>
-" Use \r to show registers
-nnoremap <leader>r :<C-u>Unite -buffer-name=registers register<CR>
 
 " Change working directory to directory of current file
 if !exists(":CDC")
