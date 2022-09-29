@@ -83,42 +83,28 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0 --select-1) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
-# vrg - fuzzy ripgrep. Uses fzf as a secondary filter
-vrg() {
-  local file
-  local line
-
-  # The preview window bit is described in the man page section for the --preview-window option but basically: ~2 is
-  # the top 2 lines as a fixed header, +{2} is the base scroll offset extracted from the second field, +2 is an extra
-  # 2 line offset to account for the header, /2 is put in the middle of the preview area
-  read -r file line <<<$(
-    rg --color=always --line-number --smart-case --no-heading ${*:-} |
-    fzf --ansi --exit-0 --select-1 \
-        --color "hl:-1:underline,hl+:-1:underline:reverse" \
-        --layout reverse \
-        --delimiter : \
-        --preview-window 'up,60%,border-bottom,~2,+{2}+2/2' \
-        --bind '?:toggle-preview' \
-        --header='Press ? to toggle preview' \
-        --preview 'bat --style=full --color=always --highlight-line {2} {1}' | awk -F: '{print $1, $2}'
-  )
-
-  if [[ -n "$file" ]]; then
-     vim "$file" "+$line"
-  fi
-}
-
-# irg - interactive ripgrep.  Searches for text using Ripgrep which can be restarted with the reload action
+# irg - interactive ripgrep. Switch between Ripgrep mode (CTRL-R) and fzf filtering mode (CTRL-F)
+# Heavily based on https://github.com/junegunn/fzf/blob/master/ADVANCED.md
 irg() {
   local file
   local line
   local RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
   local INITIAL_QUERY="${*:-}"
+  # The preview window bit is described in the man page section for the --preview-window option but basically: ~2 is
+  # the top 2 lines as a fixed header, +{2} is the base scroll offset extracted from the second field, +2 is an extra
+  # 2 line offset to account for the header, /2 is put in the middle of the preview area
+  # For the color bit, -1 keeps the original color from the input
   read -r file line <<<$(
     FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
     fzf --ansi \
     --disabled --query "$INITIAL_QUERY" \
+    --color "hl:-1:underline,hl+:-1:underline:reverse" \
+    --header='Press ? to toggle preview / CTRL-R for ripgrep / CTRL-F for fzf' \
+    --bind '?:toggle-preview' \
     --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+    --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)" \
+    --bind "ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-f)" \
+    --prompt '1. ripgrep> ' \
     --layout reverse \
     --delimiter : \
     --preview-window 'up,60%,border-bottom,~2,+{2}+2/2' \
