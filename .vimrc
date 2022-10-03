@@ -167,6 +167,22 @@ endif
 syntax enable
 colorscheme solarized
 
+" Extend the global default (NOTE: Remove comments in dictionary before sourcing)
+" "\/\\n\\n\<CR>": 1, " Motions are supported as well. Here's a search motion that finds a blank line
+" 'a]' :1, " Support nesting of 'around' brackets
+" 'ab' :1, " Support nesting of 'around' parentheses
+" 'aB' :1, " Support nesting of 'around' braces
+" 'ii' :0, " 'inside indent'. Available through michaeljsmith/vim-indent-object
+" 'ai' :0, " 'around indent'. Available through michaeljsmith/vim-indent-object
+call expand_region#custom_text_objects({
+      \ "\/\\n\\n\<CR>": 1,
+      \ 'a]' :1,
+      \ 'ab' :1,
+      \ 'aB' :1,
+      \ 'ii' :1,
+      \ 'ai' :1,
+      \ })
+
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
