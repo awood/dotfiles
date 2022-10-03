@@ -50,6 +50,8 @@ nmap <leader>i :action GotoImplementation<cr>
 nmap <leader>h :action CallHierarchy<cr>
 nmap <leader>f :action Refactorings.QuickListPopupAction<cr>
 nmap <leader>d :action Debug<cr>
-nmap <leader>cd :action ChooseDebugConfiguration<cr>
 nmap <leader>r :action Run<cr>
+nmap <leader>f :action ReformatCode<cr>
+nmap <leader>cd :action ChooseDebugConfiguration<cr>
 nmap <leader>cr :action ChooseRunConfiguration<cr>
+nmap <leader>gt :action GotoTest<cr>
