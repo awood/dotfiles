@@ -43,7 +43,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-git'
 
 Plug 'preservim/nerdtree'
-Plug 'scrooloose/syntastic'
+
+Plug 'dense-analysis/ale'
 
 Plug 'michaeljsmith/vim-indent-object'
 
@@ -74,8 +75,6 @@ Plug 'majutsushi/tagbar'
 Plug 'zaiste/tmux.vim'
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
-
-
 call plug#end()
 
 function! PlugLoaded(name)
@@ -175,6 +174,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -191,24 +191,17 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_filetype_blacklist = { 'mail': 1 }
 
-" Set up syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['java'] }
-let g:syntastic_enable_signs = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_enable_balloons = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%severity%] %s [%linter%]'
 
-let g:syntastic_java_javac_config_file_enabled = 1
-let g:syntastic_java_javac_custom_classpath_command = "buildr -s syntastic:echo"
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
+" Put linting errors in the quickfix list rather than the location list. The
+" quickfix list is global and seems to be a better fit semantically for
+" linting errors
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-
-let g:syntastic_javascript_checkers = ['jshint']
+let g:ale_python_flake8_options = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
 let g:NERDTreeChDirMode = 2
 
