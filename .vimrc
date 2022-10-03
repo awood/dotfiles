@@ -39,10 +39,15 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-git'
 
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'scrooloose/syntastic'
+
+Plug 'michaeljsmith/vim-indent-object'
+
+Plug 'terryma/vim-expand-region'
 
 " Create helptags for vim-plug itself
 Plug 'junegunn/vim-plug'
@@ -223,8 +228,8 @@ map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>m :Marks<CR>
 noremap <leader>f :Files<CR>
-noremap <leader>g :GFiles<CR>
-noremap <leader>s :Rg<CR>
+noremap <leader>gf :GFiles<CR>
+noremap <leader>rg :Rg<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq

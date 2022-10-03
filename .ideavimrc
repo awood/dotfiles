@@ -5,6 +5,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'machakann/vim-highlightedyank'
+Plug 'michaeljsmith/vim-indent-object'
 
 " Ignore case in searching unless the search pattern contains upper case
 set ignorecase
