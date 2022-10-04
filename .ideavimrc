@@ -24,34 +24,62 @@ set smartcase
 
 map Q gq
 
+" IdeaVim should always control C-D and C-U
+sethandler <C-D> a:vim
+sethandler <C-U> a:vim
+
 " Mappings like Vim Unimpaired
 nnoremap [<space> O<esc>j
 nnoremap ]<space> o<esc>k
-nnoremap [q :action PreviousOccurence<cr>
-nnoremap ]q :action NextOccurence<cr>
+nnoremap [l :action PreviousOccurence<cr>
+nnoremap ]l :action NextOccurence<cr>
 nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap [q :action GotoPreviousError<cr>
+nnoremap ]q :action GotoNextError<cr>
 
 " Tabs
 nnoremap [b :action PreviousTab<cr>
 nnoremap ]b :action NextTab<cr>
 
 " Closing tabs
-nmap <leader>q :action CloseContent<cr>
-nmap <leader>Q :action ReopenClosedTab<cr>
+noremap <leader>q :action CloseContent<cr>
+noremap <leader>Q :action ReopenClosedTab<cr>
 
-" Other useful mappings
-nmap <leader>u :action FindUsages<cr>
-nmap <leader>T :action ActivateTerminalToolWindow<cr>
-nmap <leader>d :action ShowErrorDescription<cr>
-nmap <leader>i :action GotoImplementation<cr>
-nmap <leader>h :action CallHierarchy<cr>
-nmap <leader>f :action Refactorings.QuickListPopupAction<cr>
-nmap <leader>d :action Debug<cr>
-nmap <leader>r :action Run<cr>
-nmap <leader>f :action ReformatCode<cr>
-nmap <leader>cd :action ChooseDebugConfiguration<cr>
-nmap <leader>cr :action ChooseRunConfiguration<cr>
-nmap <leader>gt :action GotoTest<cr>
+" Leader-d (Diagnostic)
+noremap <leader>dd :action ShowErrorDescription<cr>
+
+" Leader-f (Find something)
+noremap <leader>fu :action FindUsages<cr>
+
+" Leader-n (Navigate somewhere)
+noremap <leader>ni :action GotoImplementation<cr>
+noremap <leader>nt :action GotoTest<cr>
+noremap <leader>nl :action RecentLocations<cr>
+noremap <leader>nh :action CallHierarchy<cr>
+"
+" Leader-r (Refactor something)
+noremap <leader>rc :action Refactorings.QuickListPopupAction<cr>
+noremap <leader>re :action ExtractMethod<cr>
+noremap <leader>rr :action RenameElement<cr>
+noremap <leader>rf :action ReformatCode<cr>
+noremap <leader>rt :action ChangeTypeSignature<cr>
+
+" Leader-t (Tool windows)
+noremap <leader>tt :action ActivateTerminalToolWindow<cr>
+noremap <leader>tg :action ActivateVersionControlToolWindow<cr>
+noremap <leader>tq :action HideActiveWindow<cr>
+
+" Leader-r (Run something)
+noremap <leader>rd :action Debug<cr>
+noremap <leader>rr :action Run<cr>
+noremap <leader>rcd :action ChooseDebugConfiguration<cr>
+noremap <leader>rcr :action ChooseRunConfiguration<cr>
+
+" Leader-v (Vim related)
+" Tracks actions in the IDE and displays their Action Ids so you can noremap them
+" if you want
+noremap <Leader>vfa :action VimFindActionIdAction<cr>
+noremap <leader>vb :action VimVisualToggleBlockMode<cr>
