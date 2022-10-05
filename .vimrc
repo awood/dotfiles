@@ -72,7 +72,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'majutsushi/tagbar'
 
-Plug 'zaiste/tmux.vim'
+" tmux syntax highlighting
+Plug 'zaiste/tmux.vim' 
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
@@ -227,7 +228,8 @@ let g:plug_timeout = 300
 let g:peekaboo_delay = 750
 
 " Mappings
-map <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
+map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
 
 " Pull up the current file in NERDTree then refocus on the current file pane
@@ -238,6 +240,9 @@ noremap <leader>b :Buffers<CR>
 noremap <leader>m :Marks<CR>
 noremap <leader>f :Files<CR>
 noremap <leader>gf :GFiles<CR>
+noremap <leader>gs :GFiles?<CR>
+noremap <leader>hs :History/<CR>
+noremap <leader>hc :History:<CR>
 noremap <leader>rg :Rg<CR>
 
 " Don't use Ex mode, use Q for formatting

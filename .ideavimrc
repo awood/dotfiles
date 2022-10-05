@@ -59,7 +59,7 @@ noremap <leader>ni :action GotoImplementation<cr>
 noremap <leader>nt :action GotoTest<cr>
 noremap <leader>nl :action RecentLocations<cr>
 noremap <leader>nh :action CallHierarchy<cr>
-"
+
 " Leader-r (Refactor something)
 noremap <leader>rc :action Refactorings.QuickListPopupAction<cr>
 noremap <leader>re :action ExtractMethod<cr>
