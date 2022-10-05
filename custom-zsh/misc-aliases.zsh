@@ -4,3 +4,4 @@ alias npm-exec='PATH=$(npm bin):$PATH'
 
 # Use delta in side-by-side mode
 alias gitside='git -c delta.side-by-side=true'
+alias gitcat='git -c core.pager=cat'
