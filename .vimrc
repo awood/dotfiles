@@ -73,7 +73,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 
 " tmux syntax highlighting
-Plug 'zaiste/tmux.vim' 
+Plug 'zaiste/tmux.vim'
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
@@ -226,6 +226,13 @@ let g:NERDTreeChDirMode = 2
 let g:plug_timeout = 300
 
 let g:peekaboo_delay = 750
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Mappings
 map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
