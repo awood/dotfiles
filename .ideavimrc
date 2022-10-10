@@ -67,7 +67,7 @@ noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
 noremap <leader>re :action ExtractMethod<cr>
 noremap <leader>rn :action RenameElement<cr>
 noremap <leader>rf :action ReformatCode<cr>
-noremap <leader>rt :action ChangeTypeSignature<cr>
+noremap <leader>rs :action ChangeSignature<cr>
 
 " Leader-t (Tool windows)
 noremap <leader>tt :action ActivateTerminalToolWindow<cr>
