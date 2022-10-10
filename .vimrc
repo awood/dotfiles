@@ -60,6 +60,7 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
+Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/restore_view.vim'
 
@@ -239,6 +240,18 @@ map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
 map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
 
+nnoremap <Leader>d$ :<C-u>%DeleteTrailingWhitespace<CR>
+vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
+
+" set absolute line numbers
+nnoremap <Leader>ln :set number norelativenumber<CR>
+
+" set relative line numbers
+nnoremap <Leader>lr :set number relativenumber<CR>
+
+" turn off any line numbers
+nnoremap <Leader>lN :set nonumber norelativenumber<CR>
+
 " Pull up the current file in NERDTree then refocus on the current file pane
 map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
 
@@ -319,9 +332,10 @@ if has("autocmd")
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
+  " (happens when dropping a file on gvim) or when in a git commit message
+  " since those are transient.
   autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
     \   exe "normal g`\"" |
     \ endif
   augroup END
