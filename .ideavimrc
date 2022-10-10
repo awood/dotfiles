@@ -6,6 +6,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'machakann/vim-highlightedyank'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'preservim/nerdtree'
 
 " Ignore case in searching unless the search pattern contains upper case
 set ignorecase
@@ -24,17 +25,13 @@ set smartcase
 
 map Q gq
 
-" IdeaVim should always control C-D and C-U
-sethandler <C-D> a:vim
-sethandler <C-U> a:vim
+noremap <c-n> :NERDTreeToggle<CR>
 
 " Mappings like Vim Unimpaired
 nnoremap [<space> O<esc>j
 nnoremap ]<space> o<esc>k
 nnoremap [l :action PreviousOccurence<cr>
 nnoremap ]l :action NextOccurence<cr>
-nnoremap [m :action MethodUp<cr>
-nnoremap ]m :action MethodDown<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap [q :action GotoPreviousError<cr>
@@ -61,25 +58,119 @@ noremap <leader>nl :action RecentLocations<cr>
 noremap <leader>nh :action CallHierarchy<cr>
 
 " Leader-r (Refactor something)
-noremap <leader>rc :action Refactorings.QuickListPopupAction<cr>
+noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
 noremap <leader>re :action ExtractMethod<cr>
-noremap <leader>rr :action RenameElement<cr>
+noremap <leader>rn :action RenameElement<cr>
 noremap <leader>rf :action ReformatCode<cr>
 noremap <leader>rt :action ChangeTypeSignature<cr>
 
 " Leader-t (Tool windows)
 noremap <leader>tt :action ActivateTerminalToolWindow<cr>
 noremap <leader>tg :action ActivateVersionControlToolWindow<cr>
+noremap <leader>tn :NERDTreeFocus<cr>
 noremap <leader>tq :action HideActiveWindow<cr>
+nnoremap <leader>th :action HideAllWindows<cr> <bar> :action FocusEditor<cr>
 
-" Leader-r (Run something)
-noremap <leader>rd :action Debug<cr>
-noremap <leader>rr :action Run<cr>
-noremap <leader>rcd :action ChooseDebugConfiguration<cr>
-noremap <leader>rcr :action ChooseRunConfiguration<cr>
+" Leader-e (Execute something)
+noremap <leader>ed :action Debug<cr>
+noremap <leader>er :action Run<cr>
+noremap <leader>ecr :action RunClass<cr>
+noremap <leader>ecd :action DebugClass<cr>
+" Think 'select' for s
+noremap <leader>esd :action ChooseDebugConfiguration<cr>
+noremap <leader>esr :action ChooseRunConfiguration<cr>
 
 " Leader-v (Vim related)
 " Tracks actions in the IDE and displays their Action Ids so you can noremap them
 " if you want
 noremap <Leader>vfa :action VimFindActionIdAction<cr>
 noremap <leader>vb :action VimVisualToggleBlockMode<cr>
+
+" The comments are what the key-combinations do in vim. The combination can be
+" assigned to be vim or ide depending on vim's mode and eventually that may be
+" useful - see https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+" n - normal mode
+" i - insert mode
+" x - visual mode
+" v - visual and select modes
+" a - all modes
+
+" CTRL-2 - No documentation on how Vim uses this; cede to IDE
+sethandler <C-2> a:ide
+" CTRL-SHIFT-2 - No documentation on how Vim uses this; cede to IDE
+sethandler <C-S-2> a:ide
+" CTRL-6 - No documentation on how Vim uses this; cede to IDE
+sethandler <C-6> a:ide
+" CTRL-SHIFT-6 - No documentation on how Vim uses this; cede to IDE
+sethandler <C-S-6> a:ide
+" CTRL-A - add [count] to the number or letter at the cursor. Select all in
+" IDE. The vim functionality is marginal and select all can be easily emulated
+" with ggVG.  Good candidate for reassignment.
+sethandler <C-A> a:ide
+" CTRL-B - same functionality as PageUp. Redundant. Cede to IDE.
+sethandler <C-B> a:ide
+" CTRL-C - in Normal mode, abort the pending command. Using as 'copy' in the
+" IDE is more useful
+sethandler <C-C> a:ide
+" CTRL-D - down half a screen. Delete line in IDE which vim does easily.
+" Retain for vim's use
+sethandler <C-D> a:vim
+" CTRL-E - scroll window [count] lines down. 'Recent files' in IDE.
+sethandler <C-E> a:ide
+" CTRL-F - same functionality as PageDown. Redundant. Cede to IDE for 'Find'
+sethandler <C-F> a:ide
+" CTRL-G - print the current file name, cursor position. Marginal. Cede to IDE.
+sethandler <C-G> a:ide
+" CTRL-H - same as 'h' or 'left'. Redundant. 'Type hierarchy' in IDE.
+sethandler <C-H> a:ide
+" CTRL-I - go to [count] newer position in the jump list. Show import
+" statements in IDE which is marginal.
+sethandler <C-I> a:vim
+" CTRL-J - same as 'j' or 'down'. Redundant. 'Insert Live Template' in IDE
+sethandler <C-J> a:ide
+" CTRL-K - enter digraph. Marginal. 'Commit' in IDE
+sethandler <C-K> a:ide
+" CTRL-L - clear and redraw. Marginal. 'Extend selection' in IDE. Also
+" assigned to 'clear and redraw' for the IDE terminal so functionality is
+" preserved there
+sethandler <C-L> a:ide
+" CTRL-M - lines downward to first non-blank. Same as '+' and <CR>. 'File
+" structure' in IDE.
+sethandler <C-M> a:ide
+" CTRL-N - same as 'j' or 'down'. Redundant.  'New Directory' in IDE which is
+" also marginal. Instead map to :NERDTreeToggle
+sethandler <C-N> a:vim
+" CTRL-O - go to [count] older position in the jump list.
+sethandler <C-O> a:vim
+" CTRL-P - same as 'k' or 'up'. Redundant.
+sethandler <C-P> a:ide
+" CTRL-Q - blockwise visual selection but in terminals, it's intercepted for
+" control flow.  Cede to IDE for 'Quick documentation'
+sethandler <C-Q> a:ide
+" CTRL-R - redo.  Essential
+sethandler <C-R> a:vim
+" CTRL-S - terminal control flow. Cede to IDE.
+sethandler <C-S> a:ide
+" CTRL-T - Jump to older entry in tag stack. g<RightMouse> and C-Rightmouse
+" do the same thing. Cede to IDE.
+sethandler <C-T> a:ide
+" CTRL-U - up half a screen.  Essential
+sethandler <C-U> a:vim
+" CTRL-V - blockwise visual mode. IDE uses for paste. Paste is more useful
+" outside normal mode.
+sethandler <C-V> n:vim i-v:ide
+" CTRL-W - window commands.  Essential.
+sethandler <C-W> a:vim
+" CTRL-X - Subtract [count] from the number or letter at the cursor. Marginal.
+" 'Cut' is far more useful
+sethandler <C-X> a:ide
+" CTRL-Y - scroll window [count] lines up. 'Duplicate line' in IDE which is
+" marginal compared to 'yyp'. CTRL-E (the corresponding lines down) is an IDE
+" essential though, so retain this as IDE too.  Good candidate for remapping.
+sethandler <C-Y> a:ide
+" CTRL-[ - same as Escape. 'Move to code block start' in IDE which Vim
+" does easily so cede to Vim.
+sethandler <C-[> a:vim
+" CTRL-] - jump to definition of a tag. 'Move to code block end' in IDE which
+" Vim does easily so cede to Vim.
+sethandler <C-]> a:vim
