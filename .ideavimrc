@@ -157,8 +157,9 @@ sethandler <C-R> a:vim
 " CTRL-S - terminal control flow. Cede to IDE.
 sethandler <C-S> a:ide
 " CTRL-T - Jump to older entry in tag stack. g<RightMouse> and C-Rightmouse
-" do the same thing. Cede to IDE.
-sethandler <C-T> a:ide
+" do the same thing but my fingers are used to CTRL-T.  IDE uses this for
+" git update.
+sethandler <C-T> a:vim
 " CTRL-U - up half a screen.  Essential
 sethandler <C-U> a:vim
 " CTRL-V - blockwise visual mode. IDE uses for paste. Paste is more useful
