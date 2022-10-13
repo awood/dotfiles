@@ -228,6 +228,11 @@ let g:plug_timeout = 300
 
 let g:peekaboo_delay = 750
 
+" The default action is to abort the write
+let g:DeleteTrailingWhitespace_Action = 'ask'
+" But I do still want trailing space highlighted even if I say don't delete it
+let g:DeleteTrailingWhitespace_ChoiceAffectsHighlighting = 0
+
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
@@ -240,6 +245,12 @@ map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
 map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
 
+" You can use any sort of range with DeleteTrailingWhitespace.
+" E.g. :2,10DeleteTrailingWhitespace would delete only the whitespace on line 2 to 10
+
+" The <C-U> in the mapping tells vim that after the : is entered the CTRL-U
+" combination should be used to clear the command line, eliminating any
+" automatically inserted range
 nnoremap <Leader>d$ :<C-u>%DeleteTrailingWhitespace<CR>
 vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
 
