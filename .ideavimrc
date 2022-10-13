@@ -27,12 +27,11 @@ map Q gq
 
 noremap <c-n> :NERDTreeToggle<CR>
 
-" set absolute line numbers
-noremap <leader>ln :set number norelativenumber<cr>
-" set relative line numbers
-noremap <leader>lr :set number relativenumber<cr>
-
 " Mappings like Vim Unimpaired
+nnoremap [on :set number norelativenumber<cr>
+nnoremap ]on :set nonumber norelativenumber<cr>
+nnoremap [or :set number relativenumber<cr>
+nnoremap ]or :set nonumber norelativenumber<cr>
 nnoremap [<space> O<esc>j
 nnoremap ]<space> o<esc>k
 nnoremap [l :action PreviousOccurence<cr>

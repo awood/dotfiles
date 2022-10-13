@@ -254,15 +254,6 @@ map <F8> :TagbarToggle<CR>
 nnoremap <Leader>d$ :<C-u>%DeleteTrailingWhitespace<CR>
 vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
 
-" set absolute line numbers
-nnoremap <Leader>ln :set number norelativenumber<CR>
-
-" set relative line numbers
-nnoremap <Leader>lr :set number relativenumber<CR>
-
-" turn off any line numbers
-nnoremap <Leader>lN :set nonumber norelativenumber<CR>
-
 " Pull up the current file in NERDTree then refocus on the current file pane
 map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
 
