@@ -327,7 +327,7 @@ if has("autocmd")
   autocmd FileType ruby setlocal omnifunc=syntaxcomplete#Complete
 
   " Turn off the visual bell in both gui and terminal mode
-  autocmd VimEnter * set vb t_vb= 
+  autocmd VimEnter * set vb t_vb=
 
   " For all text files wrap at 80 characters and show right margin
   autocmd FileType text,markdown setlocal textwidth=80 colorcolumn=80
