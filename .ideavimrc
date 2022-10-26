@@ -88,7 +88,6 @@ noremap <leader>esr :action ChooseRunConfiguration<cr>
 " Tracks actions in the IDE and displays their Action Ids so you can noremap them
 " if you want
 noremap <Leader>vfa :action VimFindActionIdAction<cr>
-noremap <leader>vb :action VimVisualToggleBlockMode<cr>
 
 " The comments are what the key-combinations do in vim. The combination can be
 " assigned to be vim or ide depending on vim's mode and eventually that may be
