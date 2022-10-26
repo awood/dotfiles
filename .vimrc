@@ -41,6 +41,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-eunuch'
 
 Plug 'preservim/nerdtree'
 
