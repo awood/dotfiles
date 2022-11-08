@@ -22,6 +22,8 @@ set scrolloff=3
 
 set hls
 set smartcase
+set visualbell
+set noerrorbells
 
 map Q gq
 
