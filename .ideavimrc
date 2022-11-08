@@ -108,10 +108,10 @@ sethandler <C-S-2> a:ide
 sethandler <C-6> a:ide
 " CTRL-SHIFT-6 - No documentation on how Vim uses this; cede to IDE
 sethandler <C-S-6> a:ide
-" CTRL-A - add [count] to the number or letter at the cursor. Select all in
-" IDE. The vim functionality is marginal and select all can be easily emulated
-" with ggVG.  Good candidate for reassignment.
-sethandler <C-A> a:ide
+" CTRL-A - add [count] to the number or letter at the cursor or insert
+" previously inserted text while in insert mode. Select all in
+" IDE. Select all can be easily emulated with ggVG.
+sethandler <C-A> a:vim
 " CTRL-B - same functionality as PageUp. Redundant. Cede to IDE.
 sethandler <C-B> a:ide
 " CTRL-C - in Normal mode, abort the pending command. Using as 'copy' in the
