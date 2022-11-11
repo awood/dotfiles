@@ -25,7 +25,13 @@ set smartcase
 set visualbell
 set noerrorbells
 
+" Don't use Ex mode, use Q for formatting
 map Q gq
+
+" As suggested by the vim docs themselves.  Make Y not just a copy of yy.
+" See https://vi.stackexchange.com/questions/6061/ for a discussion of the
+" historical reasons behind the redundancy.
+map Y y$
 
 noremap <c-n> :NERDTreeToggle<CR>
 

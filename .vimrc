@@ -271,6 +271,11 @@ noremap <leader>rg :Rg<CR>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+" As suggested by the vim docs themselves.  Make Y not just a copy of yy.
+" See https://vi.stackexchange.com/questions/6061/ for a discussion of the
+" historical reasons behind the redundancy.
+map Y y$
+
 " Swap definitions for :tag and :tjump. :tag just goes to the first match,
 " while :tjump goes to the first match unless there are multiple matches in
 " which case it shows a select list.
