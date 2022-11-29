@@ -220,6 +220,10 @@ let g:ale_echo_msg_format = '[%severity%] %s [%linter%]'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
+" Don't use multiline dictionary format
+let g:ale_fixers = {}
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers.python = ['black']
 let g:ale_python_flake8_options = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
 
 let g:NERDTreeChDirMode = 2
@@ -245,6 +249,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
 map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
+map <F12> <Plug>(ale_fix)
 
 " You can use any sort of range with DeleteTrailingWhitespace.
 " E.g. :2,10DeleteTrailingWhitespace would delete only the whitespace on line 2 to 10
