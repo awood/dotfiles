@@ -70,16 +70,16 @@ noremap <leader>nl :action RecentLocations<cr>
 noremap <leader>nh :action CallHierarchy<cr>
 
 " Leader-r (Refactor something)
-noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
 noremap <leader>re :action ExtractMethod<cr>
 noremap <leader>rn :action RenameElement<cr>
 noremap <leader>rf :action ReformatCode<cr>
 noremap <leader>rs :action ChangeTypeSignature<cr>
+noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
 
 " Leader-t (Tool windows)
+noremap <leader>tn :NERDTreeFocus<cr>
 noremap <leader>tt :action ActivateTerminalToolWindow<cr>
 noremap <leader>tg :action ActivateVersionControlToolWindow<cr>
-noremap <leader>tn :NERDTreeFocus<cr>
 noremap <leader>tq :action HideActiveWindow<cr>
 nnoremap <leader>th :action HideAllWindows<cr> <bar> :action FocusEditor<cr>
 
