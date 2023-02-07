@@ -33,6 +33,9 @@ map Q gq
 " historical reasons behind the redundancy.
 map Y y$
 
+" Paste over selection without killing register 1
+xnoremap <Leader>p "_dP
+
 noremap <c-n> :NERDTreeToggle<CR>
 
 " Mappings like Vim Unimpaired
