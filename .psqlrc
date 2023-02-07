@@ -1,8 +1,10 @@
+\set QUIET 1
 \pset pager off
 \pset null '[null]'
 \set HISTSIZE 2000
 \x auto
 \encoding unicode
+\set QUIET 0
 
 \set COMP_KEYWORD_CASE upper
 
