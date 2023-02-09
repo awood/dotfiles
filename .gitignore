@@ -19,3 +19,4 @@ dev_scratch
 .gradle
 buildSrc
 .gradletasknamecache
+.venv
