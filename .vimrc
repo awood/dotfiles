@@ -322,6 +322,7 @@ if has("autocmd")
 
   " highlight end of line whitespace
   highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
+  highlight SpellBad cterm=underline ctermul=red gui=undercurl guisp=red
 
   " Don't expand tabs for makefiles
   autocmd FileType make setlocal noexpandtab
