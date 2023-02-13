@@ -322,7 +322,11 @@ if has("autocmd")
 
   " highlight end of line whitespace
   highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
-  highlight SpellBad cterm=underline ctermul=red gui=undercurl guisp=red
+
+  " vim-colors-solarized sets it (`:verbose highlight SpellBad`) as
+  " SpellBad       xxx term=undercurl cterm=undercurl gui=undercurl guisp=Red
+  " Unfortunately, xfce4-terminal doesn't support undercurl so we customize
+  highlight SpellBad term=underline cterm=underline ctermul=red gui=undercurl guisp=red
 
   " Don't expand tabs for makefiles
   autocmd FileType make setlocal noexpandtab
