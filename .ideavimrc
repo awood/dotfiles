@@ -25,6 +25,10 @@ set smartcase
 set visualbell
 set noerrorbells
 
+" quickscope needs to be declared after sneak
+set sneak
+set quickscope
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -32,6 +36,9 @@ map Q gq
 " See https://vi.stackexchange.com/questions/6061/ for a discussion of the
 " historical reasons behind the redundancy.
 map Y y$
+
+" Trigger a highlight in the appropriate direction only when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Paste over selection without killing register 1
 xnoremap <Leader>p "_dP

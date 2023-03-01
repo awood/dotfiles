@@ -59,6 +59,10 @@ Plug 'junegunn/vim-peekaboo'
 
 Plug 'machakann/vim-highlightedyank'
 
+Plug 'justinmk/vim-sneak'
+
+Plug 'unblevable/quick-scope'
+
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
@@ -238,6 +242,11 @@ let g:DeleteTrailingWhitespace_Action = 'ask'
 " But I do still want trailing space highlighted even if I say don't delete it
 let g:DeleteTrailingWhitespace_ChoiceAffectsHighlighting = 0
 
+" Trigger a highlight in the appropriate direction only when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Disable quickscope in non-editing buffer types.  See :help buftype
+let g:qs_buftype_blacklist = ['terminal', 'nofile', 'quickfix', 'prompt', 'popup']
+
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
@@ -261,7 +270,10 @@ nnoremap <Leader>d$ :<C-u>%DeleteTrailingWhitespace<CR>
 vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
 
 " Pull up the current file in NERDTree then refocus on the current file pane
-map <leader>c :NERDTreeFind<CR> :wincmd p<CR>
+map <leader>cf :NERDTreeFind<CR> :wincmd p<CR>
+
+nmap <leader>qs <plug>(QuickScopeToggle)
+xmap <leader>qs <plug>(QuickScopeToggle)
 
 " FZF.vim bindings
 noremap <leader>b :Buffers<CR>
