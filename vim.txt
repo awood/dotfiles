@@ -1,0 +1,507 @@
+# Motions
+
+An exclusive motion won't include the end character in the operation.
+
+## Moving horizontally
+^ - To the first non-blank character of a line (exclusive)
+0 - To the first character of a line (exclusive)
+$ - To the end of the line (inclusive motion) (moves down with a count)
+g_ - To the last non-blank character of a line (inclusive)
+| [count] go to screen column in the current line (exclusive)
+
+## Moving vertically
+<CR> or <CTRL-M> [count] lines down on the first non-blank character linewise
+- [count] lines upward on the first non-blank character linewise
+gg [count] go to line (defaults to first line) on first non-blank (linewise)
+G [count] go to line (defaults to last line) on first non-blank (linewise)
+H To line [count] from top of window on first non-blank linewise
+M To middle line of window on first non-blank linewise
+L To line [count] from bottom on first non-blank linewise
+
+## Word motions
+w - [count] beginning of next word (exclusive)
+b - [count] beginning of word backwards (exclusive)
+e - [count] end of next word (inclusive)
+ge - [count] end of next word backwards (inclusive)
+
+A word is sequence of letters, digits, and numbers or a sequence of other
+non-blank characters (e.g. [[[[ ).  A WORD is a word that includes special
+characters like period, parenthesis, or braces (e.g. a function name).
+
+The motions for WORDS:
+W - [count] beginning of next WORD (exclusive)
+B - [count] beginning of WORD backwards (exclusive)
+E - [count] end of next WORD (inclusive)
+gE - [count] end of next WORD backwards (inclusive)
+
+## Semantic
+( [count] sentences backward (exclusive motion)
+) [count] sentences forward (exclusive motion)
+{ [count] paragraphs forward (exclusive)
+} [count] paragraphs backward (exclusive)
+[m [count] go to the start of a previous method (exclusive)
+[M [count] go to the end of a previous method (exclusive)
+]m [count] go to the start of a subsequent method (exclusive)
+]M [count] go to the end of a subsequent method (exclusive)
+[( [count] go to previous unmatched '(' (exclusive)
+]) [count] go to next unmatched ')' (exclusive)
+[{ [count] go to previous unmatched '{' (exclusive)
+]} [count] go to next unmatched '}' (exclusive)
+
+## Wrapped Lines
+g^ with wrapped lines, go to first non-blank of the screen line
+g0 with wrapped lines, go to first character of the screen line
+gm like "g0" but half screenwidth to the right
+g$ with wrapped lines, go to the last character of the screen line
+g_ To the last non-blank character of the line and [count - 1] down inclusive
+gj [count] display lines down (exclusive)
+gk [count] display lines up (exclusive)
+
+## Marks
+` can be used instead of ' but with backtick the cursor is put at the specified
+location and the motion is exclusive.  With single quote, the cursor is put at
+the first non-blank of the line and the motion is linewise.
+
+` Jump to the mark
+g` Jump to mark but don't change the jump list
+
+`a-`z valid within one file
+`A-`Z valid across files
+
+## Jumps
+Can use single quote for all of these for linewise motions
+
+`[ To the first character of the previously changed or yanked text
+`] To the last character of the previously changed or yanked text
+
+e.g. After inserting several lines with "p", you want to jump to the last line:
+p'] will do that.
+
+These are also useful for yank since (see :help blockwise-register):
+Note that after a characterwise yank command (including all the text object
+yanks), Vim leaves the cursor on the first yanked character that is closest to
+the start of the buffer.  This means that "yl" doesn't move the cursor, but
+"yh" moves the cursor one character left.
+Rationale:	In Vi the "y" command followed by a backwards motion would
+		sometimes not move the cursor to the first yanked character,
+		because redisplaying was skipped.  In Vim it always moves to
+		the first character, as specified by Posix.
+With a linewise yank command the cursor is put in the first line, but the
+column is unmodified, thus it may not be on the first yanked character.
+
+[` To the previous lowercase mark (takes count)
+]` To the next lowercase mark (takes count)
+
+`` Jump to last cursor position
+`. Jump to last edit position
+`^ Jump to the position where the cursor was the last time Insert mode stopped
+`< Jump to first character of last selected Visual area
+'> Jump to the last character of the last selected Visual area
+%  Jump to matching parenthesis or bracket
+
+CTRL-O go [count] back in the jump list (not a motion)
+CTRL-I go [count] forward in the jump list (not a motion)
+:ju Print the jump list
+
+g, Go to [count] older position in the change list (not a motion)
+g; Go to [count] newer position in the change list (not a motion)
+:changes Print the change list
+
+## Searching
+* Search forward for the word nearest the cursor (takes a count)
+# Search backward for the word nearest the cursor (takes a count)
+f To [count] occurrence of [char] to the right (inclusive)
+F To [count] occurrence of [char] to the left (exclusive)
+t Till before [count] occurence of [char] to the right
+T Till after the [count] occurence of [char] to the left
+; Repeat last f, t, F, or T [count] times
+, Repeat last f, t, F, or T [count] times in opposite direction
+/ Search forward for the [count] occurrence of pattern
+? Search backward for the [count] occurrence of pattern
+n Repeat the last "/" or "?" [count] times
+N Repeat the last "/" or "?" [count] times in the opposite direction
+/<CR> repeat the last search
+
+E.g. [count]/foo sends you to the [count] occurrence of 'foo'
+
+gn/gN Search forward/backward for the last used search pattern, like
+      with `n`, and start Visual mode to select the match.
+      If the cursor is on the match, visually selects it.
+      **If an operator is pending, operates on the match.**
+      E.g., "dgn" deletes the text of the next match.
+      If Visual mode is active, extends the selection
+      until the end of the next match.
+
+### Sneak
+
+See https://github.com/justinmk/vim-sneak
+
+NORMAL MODE
+s{char}{char}            Go to the next occurrence of {char}{char}
+S{char}{char}            Go to the previous occurrence of {char}{char}
+s{char}<Enter>           Go to the next occurrence of {char}
+S{char}<Enter>           Go to the previous occurrence of {char}
+s<Enter>                 Repeat the last Sneak.
+S<Enter>                 Repeat the last Sneak, in reverse direction.
+;                        Go to the [count]th next match
+, or \                   Go to the [count]th previous match
+s                        Go to the [count]th next match (see NOTE)
+S                        Go to the [count]th previous match (see NOTE)
+[count]s{char}{char}     Invoke |sneak-vertical-scope|
+[count]S{char}{char}     Invoke backwards |sneak-vertical-scope|
+{operator}z{char}{char}  Perform {operator} from the cursor to the next
+                         occurrence of {char}{char}
+{operator}Z{char}{char}  Perform {operator} from the cursor to the
+                         previous occurrence of {char}{char}
+
+NOTE: s and S go to the next/previous match immediately after invoking
+Sneak, if |sneak-clever-s| is enabled.
+
+VISUAL MODE
+s{char}{char}            Go to the next occurrence of {char}{char}
+Z{char}{char}            Go to the previous occurrence of {char}{char}
+s{char}<Enter>           Go to the next occurrence of {char}
+Z{char}<Enter>           Go to the previous occurrence of {char}
+s<Enter>                 Repeat the last Sneak.
+Z<Enter>                 Repeat the last Sneak, in reverse direction.
+;                        Go to the [count]th next match
+, or \                   Go to the [count]th previous match
+s                        Go to the [count]th next match (NOTE above)
+S                        Go to the [count]th previous match (NOTE above)
+
+NOTE: Z goes backwards in visual-mode because S is used by |surround|.
+
+# Scrolling
+Ctrl-U, Ctrl-D up/down half a screen (can be set with 'scroll' option).
+Ctrl-Y, Ctrl-E scroll window [count] lines up/down in the buffer.
+
+## Scrolling relative to cursor
+Reposition edit window while keeping the cursor at the same line. The
+'scrolloff' option may provide additional context lines
+z<CR> Redraw line at top of window, put cursor at first non-blank
+zt Like z, but leave cursor in same column
+z. Redraw line at center of window
+zz Like z. but leave cursor in same column
+z- Redraw line at bottom of window
+zb Like z-, but leave cursor in same column
+
+# Operators
+g~ - toggles case
+d - delete
+y - yank
+p - paste
+> - shift right
+< - shift left
+D - delete to the end of a line
+C - change to the end of a line
+
+Doubling an operator makes it operate on the entire line.
+
+d/hello deletes everything to the first occurrence of hello
+
+# Commands
+Many of these (like i, a, I, A, o, O) take counts that will insert the same text
+[count] times
+
+x - delete [count] character under the cursor
+X - delete [count] the character before the cursor (i.e. backspace)
+i - insert before the cursor
+I - insert at the first non-blank of a line
+a - append after the cursor
+A - append content After everything. It will move your cursor to the end of the
+line and enter INSERT mode.
+gI - Insert text in column 1
+gi - puts you in insert mode at the last place you left insert mode
+o - insert a line below the current line and move to insert mode
+O - insert a line above the current line and move to insert mode
+= - filter through indentation engine.  Can be used with text objects
+
+CTRL-H - delete the last character you typed
+CTRL-W - delete the last word you typed
+CTRL-U - delete the last line you typed
+
+# Visual Mode
+v - visual mode character wise
+V - visual mode linewise
+CTRL-V - visual mode blockwise
+o - go to the other end of the selection in visual mode
+
+The I and A commands work well with visual block mode E.g. <C-V>3j$A,<Esc>
+will append a comma at the end of three lines of the block simultaneously.  See
+:help v_b_A for discussion of how Vim can handle a ragged edge differently.
+
+With terryma/vim-expand-region, + expands the visual selection and _ shrinks it.
+
+# Force Motion
+
+See :help forced-motion, but in essence, motions can be coerced into being
+linewise, characterwise, or visual.
+
+v - Use after an operator and before the motion to force the operator to work
+    characterwise.  If the motion was linewise, it will become exclusive.  If
+    the motion was already characterwise, toggle inclusive/exclusive.
+
+V - Use after an operator and before the motion to force the operator to work
+    linewise.
+
+CTRL-V - Use after an operator and before the motion to force the operator to
+         work blockwise.  This works like Visual block selection with the
+         corners defined by the cursor position before and after the motion.
+
+Example: if the cursor is in the middle of a line, dV]M deletes *all* of the
+current line down to the end of a method (rather than deleting only forward from
+the cursor).
+
+# Ranges
+
+21 	    line 21
+$ 	    last line
+. 	    current line
+% 	    all lines (same as 1,$)
+21,25 	lines 21 to 25 inclusive
+21,$ 	lines 21 to end
+.,$ 	current line to end
+.+1,$ 	line after current line to end
+.,.+5 	six lines (current to current+5 inclusive)
+.,.5 	same (.5 is interpreted as .+5)
+
+Marks can be used in ranges as well and range commands can accept Ex commands
+like d, t (copy), and m (move)
+
+:'a,'bd 	            delete lines from mark a to mark b, inclusive
+:.,'bd 	                delete lines from the current line to mark b, inclusive
+:'a,'bm 0 	            move lines from mark a to b inclusive, to the beginning
+:'a,'bw file.txt    	write lines from mark a to b to file.txt
+:'a,'bw >> file.txt 	append lines from mark a to b to file.txt
+
+# Cutting and Pasting
+
+:[line]pu [x] puts the text from register [x] after [line] (defaults to current
+              line).  This works linewise so it can be used to put a yanked
+              block as new lines.
+
+zP and zp  like "P" and "p" except without adding trailing spaced when
+           pasting a block.  Inserted text won't always be a rectangle.
+           Useful with "zy"  which yanks highlighted text without trailing
+           whitespace.
+
+# Surrounding
+
+Eight punctuation marks, (, ), {, }, [, ], <, and >, represent themselves and
+their counterparts.  If the opening mark is used, contained whitespace is also
+trimmed.  The targets b, B, r, and a are aliases for ), }, ], and >. A t is a
+pair of HTML or XML tags.  The letters w, W, and s correspond to a word, a WORD,
+and a sentence, respectively.  These are special in that they have nothing to
+delete, and used with |ds| they are a no-op.  With |cs|, one could consider them
+a slight shortcut for ysi (cswb == ysiwb, more or less).
+
+A p represents a paragraph.  This behaves similarly to w, W, and s above;
+however, newlines are sometimes added and/or removed.
+
+Delete surroundings is *ds* .  The next character given determines the target
+to delete.
+
+  Old text                  Command     New text ~
+  "Hello *world!"           ds"         Hello world!
+  (123+4*56)/2              ds)         123+456/2
+  <div>Yo!*</div>           dst         Yo!
+
+Change surroundings is *cs* .  It takes two arguments, a target like with
+|ds|, and a replacement.  *cS* changes surroundings, placing the surrounded
+text on its own line(s) like |yS|.
+
+  Old text                  Command     New text ~
+  "Hello *world!"           cs"'        'Hello world!'
+  "Hello *world!"           cs"<q>      <q>Hello world!</q>
+  (123+4*56)/2              cs)]        [123+456]/2
+  (123+4*56)/2              cs)[        [ 123+456 ]/2
+  <div>Yo!*</div>           cst<p>      <p>Yo!</p>
+
+*ys* takes a valid Vim motion or text object as the first object, and wraps
+it using the second argument as with |cs|.  (It's a stretch, but a good
+mnemonic for "ys" is "you surround".)
+
+  Old text                  Command     New text ~
+  Hello w*orld!             ysiw)       Hello (world)!
+
+As a special case, *yss* operates on the current line, ignoring leading
+whitespace.
+
+  Old text                  Command     New text ~
+      Hello w*orld!         yssB            {Hello world!}
+
+There is also *yS* and *ySS* which indent the surrounded text and place it
+on a line of its own.
+
+In visual mode, a simple "S" with an argument wraps the selection.  This is
+referred to as the *vS* mapping, although ordinarily there will be
+additional keystrokes between the v and S.  In linewise visual mode, the
+surroundings are placed on separate lines and indented.  In blockwise visual
+mode, each line is surrounded.
+
+A "gS" in visual mode, known as *vgS* , behaves similarly.  In linewise visual
+mode, the automatic indenting is suppressed.  In blockwise visual mode, this
+enables surrounding past the end of the line with 'virtualedit' set (there
+seems to be no way in Vim Script to differentiate between a jagged end of line
+selection and a virtual block selected past the end of the line, so two maps
+were needed).
+
+Replacements:
+A replacement argument is a single character, and is required by |cs|, |ys|, and
+|vS|.  If either ), }, ], or > is used, the text is wrapped in the appropriate
+pair of characters.  Similar behavior can be found with (, {, and [ (but not <),
+which append an additional space to the inside.  Characters like / or | may also
+be used.  To fulfill the common need for code blocks in C-style languages, <C-}>
+(which is really <C-]>) adds braces on lines separate from the content.
+
+If t or < is used, Vim prompts for an HTML/XML tag to insert.  You may specify
+attributes here and they will be stripped from the closing tag. If replacing a
+tag, its attributes are kept in the new tag. End your input with > to discard
+the those attributes. If <C-T> is used, the tags will appear on lines by
+themselves.
+
+If f, F, or <C-F> is used, Vim prompts for a function name to insert.  The target
+text will be wrapped in a function call. If f is used, the text is wrapped with
+() parentheses; F adds additional spaces inside the parentheses.  <C-F> inserts
+the function name inside the parentheses.
+
+  Old text                  Command           New text ~
+  "hello"                   ysWfprint<cr>     print("hello")
+  "hello"                   ysWFprint<cr>     print( "hello" )
+  "hello"                   ysW<C-f>print<cr> (print "hello")
+
+If s is used, a leading but not trailing space is added.  This is useful for
+removing parentheses from a function call with csbs.
+
+# Text Objects
+aw - a word (includes surrounding white space)
+iw - inner word (doesn't include surrounding white space)
+
+A command using a motion, e.g., cw, operates from the current cursor position. A
+command using a text-object, e.g., ciw operates on the whole object regardless
+of the cursor position.  Although this requires one more character, it saves you
+the time and effort of moving the cursor into the “right” position.  For
+example, to delete a word using dw the cursor must be at the start of the word,
+any other position would delete only part of the word; however, daw allows the
+cursor to be at any position in the word.
+
+aw/iw words
+as/is sentences
+ap/ip paragraphs
+a"/i" double-quoted string
+a'/i' single-quoted string
+a`/i` back tick quoted string
+a)/i( parenthesis block (also ab/ib - b for block)
+a]/i[ bracket block
+a}/i{ curly brace block (also aB/iB)
+a</i< angle bracket block
+at/it markup language tags
+
+With 'michaeljsmith/vim-indent-object'
+ai  an indentation level and line above.
+ii  inner indentation level (no line above).
+aI  an indentation level and lines above/below.
+iI  inner indentation level (no lines above/below).
+
+For ), ], }, < either the left or right character can be used
+
+da" deletes double quoted strings including the quotes, di" excludes them
+ci" changes text in quotes
+
+# Options
+:set no<option> - Unset the option.
+:set <option>! - Toggle the option.
+:set <option>? - Return the option’s value.
+:set <option>=<value> - Set a value <value> (string or number).
+:set <option>+=<value> - Add the value <value> for a number option, append a
+string <value> for a string option.
+:set <option>-=<value> - Subtract the value <value> for a number option,
+delete the string <value> for a string option.
+:set <option>& - Reset the option to its default value.
+
+# Registers
+When writing in insert mode, it’s possible to paste a register at the current
+location without leaving insert mode. To do this, press CTRL-R then type the
+name of a register. The text is inserted as if it were typed: that means
+autoindent will be respected. Pressing CTRL-R twice will insert the text
+literally.  See help for i_CTRL-R
+
+# ReplaceWithRegisterPlugin
+
+USAGE
+[count]["x]gr{motion}   Replace {motion} text with the contents of register x.
+                        Especially when using the unnamed register, this is
+                        quicker than "_d{motion}P or "_c{motion}<C-R>"
+[count]["x]grr          Replace [count] lines with the contents of register x.
+                        To replace from the cursor position to the end of the
+                        line use ["x]gr$
+{Visual}["x]gr          Replace the selection with the contents of register x.
+
+# Expand Region Plugin
++ expands the text object selected (letter, word, sentence)
+_ narrows the text object selected
+
+# Window commands
+
+Preface with CTRL-W
+
++ increase window height N lines (count comes first, e.g. [count]CTRL-W +)
+- decrease window height N lines (count comes first)
+= make all windows same height and width
+> increase width N columns (count comes first)
+< decrease width N columns (count comes first)
+H move window to far left
+J move window to very bottom
+K move window to very top
+L move window to far right
+P go to previous window
+
+See :help CTRL-W for many, many more
+
+# Special keys in insert mode
+
+See :help ins-special-keys and :help ins-special-special
+
+CTRL-@ insert previously inserted text and stop insert
+CTRL-A insert previously inserted text
+CTRL-T insert one indent at beginning of line
+CTRL-D delete one indent at beginning of line
+CTRL-G u undo
+CTRL-G k one line up, insert start column
+CTRL-G j one line down, insert start column
+
+
+# CTRL
+CTRL-2
+CTRL-SHIFT-2
+CTRL-6
+CTRL-SHIFT-6
+CTRL-A - Add [count] to the number or alpha character. Can increment multiple
+         selections intelligently (bound by tmux normally)
+CTRL-B - PgUp
+CTRL-C - in normal mode, abort the pending command
+CTRL-D - down half a screen
+CTRL-E - scroll window [count] lines down
+CTRL-F - PgDown
+CTRL-G - Print the current file name, cursor position
+CTRL-H - same as 'h'
+CTRL-I - go to [count] newer position in the jump list
+CTRL-J - same as 'j'
+CTRL-K - enter digraph
+CTRL-L - clear and redraw
+CTRL-M - [count] lines downward to first non-blank, same as + or <CR>
+CTRL-N - same as 'j'
+CTRL-O - go to [count] older position in the jump list
+CTRL-P - same as 'k'
+CTRL-Q - terminal control flow
+CTRL-R - redo
+CTRL-S - terminal control flow
+CTRL-T - Jump to older entry in the tag stack
+CTRL-U - Up half a screen
+CTRL-V - Blockwise visual mode
+CTRL-W - Window commands
+CTRL-X - Subtract count from number or alpha character at or after cursor
+CTRL-Y - scroll window [count] lines up
+CTRL-[ - Esc
+CTRL-] - jump to definition of a tag
+
