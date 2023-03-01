@@ -140,8 +140,11 @@ sethandler <C-D> a:vim
 sethandler <C-E> a:ide
 " CTRL-F - same functionality as PageDown. Redundant. Cede to IDE for 'Find'
 sethandler <C-F> a:ide
-" CTRL-G - print the current file name, cursor position. Marginal. Cede to IDE.
-sethandler <C-G> a:ide
+" CTRL-G - print the current file name, cursor position.  In command mode
+" (c_CTRL-G), during an incsearch moves to the next match.  I have this
+" bound to 'Go to line' in the IDE which is handled by vim in command mode
+" with g.  Allow IDE control in insert mode, vim otherwise.
+sethandler <C-G> i:ide
 " CTRL-H - same as 'h' or 'left'. Redundant. 'Type hierarchy' in IDE.
 sethandler <C-H> a:ide
 " CTRL-I - go to [count] newer position in the jump list. Show import
@@ -174,8 +177,10 @@ sethandler <C-R> a:vim
 sethandler <C-S> a:ide
 " CTRL-T - Jump to older entry in tag stack. g<RightMouse> and C-Rightmouse
 " do the same thing but my fingers are used to CTRL-T.  IDE uses this for
-" git update.
-sethandler <C-T> a:vim
+" git update.  In command mode (c_CTRL-T), during an incsearch moves to the
+" previous match.  Allow IDE control in insert mode, vim otherwise (mostly
+" just to mirror the mapping of c_CTRL-T's counterpart, c_CTRL-G).
+sethandler <C-T> i:ide
 " CTRL-U - up half a screen.  Essential
 sethandler <C-U> a:vim
 " CTRL-V - blockwise visual mode. IDE uses for paste. Paste is more useful
