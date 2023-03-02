@@ -96,6 +96,25 @@ if v:progname =~? "evim"
   finish
 endif
 
+call extend(v:colornames, {
+      \ 'sol_yellow':  '#b58900',
+      \ 'sol_orange':  '#cb4b16',
+      \ 'sol_red':     '#dc322f',
+      \ 'sol_magenta': '#d33682',
+      \ 'sol_violet':  '#6c71c4',
+      \ 'sol_blue':    '#268bd2',
+      \ 'sol_cyan':    '#2aa198',
+      \ 'sol_green':   '#859900',
+      \ 'sol_base03':  '#002b36',
+      \ 'sol_base02':  '#073642',
+      \ 'sol_base01':  '#586e75',
+      \ 'sol_base00':  '#657b83',
+      \ 'sol_base0':   '#839496',
+      \ 'sol_base1':   '#93a1a1',
+      \ 'sol_base2':   '#eee8d5',
+      \ 'sol_base3':   '#fdf6e3',
+      \}, 'keep')
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -172,7 +191,6 @@ if has('mouse')
 endif
 
 syntax enable
-colorscheme solarized
 
 " Extend the global default (NOTE: Remove comments in dictionary before sourcing)
 " "\/\\n\\n\<CR>": 1, " Motions are supported as well. Here's a search motion that finds a blank line
@@ -348,6 +366,23 @@ if has("autocmd")
     autocmd FileType ruby,eruby setlocal noballooneval
   endif
 
+  augroup qs_colors
+    autocmd!
+    " See vim-colors-solarized/colors/solarized.vim for how the Solarized
+    " color scheme reassigns the standard terminal color names to the
+    " Solarized color space.
+    "
+    " By default, QuickScopePrimary is linked to the Function token type and
+    " QuickScopeSecondary to the Define token type.  Both of these token types
+    " are in heavy use however, so I am going to customize to Solarized's
+    " yellow and violet colors which are uncommonly used in my highlighting.
+    autocmd ColorScheme * highlight QuickScopePrimary guifg=sol_yellow guibg=sol_base2 gui=underline guisp=sol_yellow
+          \ ctermfg=DarkYellow cterm=underline
+    autocmd ColorScheme * highlight QuickScopeSecondary guifg=sol_violet guibg=sol_base2 gui=underline guisp=sol_violet
+          \ ctermfg=Magenta cterm=underline
+  augroup END
+
+
   " Indent two spaces for these types
   autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss setlocal ai sw=2 sts=2 et
   " Something about RVM and rubycomplete together results in error
@@ -378,3 +413,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
                  \ | wincmd p | diffthis
 endif
+
+colorscheme solarized
+
