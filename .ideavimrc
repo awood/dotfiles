@@ -83,7 +83,7 @@ noremap <leader>nh :action CallHierarchy<cr>
 noremap <leader>re :action ExtractMethod<cr>
 noremap <leader>rn :action RenameElement<cr>
 noremap <leader>rf :action ReformatCode<cr>
-noremap <leader>rs :action ChangeTypeSignature<cr>
+noremap <leader>rs :action ChangeSignature<cr>
 noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
 
 " Leader-t (Tool windows)
