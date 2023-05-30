@@ -102,8 +102,9 @@ irg() {
     --header='Press ? to toggle preview / CTRL-R for ripgrep / CTRL-F for fzf' \
     --bind '?:toggle-preview' \
     --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
-    --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)" \
-    --bind "ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-f)" \
+    --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+rebind(ctrl-r)+transform-query(echo {q} > /tmp/rg-fzf-r; cat /tmp/rg-fzf-f)" \
+    --bind "ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-f)+transform-query(echo {q} > /tmp/rg-fzf-f; cat /tmp/rg-fzf-r)" \
+    --bind "start:unbind(ctrl-r)" \
     --prompt '1. ripgrep> ' \
     --layout reverse \
     --delimiter : \
