@@ -353,11 +353,6 @@ if has("autocmd")
   " highlight end of line whitespace
   highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
 
-  " vim-colors-solarized sets it (`:verbose highlight SpellBad`) as
-  " SpellBad       xxx term=undercurl cterm=undercurl gui=undercurl guisp=Red
-  " Unfortunately, xfce4-terminal doesn't support undercurl so we customize
-  highlight SpellBad term=underline cterm=underline ctermul=red gui=undercurl guisp=red
-
   " Don't expand tabs for makefiles
   autocmd FileType make setlocal noexpandtab
 
@@ -414,5 +409,12 @@ if !exists(":DiffOrig")
                  \ | wincmd p | diffthis
 endif
 
+" The colorscheme needs to be set after QuickScope color customizations
 colorscheme solarized
+
+" vim-colors-solarized sets it (`:verbose highlight SpellBad`) as
+" SpellBad       xxx term=undercurl cterm=undercurl gui=undercurl guisp=Red
+" Unfortunately, xfce4-terminal doesn't support undercurl so we customize
+highlight SpellBad term=underline cterm=underline ctermul=red gui=undercurl guisp=red
+
 
