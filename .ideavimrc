@@ -75,6 +75,7 @@ noremap <leader>fu :action FindUsages<cr>
 
 " Leader-n (Navigate somewhere)
 noremap <leader>ni :action GotoImplementation<cr>
+noremap <leader>ns :action GotoSuperMethod<cr>
 noremap <leader>nt :action GotoTest<cr>
 noremap <leader>nl :action RecentLocations<cr>
 noremap <leader>nh :action CallHierarchy<cr>
