@@ -1,0 +1,26 @@
+#! /bin/zsh
+
+mock-repoquery() {
+    local profile="$1"
+    [ -f "$profile" ] || profile="/etc/mock/${1}.cfg"
+
+    # Take all baseurls in a file and make them into an array
+    # See Parameter Expansion Flags section of the zshexpn man page and
+    # http://unix.stackexchange.com/a/29748
+    local repo_urls
+    repo_urls=("${(@f)$(sed -n -r 's/.*baseurl=(.*)(\\n|$)/\1/p' $profile | cut -d'\' -f1)}")
+    local repo_args
+    repo_args=()
+    for ((i=1; i <= ${#repo_urls}; i++)); do
+        repo_args+="--repofrompath=r${i},$repo_urls[i]"
+        repo_args+="--repoid=r${i}"
+    done
+    if type dnf; then
+        prefix="dnf"
+    else
+        prefix=""
+    fi
+    $prefix repoquery --disablerepo='*' "${repo_args[@]}" "$@[2,-1]"
+}
+
+mock-repoquery "$@"

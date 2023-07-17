@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+PATH="/usr/local/bin:$PATH"
+GIT_DIR=$(git rev-parse --git-dir)
+trap "rm -f $GIT_DIR/tags.$$" EXIT INT TERM
+nice -n 15 ctags --tag-relative -Rf$GIT_DIR/tags.$$ --exclude=.git --languages=-javascript,sql,css --fields=+l
+mv $GIT_DIR/tags.$$ $GIT_DIR/tags
