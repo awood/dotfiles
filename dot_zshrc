@@ -72,12 +72,12 @@ HIST_STAMPS="%b %e %Y (%H:%M:%S)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(colorize gitfast httpie tig fzf poetry kubetail)
 
+# Completions need to be sourced before oh-my-zsh runs
+fpath=( ~/.zfunc "$ZSH/custom/completion" "${fpath[@]}" )
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-fpath=( ~/.zfunc "$ZSH/custom/completion" "${fpath[@]}" )
-
 function () {
     local zfuncs
     zfuncs=()
