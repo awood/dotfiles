@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-fpath=( ~/.zfunc "${fpath[@]}" )
+fpath=( ~/.zfunc "$ZSH/custom/completion" "${fpath[@]}" )
 
 function () {
     local zfuncs

@@ -3,7 +3,6 @@
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-    # exact = true
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
@@ -41,4 +40,10 @@
     type = "archive-file"
     url = "https://github.com/ahmetb/kubectx/releases/download/v{{$kubectxVersion}}/kubectx_v{{$kubectxVersion}}_{{.chezmoi.os}}_x86_64.tar.gz"
     path = "kubectx"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+[".oh-my-zsh/custom/completion/_kubectx.zsh"]
+    type = "archive-file"
+    url = "https://github.com/ahmetb/kubectx/archive/refs/tags/v{{$kubectxVersion}}.tar.gz"
+    path = "kubectx-{{$kubectxVersion}}/completion/_kubectx.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
