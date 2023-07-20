@@ -1,5 +1,12 @@
 {{- $refreshPeriod := "240h" }}
 
+[".tmux/plugins/tpm"]
+    type = "archive"
+    url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
@@ -11,6 +18,7 @@
     url = "https://github.com/junegunn/fzf-git.sh/archive/master.tar.gz"
     exact = true
     stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $kubetailVersion := "1.6.18" -}}
 [".oh-my-zsh/custom/plugins/kubetail"]
@@ -47,3 +55,4 @@
     url = "https://github.com/ahmetb/kubectx/archive/refs/tags/v{{$kubectxVersion}}.tar.gz"
     path = "kubectx-{{$kubectxVersion}}/completion/_kubectx.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
+
