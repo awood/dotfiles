@@ -73,6 +73,8 @@
 
 [diff]
     colorMoved = default
+    algorithm = histogram
+    tool = meld
 
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
@@ -90,9 +92,6 @@
     from = awood@redhat.com
 
 [merge]
-    tool = meld
-
-[diff]
     tool = meld
 
 [init]
