@@ -81,6 +81,8 @@ Plug 'majutsushi/tagbar'
 " tmux syntax highlighting
 Plug 'zaiste/tmux.vim'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
 
@@ -273,7 +275,21 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+let g:tmux_navigator_no_mappings = 1
+
+" Disable tmux navigator when zooming the Vim pane.  Default behavior is to
+" unzoom if an attempt is made to navigate past the 'edge'.  Alternate
+" behavior is controlled by let g:tmux_navigator_preserve_zoom = 1 which keeps
+" tmux zoomed when moving from Vim to another pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " Mappings
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
+
 map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
 map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
