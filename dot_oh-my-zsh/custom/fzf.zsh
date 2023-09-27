@@ -129,6 +129,13 @@ podrmi() {
   podman images | sed 1d | fzf-tmux -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r podman rmi
 }
 
+ogre() {
+oc get $* -o name | \
+    fzf --preview 'oc get {} -o yaml' \
+        --header 'CTRL-R to reload \ CTRL-] edit live' \
+        --bind "ctrl-r:reload(oc get $* -o name)" \
+        --bind "ctrl-]:execute(oc edit {+})";
+}
 
 # CTRL-G CTRL-F for Files
 # CTRL-G CTRL-B for Branches
