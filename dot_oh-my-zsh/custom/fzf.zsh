@@ -137,6 +137,33 @@ oc get $* -o name | \
         --bind "ctrl-]:execute(oc edit {+})";
 }
 
+fzfman() {
+    batman="man {1} | col -bx | bat --language=man --plain --color always --theme=\"Solarized (dark)\""
+    man -k . | sort \
+    | awk -v cyan=$(tput setaf 6) -v blue=$(tput setaf 4) -v res=$(tput sgr0) -v bld=$(tput bold) '{ $1=cyan bld $1; $2=res blue;} 1' \
+    | fzf  \
+       -q "$1" \
+       --ansi \
+       --tiebreak=begin \
+       --prompt='Man > '  \
+       --preview-window '50%,rounded,<50(up,85%,border-bottom)' \
+       --preview "${batman}" \
+       --bind "enter:execute(man {1})"
+}
+
+podtails() {
+    : | fzf \
+    --info=inline --layout=reverse --header-lines=1 \
+    --prompt "$(oc config current-context | sed 's/-context$//')> " \
+    --header $'Enter (oc exec) / CTRL-O (open log in editor) / CTRL-R (reload)\n\n' \
+    --bind 'start:reload:oc get pods' \
+    --bind 'ctrl-r:reload:oc get pods' \
+    --bind 'enter:execute:oc exec -it {1} -- bash > /dev/tty' \
+    --bind 'ctrl-o:execute:${EDITOR:-vim} <(oc logs --all-containers {1}) > /dev/tty' \
+    --preview-window up,wrap,follow \
+    --preview 'oc logs --follow --all-containers --tail=10000 {1}' "$@"
+}
+
 # CTRL-G CTRL-F for Files
 # CTRL-G CTRL-B for Branches
 # CTRL-G CTRL-T for Tags
