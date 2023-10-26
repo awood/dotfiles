@@ -116,3 +116,7 @@
 
 [commit]
     gpgsign = true
+
+[rh-pre-commit]
+	enableLocalConfig = false
+	checkSecrets = true
