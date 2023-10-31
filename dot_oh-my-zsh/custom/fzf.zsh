@@ -165,7 +165,7 @@ podtails() {
 }
 
 # From https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/#pull-requests
-function pr-checkout() {
+pr-checkout() {
     local jq_template pr_number
 
     jq_template='"'\
