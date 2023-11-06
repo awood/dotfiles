@@ -361,23 +361,6 @@ if has("autocmd")
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  " Clear vimrcEx group in case we are sourced twice
-  autocmd!
-  autocmd FileType mail,python,ruby,markdown,md,gitcommit setlocal spell
-
-  " highlight end of line whitespace
-  highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
-
-  " Don't expand tabs for makefiles
-  autocmd FileType make setlocal noexpandtab
-
-  " Turn off balloons in ruby.  See http://stackoverflow.com/a/1111363
-  if has("gui_running")
-    autocmd FileType ruby,eruby setlocal noballooneval
-  endif
-
   augroup qs_colors
     autocmd!
     " See vim-colors-solarized/colors/solarized.vim for how the Solarized
@@ -394,27 +377,40 @@ if has("autocmd")
           \ ctermfg=Magenta cterm=underline
   augroup END
 
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    " Clear vimrcEx group in case we are sourced twice
+    autocmd!
+    autocmd FileType mail,python,ruby,markdown,md,gitcommit setlocal spell
 
-  " Indent two spaces for these types
-  autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss setlocal ai sw=2 sts=2 et
-  " Something about RVM and rubycomplete together results in error
-  " messages printed to the console about gems missing native extensions
-  autocmd FileType ruby setlocal omnifunc=syntaxcomplete#Complete
+    " Don't expand tabs for makefiles
+    autocmd FileType make setlocal noexpandtab
 
-  " Turn off the visual bell in both gui and terminal mode
-  autocmd VimEnter * set vb t_vb=
+    " Turn off balloons in ruby.  See http://stackoverflow.com/a/1111363
+    if has("gui_running")
+      autocmd FileType ruby,eruby setlocal noballooneval
+    endif
 
-  " For all text files wrap at 80 characters and show right margin
-  autocmd FileType text,markdown setlocal textwidth=80 colorcolumn=80
+    " Indent two spaces for these types
+    autocmd FileType ruby,eruby,yaml,html,less,vim,xml,ant,scss setlocal ai sw=2 sts=2 et
+    " Something about RVM and rubycomplete together results in error
+    " messages printed to the console about gems missing native extensions
+    autocmd FileType ruby setlocal omnifunc=syntaxcomplete#Complete
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim) or when in a git commit message
-  " since those are transient.
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
-    \   exe "normal g`\"" |
-    \ endif
+    " Turn off the visual bell in both gui and terminal mode
+    autocmd VimEnter * set vb t_vb=
+
+    " For all text files wrap at 80 characters and show right margin
+    autocmd FileType text,markdown setlocal textwidth=80 colorcolumn=80
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim) or when in a git commit message
+    " since those are transient.
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
+      \   exe "normal g`\"" |
+      \ endif
   augroup END
 endif
 
@@ -433,5 +429,5 @@ colorscheme solarized
 " SpellBad       xxx term=undercurl cterm=undercurl gui=undercurl guisp=Red
 " Unfortunately, xfce4-terminal doesn't support undercurl so we customize
 highlight SpellBad term=underline cterm=underline ctermul=red gui=undercurl guisp=red
-
-
+" highlight end of line whitespace
+highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
