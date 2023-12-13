@@ -28,6 +28,12 @@
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
+[".oh-my-zsh/custom/completion/_kubetail.zsh"]
+    type = "archive-file"
+    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
+    path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $pluggedVersion := "0.11.0" -}}
 [".vim/autoload/plug.vim"]
     type = "archive-file"
