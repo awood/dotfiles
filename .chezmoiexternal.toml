@@ -20,6 +20,14 @@
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $fzfmarksVersion := "1.1" -}}
+[".oh-my-zsh/custom/plugins/fzf-marks"]
+    type = "archive"
+    url = "https://github.com/urbainvaes/fzf-marks/archive/refs/tags/{{$fzfmarksVersion}}.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $kubetailVersion := "1.6.18" -}}
 [".oh-my-zsh/custom/plugins/kubetail"]
     type = "archive"

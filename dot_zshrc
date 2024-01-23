@@ -71,7 +71,7 @@ HIST_STAMPS="%b %e %Y (%H:%M:%S)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colorize gitfast httpie tig fzf poetry kubetail gradle)
+plugins=(colorize gitfast httpie tig fzf poetry kubetail gradle fzf-marks)
 
 # Completions need to be sourced before oh-my-zsh runs
 fpath=( ~/.zfunc "$ZSH/custom/completion" "${fpath[@]}" )
