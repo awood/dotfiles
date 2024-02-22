@@ -1,5 +1,6 @@
 path+=("$HOME/bin")
 path+=("$HOME/.cargo/bin")
+path+=("$HOME/.local/bin")
 path+=('/sbin')
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
