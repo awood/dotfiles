@@ -85,7 +85,9 @@
     edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; $EDITOR `f`"
     add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
     # Git prefixes your current branch with an asterisk so we don't want to delete that one
-    cleanup = "!git branch --merged master | grep -E -v '(^\\*|master)' | xargs -r -n 1 --verbose git branch -d"
+    cleanup = "!git branch --merged main | grep -E -v '(^\\*|main)' | xargs -r -n 1 --verbose git branch -d"
+    bb = !better-git-branch.sh
+    praise = blame -w -M -C -C -C
 
 [sendemail]
     smtpserver = smtp.corp.redhat.com
@@ -96,13 +98,14 @@
 
 [init]
     templatedir = ~/.git_template
-	defaultBranch = main
+    defaultBranch = main
 
 [push]
     default = tracking
 
 [branch]
     autosetuprebase = always
+    sort = -committerdate
 
 [http]
     sslVerify = true
@@ -118,5 +121,11 @@
     gpgsign = true
 
 [rh-pre-commit]
-	enableLocalConfig = false
-	checkSecrets = true
+    enableLocalConfig = false
+    checkSecrets = true
+
+[rerere]
+    enabled = true
+
+[column]
+    ui = auto
