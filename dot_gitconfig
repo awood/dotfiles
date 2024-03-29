@@ -129,3 +129,6 @@
 
 [column]
     ui = auto
+
+[rebase]
+    updateRefs = true
