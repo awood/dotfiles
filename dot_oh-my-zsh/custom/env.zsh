@@ -10,3 +10,5 @@ export PRE_COMMIT_COLOR="never"
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
+
+export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
