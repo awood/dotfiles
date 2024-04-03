@@ -4,13 +4,17 @@ let mapleader = "\"
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'preservim/nerdtree'
+Plug 'justinmk/vim-sneak'
+Plug 'tommcdo/vim-exchange'
 
 " Ignore case in searching unless the search pattern contains upper case
 set ignorecase
 set smartcase
+set incsearch
 
 " Use Idea to join lines intelligently
 set ideajoin
@@ -25,9 +29,8 @@ set smartcase
 set visualbell
 set noerrorbells
 
-" quickscope needs to be declared after sneak
-set sneak
 set quickscope
+set matchit
 
 " Don't use Ex mode, use Q for formatting
 map Q gq

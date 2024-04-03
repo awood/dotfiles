@@ -63,6 +63,9 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'unblevable/quick-scope'
 
+Plug 'tommcdo/vim-exchange'
+
+Plug 'vim-scripts/argtextobj.vim'
 Plug 'vim-scripts/spec.vim'
 Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
