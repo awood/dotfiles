@@ -88,6 +88,7 @@
     cleanup = "!git branch --merged main | grep -E -v '(^\\*|main)' | xargs -r -n 1 --verbose git branch -d"
     bb = !better-git-branch.sh
     praise = blame -w -M -C -C -C
+    pushfwl = push --force-with-lease
 
 [sendemail]
     smtpserver = smtp.corp.redhat.com
