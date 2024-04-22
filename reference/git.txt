@@ -1,0 +1,17 @@
+Use `git diff --word-diff` to view changes within a line rather
+Use `git push --force-with-lease` to prevent force push clobbering some updates
+that you haven't pulled down yet
+Use `git reflog` to get a log of references if you need to go back to one
+Use `git log -S` to search all through the log for a word or symbol
+Use `git blame -L <start>,<end>` to just blame a portion of the file.
+Use `git blame -w -C -C -C` to have blame more intelligently follow code
+movement.
+Use `git log -L :<symbol>:path/to/file` to try to log changes to the
+class/variable/etc.
+`git maintainance` will create a cron job that keeps your repo GCed.
+`git switch` for branch operations/moving the HEAD reference and `git restore`
+for undoing changes E.g. `git restore --source HEAD@{10.minutes.ago} file.txt`
+or `git restore -p file.txt` to restore patches of a file
+`git commit --fixup=<commit>` and `git rebase --autosquash` to apply all the
+fixups and stuff.  This saves the effort of doing an interactive rebase.
+`git worktrees` for working on multiple branches as once.

@@ -1,0 +1,49 @@
+noremap <c-n> :NERDTreeToggle<CR>
+
+nnoremap [on :set number norelativenumber<cr>
+nnoremap ]on :set nonumber norelativenumber<cr>
+nnoremap [or :set number relativenumber<cr>
+nnoremap ]or :set nonumber norelativenumber<cr>
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+nnoremap [l :action PreviousOccurence<cr>
+nnoremap ]l :action NextOccurence<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap [q :action GotoPreviousError<cr>
+nnoremap ]q :action GotoNextError<cr>
+
+nnoremap [b :action PreviousTab<cr>                     " Tabs
+nnoremap ]b :action NextTab<cr>
+noremap <leader>q :action CloseContent<cr>
+noremap <leader>Q :action ReopenClosedTab<cr>
+
+noremap <leader>dd :action ShowErrorDescription<cr>     " Diagnostic
+
+noremap <leader>fu :action FindUsages<cr>               " Find
+
+noremap <leader>ni :action GotoImplementation<cr>       " Navigate
+noremap <leader>nt :action GotoTest<cr>
+noremap <leader>nl :action RecentLocations<cr>
+noremap <leader>nh :action CallHierarchy<cr>
+
+noremap <leader>re :action ExtractMethod<cr>            " Refactor
+noremap <leader>rn :action RenameElement<cr>
+noremap <leader>rf :action ReformatCode<cr>
+noremap <leader>rs :action ChangeTypeSignature<cr>
+noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
+
+noremap <leader>tn :NERDTreeFocus<cr>                   " Tools
+noremap <leader>tt :action ActivateTerminalToolWindow<cr>
+noremap <leader>tg :action ActivateVersionControlToolWindow<cr>
+noremap <leader>tq :action HideActiveWindow<cr>
+nnoremap <leader>th :action HideAllWindows<cr> <bar> :action FocusEditor<cr>
+
+noremap <leader>ed :action Debug<cr>                    " Execute
+noremap <leader>er :action Run<cr>
+noremap <leader>ecr :action RunClass<cr>
+noremap <leader>ecd :action DebugClass<cr>
+noremap <leader>esd :action ChooseDebugConfiguration<cr>
+noremap <leader>esr :action ChooseRunConfiguration<cr>
+
+noremap <Leader>vfa :action VimFindActionIdAction<cr>
