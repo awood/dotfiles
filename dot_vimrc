@@ -339,6 +339,9 @@ vnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 vnoremap g<C-]> <C-]>
 
+" Since vim doesn't have +xterm_clipboard (but gvim does)
+vnoremap <silent><Leader>y :w !xsel -b<CR><CR>
+
 " Opposite of 'J': split a line.  (By default 'K' runs man on the word under
 " the cursor.)
 nnoremap K i<CR><Esc>
