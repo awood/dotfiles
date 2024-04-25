@@ -107,9 +107,11 @@ Double `SHIFT`          Search everywhere
 `\ed`           Debug
 `\ecd`          Debug class
 `\esd`          Choose debug configuration
+`ALT+SHIFT+F9`  Choose run configuration
 `\er`           Run
 `\ecr`          Run class
 `\esr`          Choose run configuration
+`ALT+SHIFT+F10` Choose run configuration
 
 ## Usage Search
 
