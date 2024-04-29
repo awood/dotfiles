@@ -20,7 +20,7 @@
     light = false
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [delta "solarized-delta"]
     dark = true
@@ -134,3 +134,4 @@
 
 [rebase]
     updateRefs = true
+    autosquash = true
