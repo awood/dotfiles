@@ -40,6 +40,10 @@ map Q gq
 " historical reasons behind the redundancy.
 map Y y$
 
+" Opposite of 'J': split a line.  (By default 'K' runs man on the word under
+" the cursor.)
+nnoremap K i<CR><Esc>
+
 " Trigger a highlight in the appropriate direction only when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
