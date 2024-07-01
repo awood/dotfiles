@@ -28,7 +28,7 @@
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $kubetailVersion := "1.6.18" -}}
+{{ $kubetailVersion := "1.6.20" -}}
 [".oh-my-zsh/custom/plugins/kubetail"]
     type = "archive"
     url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
@@ -42,7 +42,7 @@
     path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $pluggedVersion := "0.11.0" -}}
+{{ $pluggedVersion := "0.13.0" -}}
 [".vim/autoload/plug.vim"]
     type = "archive-file"
     url = "https://github.com/junegunn/vim-plug/archive/refs/tags/{{$pluggedVersion}}.tar.gz"
@@ -57,7 +57,7 @@
     path = "dive"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $sternVersion := "1.25.0" -}}
+{{ $sternVersion := "1.30.0" -}}
 ["bin/stern"]
     type = "archive-file"
     url = "https://github.com/stern/stern/releases/download/v{{$sternVersion}}/stern_{{$sternVersion}}_{{.chezmoi.os}}_{{.chezmoi.arch}}.tar.gz"
