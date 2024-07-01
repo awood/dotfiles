@@ -20,6 +20,13 @@
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $fzfmarksVersion := "1.1" -}}
 [".oh-my-zsh/custom/plugins/fzf-marks"]
     type = "archive"

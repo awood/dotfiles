@@ -12,3 +12,6 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
 
 export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+
+# Default is underline which I find annoying
+export ZSH_HIGHLIGHT_STYLES[path]=none
