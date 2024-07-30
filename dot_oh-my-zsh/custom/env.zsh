@@ -15,3 +15,4 @@ export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 
 # Default is underline which I find annoying
 export ZSH_HIGHLIGHT_STYLES[path]=none
+export ZSH_HIGHLIGHT_STYLES[comment]='fg=bright-gray'
