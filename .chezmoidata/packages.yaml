@@ -10,6 +10,7 @@ packages:
       - 'bmon'
       - 'jq'
       - 'ctags'
+      - 'podman-tui'
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
