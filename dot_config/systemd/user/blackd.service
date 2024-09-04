@@ -1,0 +1,11 @@
+[Unit]
+Description=Blackd Python Formating Daemon
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+KillMode=process
+ExecStart=/usr/bin/blackd
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Podman API Service for IntelliJ
+Documentation=man:podman-system-service(1)
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+KillMode=process
+Environment=LOGGING="--log-level=info"
+ExecStart=/usr/bin/podman $LOGGING system service --time=0 tcp:0.0.0.0:12979
+
+[Install]
+WantedBy=default.target
