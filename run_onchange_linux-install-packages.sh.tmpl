@@ -1,0 +1,25 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+# https://github.com/olivergondza/bash-strict-mode
+set -eEuo pipefail
+trap 's=$?; echo >&2 "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ range .packages.fedora.dnf -}}
+sudo dnf install -y {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ range .packages.fedora.cargo -}}
+cargo install {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.fedora.pip -}}
+pip install {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.fedora.httpie -}}
+httpie cli plugins install {{ . | quote }}
+{{ end -}}
+
+{{ end -}}
