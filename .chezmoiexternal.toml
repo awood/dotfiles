@@ -64,6 +64,13 @@
     path = "dive"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $jqpVersion := "0.7.0" -}}
+["bin/jqp"]
+    type = "archive-file"
+    url = "https://github.com/noahgorstein/jqp/releases/download/v{{$jqpVersion}}/jqp_{{$.chezmoi.os}}_x86_64.tar.gz"
+    path = "jqp"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $sternVersion := "1.30.0" -}}
 ["bin/stern"]
     type = "archive-file"

@@ -14,8 +14,8 @@ sudo dnf install -y {{ . | quote }}
 cargo install {{ . | quote }}
 {{ end -}}
 
-{{ range .packages.fedora.pip -}}
-pip install {{ . | quote }}
+{{ range .packages.fedora.pipx -}}
+pipx install {{ . | quote }}
 {{ end -}}
 
 {{ range .packages.fedora.httpie -}}

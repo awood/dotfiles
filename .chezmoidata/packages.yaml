@@ -1,21 +1,33 @@
 packages:
   fedora:
     dnf:
-      - 'ripgrep'
-      - 'fzf'
-      - 'httpie'
-      - 'keychain'
-      - 'htop'
-      - 'rofi'
+      - 'bat'
       - 'bmon'
-      - 'jq'
       - 'ctags'
+      - 'duf'
+      - 'fzf'
+      - 'git-delta'
+      - 'htop'
+      - 'httpie'
+      - 'jq'
+      - 'keychain'
+      - 'libxml2'
+      - 'ncdu'
+      - 'pipx'
       - 'podman-tui'
+      - 'ripgrep'
+      - 'rofi'
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
       - 'atac'
-    pip:
+    pipx:
+      - 'black'
+      - 'ipython'
+      - 'kaskade'
+      - 'poetry'
+      - 'posting'
+      - 'rexi'
       - 'rich-cli'
       - 'yq'
     httpie:
