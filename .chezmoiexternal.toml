@@ -49,12 +49,19 @@
     path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $pluggedVersion := "0.13.0" -}}
+{{ $pluggedVersion := "0.14.0" -}}
 [".vim/autoload/plug.vim"]
     type = "archive-file"
     url = "https://github.com/junegunn/vim-plug/archive/refs/tags/{{$pluggedVersion}}.tar.gz"
     stripComponents = 1
     path = "plug.vim"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $qsvVersion := "0.134.0" -}}
+["bin/qsv"]
+    type = "archive-file"
+    url = "https://github.com/jqnatividad/qsv/releases/download/{{$qsvVersion}}/qsv-{{$qsvVersion}}-x86_64-unknown-{{$.chezmoi.os}}-gnu.zip"
+    path = "qsvpy312"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $diveVersion := "0.12.0" -}}

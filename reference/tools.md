@@ -11,3 +11,5 @@ I've listed less used tools here so I don't forget about them!
 * `ncdu` - Curses version of `du`
 * `posting` - TUI version of postman
 * `rexi` - RegEx testing tool
+* `qsv` - CSV file Swiss army knife
+* `csvlens` - CSV file viewer

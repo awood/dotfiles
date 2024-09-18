@@ -21,6 +21,7 @@ packages:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
       - 'atac'
+      - 'csvlens'
     pipx:
       - 'black'
       - 'ipython'
