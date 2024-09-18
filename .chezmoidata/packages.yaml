@@ -9,6 +9,7 @@ packages:
       - 'git-delta'
       - 'htop'
       - 'httpie'
+      - 'hyperfine'
       - 'jq'
       - 'keychain'
       - 'libxml2'

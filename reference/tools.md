@@ -13,3 +13,5 @@ I've listed less used tools here so I don't forget about them!
 * `rexi` - RegEx testing tool
 * `qsv` - CSV file Swiss army knife
 * `csvlens` - CSV file viewer
+* `hyperfine` - CLI benchmarking
+* 'spf' - like Midnight Commander
