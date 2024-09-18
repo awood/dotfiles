@@ -451,10 +451,6 @@ USAGE
                         line use ["x]gr$
 {Visual}["x]gr          Replace the selection with the contents of register x.
 
-# Expand Region Plugin
-+ expands the text object selected (letter, word, sentence)
-_ narrows the text object selected
-
 # Window commands
 
 Preface with CTRL-W
@@ -533,4 +529,28 @@ CTRL-] - jump to definition of a tag
 :Wall: Write every open window. Handy for kicking off tools like guard.
 :SudoWrite: Write a privileged file with sudo.
 :SudoEdit: Edit a privileged file with sudo.
-Typing a shebang line causes the file type to be re-detected. Additionally the file will be automatically made executable (chmod +x) after the next write.
+
+Typing a shebang line causes the file type to be re-detected. Additionally the
+file will be automatically made executable (chmod +x) after the next write.
+
+## Ack.vim
+The quickfix results window is augmented with these convenience mappings:
+
+?    a quick summary of these keys, repeat to close
+o    to open (same as Enter)
+O    to open and close the quickfix window
+go   to preview file, open but maintain focus on ack.vim results
+t    to open in new tab
+T    to open in new tab without moving to it
+h    to open in horizontal split
+H    to open in horizontal split, keeping focus on the results
+v    to open in vertical split
+gv   to open in vertical split, keeping focus on the results
+q    to close the quickfix window
+
+To search for a pattern that contains whitespace, you need to enclose the
+pattern in single quotes. For example: :Ack 'foo bar' to search for 'foo bar'.
+
+# Expand Region Plugin
++ expands the text object selected (letter, word, sentence)
+_ narrows the text object selected

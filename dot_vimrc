@@ -86,6 +86,8 @@ Plug 'zaiste/tmux.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'mileszs/ack.vim'
+
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
 
@@ -197,6 +199,15 @@ endif
 
 syntax enable
 
+" Use ripgrep for searching
+let g:ackprg = 'rg --vimgrep --smart-case'
+" Auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 1
+" Any empty search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+" Highlight searched term
+let g:ackhighlight = 1
+
 " Extend the global default (NOTE: Remove comments in dictionary before sourcing)
 " "\/\\n\\n\<CR>": 1, " Motions are supported as well. Here's a search motion that finds a blank line
 " 'a]' :1, " Support nesting of 'around' brackets
@@ -293,6 +304,9 @@ nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
 
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+
 map <F2> :NERDTreeToggle<CR> :wincmd p<CR>
 map <F3> :NERDTreeFocus<CR>
 map <F8> :TagbarToggle<CR>
@@ -309,6 +323,9 @@ vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
 
 " Pull up the current file in NERDTree then refocus on the current file pane
 map <leader>cf :NERDTreeFind<CR> :wincmd p<CR>
+
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>/ :Ack!<Space>
 
 nmap <leader>qs <plug>(QuickScopeToggle)
 xmap <leader>qs <plug>(QuickScopeToggle)
