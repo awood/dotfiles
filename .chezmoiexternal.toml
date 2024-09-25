@@ -72,6 +72,13 @@
     path = "qsvpy312"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $ovVersion := "0.36.0" -}}
+["bin/ov"]
+    type = "archive-file"
+    url = "https://github.com/noborus/ov/releases/download/v{{$ovVersion}}/ov_{{$ovVersion}}_{{$.chezmoi.os}}_{{$.chezmoi.arch}}.zip"
+    path = "ov"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]
     type = "archive-file"
