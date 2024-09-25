@@ -1,6 +1,7 @@
 \set QUIET 1
-\pset pager off
 \pset null '[null]'
+\pset linestyle unicode
+\pset border 2
 \set HISTSIZE 2000
 \x auto
 \encoding unicode

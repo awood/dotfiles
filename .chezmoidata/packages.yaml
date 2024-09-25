@@ -5,6 +5,7 @@ packages:
       - 'bmon'
       - 'ctags'
       - 'duf'
+      - 'fd-find'
       - 'fzf'
       - 'git-delta'
       - 'htop'
@@ -16,6 +17,7 @@ packages:
       - 'ncdu'
       - 'pipx'
       - 'podman-tui'
+      - 'pspg'
       - 'ripgrep'
       - 'rofi'
     cargo:

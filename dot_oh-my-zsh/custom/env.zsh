@@ -13,6 +13,8 @@ export TESTCONTAINERS_RYUK_DISABLED=true
 
 export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 
+export PSQL_PAGER='pspg'
+
 # Default is underline which I find annoying
 export ZSH_HIGHLIGHT_STYLES[path]=none
 export ZSH_HIGHLIGHT_STYLES[comment]='fg=bright-gray'
