@@ -5,10 +5,29 @@
 
 [core]
     excludesfile = ~/.gitignore
-    pager = delta
+    pager = delta --pager='ov -F'
 
 [pager]
-    log = "ov -F --section-delimiter '^commit' --section-header-num 3"
+    # overload delta pager for some commands
+    show = delta --pager='ov -F --header 3' --features solarized-delta
+
+    # We are now overloading some commands via "delta features"
+    # This allows us to use different pager per git command
+    # It allows to maintain a simpler config file and avoid escaping quotes
+    diff = delta --features=\"solarized-delta ov-diff\"
+    log  = delta --features=\"solarized-delta ov-log\"
+
+# we define the delta feature "ov-diff" we are using for git diff
+[delta "ov-diff"]
+    # the idea is to overload the pager used by delta when using git diff
+    # we are using the same pattern used by delta when the default pager (less) is used
+    # using ov section feature brings a better experience
+    pager=ov -F --section-delimiter '^\\[(\\+|C|M|\\-|=>)\\]' --section-header --pattern '•'
+
+# we define the delta feature "ov-log" we are using for git log
+[delta "ov-log"]
+    # the idea is to overload the pager used by delta when using git log
+    pager=ov -F --section-delimiter '^commit' --section-header-num 3
 
 [interactive]
     diffFilter = delta --color-only
