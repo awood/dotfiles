@@ -56,7 +56,7 @@ StyleColumnHighlight:
 StyleMarkLine:
   Background: "darkgoldenrod"
 StyleSectionLine:
-  Background: "green"
+  Background: "snow"
 StyleMultiColorHighlight:
   - Foreground: "red"
   - Foreground: "aqua"

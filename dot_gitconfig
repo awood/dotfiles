@@ -7,6 +7,9 @@
     excludesfile = ~/.gitignore
     pager = delta
 
+[pager]
+    log = "ov -F --section-delimiter '^commit' --section-header-num 3"
+
 [interactive]
     diffFilter = delta --color-only
 

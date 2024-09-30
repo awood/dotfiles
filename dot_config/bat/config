@@ -1,1 +1,3 @@
 --theme="Solarized (dark)"
+--pager="ov -F"
+--wrap=never
