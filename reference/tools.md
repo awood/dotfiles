@@ -4,14 +4,17 @@ I've listed less used tools here so I don't forget about them!
 
 * `atac` - TUI version of `postman`
 * `bmon` - TUI network monitor
+* `csvlens` - CSV file viewer
 * `dive` - container file browser
 * `duf` - Curses version of `df`
+* `hyperfine` - CLI benchmarking
 * `jqp` - interactive `jq` TUI
+* `k9s` - Kubernetes TUI
 * `kaskade` - Kafka TUI
 * `ncdu` - Curses version of `du`
+* `ov` - pager
+* `podman-tui` - podman TUI
 * `posting` - TUI version of postman
-* `rexi` - RegEx testing tool
 * `qsv` - CSV file Swiss army knife
-* `csvlens` - CSV file viewer
-* `hyperfine` - CLI benchmarking
-* 'spf' - like Midnight Commander
+* `rexi` - RegEx testing tool
+* `spf` - like Midnight Commander

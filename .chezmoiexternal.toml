@@ -107,6 +107,14 @@
     path = "kubectx"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+
+{{ $k9sVersion := "0.32.5" -}}
+["bin/k9s"]
+    type = "archive-file"
+    url = "https://github.com/derailed/k9s/releases/download/v{{$k9sVersion}}/k9s_Linux_{{.chezmoi.arch}}.tar.gz"
+    path = "k9s"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 [".oh-my-zsh/custom/completion/_kubectx.zsh"]
     type = "archive-file"
     url = "https://github.com/ahmetb/kubectx/archive/refs/tags/v{{$kubectxVersion}}.tar.gz"
