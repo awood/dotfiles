@@ -74,6 +74,9 @@ nnoremap ]b :action NextTab<cr>
 noremap <leader>q :action CloseContent<cr>
 noremap <leader>Q :action ReopenClosedTab<cr>
 
+" Leader-o (Editor)
+noremap <leader>ow :action SurroundWith<cr>
+
 " Leader-d (Diagnostic)
 noremap <leader>dd :action ShowErrorDescription<cr>
 
@@ -113,7 +116,8 @@ noremap <leader>esr :action ChooseRunConfiguration<cr>
 " Leader-v (Vim related)
 " Tracks actions in the IDE and displays their Action Ids so you can noremap them
 " if you want
-noremap <Leader>vfa :action VimFindActionIdAction<cr>
+noremap <leader>vfa :action VimFindActionIdAction<cr>
+noremap <leader>vr :action IdeaVim.ReloadVimRc.reload<cr>
 
 " The comments are what the key-combinations do in vim. The combination can be
 " assigned to be vim or ide depending on vim's mode and eventually that may be

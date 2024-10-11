@@ -13,6 +13,8 @@ nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap [q :action GotoPreviousError<cr>
 nnoremap ]q :action GotoNextError<cr>
 
+noremap <leader>ow :action SurroundWith<cr>             " Editor
+
 nnoremap [b :action PreviousTab<cr>                     " Tabs
 nnoremap ]b :action NextTab<cr>
 noremap <leader>q :action CloseContent<cr>
@@ -47,3 +49,4 @@ noremap <leader>esd :action ChooseDebugConfiguration<cr>
 noremap <leader>esr :action ChooseRunConfiguration<cr>
 
 noremap <Leader>vfa :action VimFindActionIdAction<cr>
+noremap <leader>vr :action IdeaVim.ReloadVimRc.reload<cr>

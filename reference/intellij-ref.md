@@ -62,6 +62,7 @@ Double `SHIFT`          Search everywhere
 `CTRL-Y`                        Duplicate current line
 `]<space`/`]<space>`            Insert line above/below
 `\p`                            Paste over selection without killing register 1
+`CTRL-ALT-T` or `\ow`           Surround with...
 
 ## Refactoring
 `F5`                    Copy
