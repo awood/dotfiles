@@ -1,0 +1,27 @@
+# ID: 9f88c2cc-2e1f-4891-abdb-61773940d11f
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: rh-pre-commit
+        name: Global rh-pre-commit
+        language: system
+        entry: /usr/bin/python3 -m rh_pre_commit
+        stages: [pre-commit]
+        pass_filenames: false
+
+      - id: rh-pre-commit.commit-msg
+        name: Global rh-pre-commit.commit-msg
+        language: system
+        entry: /usr/bin/python3 -m rh_pre_commit --hook-type commit-msg --commit-msg-filename
+        stages: [commit-msg]
+        pass_filenames: true
