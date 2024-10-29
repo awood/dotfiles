@@ -86,6 +86,9 @@ Plug 'zaiste/tmux.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'milkypostman/vim-togglelist'
+
+" actually used with rg
 Plug 'mileszs/ack.vim'
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
@@ -297,6 +300,9 @@ nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
+
+nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>ql :call ToggleQuickfixList()<CR>
 
 " Don't jump to first match
 cnoreabbrev Ack Ack!

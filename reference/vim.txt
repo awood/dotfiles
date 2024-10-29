@@ -171,6 +171,10 @@ S                        Go to the [count]th previous match (NOTE above)
 
 NOTE: Z goes backwards in visual-mode because S is used by |surround|.
 
+# Quickfix and Location Lists
+The quickfix list is global (appropriate for error messages from `make` for
+example) while the location list is local to the current window.
+
 # Scrolling
 Ctrl-U, Ctrl-D up/down half a screen (can be set with 'scroll' option).
 Ctrl-Y, Ctrl-E scroll window [count] lines up/down in the buffer.
