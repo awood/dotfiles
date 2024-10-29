@@ -25,6 +25,8 @@ packages:
       # - 'atuin'
       - 'atac'
       - 'csvlens'
+    pipx_include:
+      - 'gitlint'
     pipx:
       - 'black'
       - 'ipython'

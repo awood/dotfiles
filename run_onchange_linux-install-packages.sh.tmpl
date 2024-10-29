@@ -18,6 +18,10 @@ cargo install {{ . | quote }}
 pipx install {{ . | quote }}
 {{ end -}}
 
+{{ range .packages.fedora.pipx_include -}}
+pipx install {{ . | quote }} --include-deps
+{{ end -}}
+
 {{ range .packages.fedora.httpie -}}
 httpie cli plugins install {{ . | quote }}
 {{ end -}}

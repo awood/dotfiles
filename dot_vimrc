@@ -253,12 +253,6 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] %s [%linter%]'
 
-" Put linting errors in the quickfix list rather than the location list. The
-" quickfix list is global and seems to be a better fit semantically for
-" linting errors
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-
 " Don't use multiline dictionary format
 let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
@@ -325,7 +319,7 @@ vnoremap <Leader>d$ :DeleteTrailingWhitespace<CR>
 map <leader>cf :NERDTreeFind<CR> :wincmd p<CR>
 
 " Maps <leader>/ so we're ready to type the search keyword
-nnoremap <Leader>/ :Ack!<Space>
+nnoremap <Leader>/ :Rg!<Space>
 
 nmap <leader>qs <plug>(QuickScopeToggle)
 xmap <leader>qs <plug>(QuickScopeToggle)
