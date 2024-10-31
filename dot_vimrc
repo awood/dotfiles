@@ -261,6 +261,7 @@ let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers.python = ['black']
 let g:ale_python_flake8_options = "--ignore='E501,E121,E122,E123,E124,E125,E126,E127,E128'"
+let g:ale_gitcommit_gitlint_options = '--ignore body-is-missing'
 
 let g:NERDTreeChDirMode = 2
 
