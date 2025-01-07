@@ -11,6 +11,9 @@ I've listed less used tools here so I don't forget about them!
 * `jqp` - interactive `jq` TUI
 * `k9s` - Kubernetes TUI
 * `kaskade` - Kafka TUI
+* `kl` - k8s log viewer
+* `kplay` - Kafka viewer
+* `lazyjournal` - journalctl viewer
 * `ncdu` - Curses version of `du`
 * `ov` - pager
 * `podman-tui` - podman TUI
