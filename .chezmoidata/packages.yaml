@@ -25,6 +25,7 @@ packages:
       # - 'atuin'
       - 'atac'
       - 'csvlens'
+      - 'hoard-rs'
     pipx_include:
       - 'gitlint'
     pipx:

@@ -142,3 +142,9 @@
     path = "kubectx-{{$kubectxVersion}}/completion/_kubectx.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $hoardVersion := "1.4.2" -}}
+[".oh-my-zsh/custom/hoard.zsh"]
+    type = "archive-file"
+    url = "https://github.com/Hyde46/hoard/archive/refs/tags/v{{$hoardVersion}}.zip"
+    path = "hoard-{{$hoardVersion}}/src/shell/hoard.zsh"
+    refreshPeriod = "{{ $refreshPeriod }}"
