@@ -2,7 +2,7 @@ bind generic 9 !@sh -c "echo -n '%(commit)' | xclip -sel c"
 bind main B !git rebase -i %(commit)
 bind generic + !git commit --amend
 set editor-line-number = true
-
+set vertical-split = false
 
 set main-view-date = custom
 set main-view-date-local = true
