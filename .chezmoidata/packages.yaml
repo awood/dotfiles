@@ -8,6 +8,7 @@ packages:
       - 'fd-find'
       - 'fzf'
       - 'git-delta'
+      - 'glab'
       - 'htop'
       - 'httpie'
       - 'hyperfine'
