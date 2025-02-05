@@ -128,6 +128,15 @@ noremap <leader>vr :action IdeaVim.ReloadVimRc.reload<cr>
 " v - visual and select modes
 " a - all modes
 
+" CTRL-Left and CTRL-Right basically do the same things in the IDE and Vim
+sethandler <C-Left> a:vim
+sethandler <C-Right> a:vim
+" CTRL-PageUp and CTRL-PageDown are used in Vim for Vim's conception of tabs
+" (i.e. viewports) rather than the common notion of tabs.  It's not really
+" applicable to work in the IDE, so cede to the IDE for the IDE's notion of
+" tab navication
+sethandler <C-PageUp> a:ide
+sethandler <C-PageDown> a:ide
 " CTRL-2 - No documentation on how Vim uses this; cede to IDE
 sethandler <C-2> a:ide
 " CTRL-SHIFT-2 - No documentation on how Vim uses this; cede to IDE
