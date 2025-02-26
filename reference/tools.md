@@ -6,6 +6,7 @@ I've listed less used tools here so I don't forget about them!
 * `bmon` - TUI network monitor
 * `csvlens` - CSV file viewer
 * `dive` - container file browser
+* `dua` - disk usage analyzer.  Run `dua i` for a TUI
 * `duf` - Curses version of `df`
 * `hyperfine` - CLI benchmarking
 * `jqp` - interactive `jq` TUI

@@ -46,6 +46,7 @@ packages:
       - 'pspg'
       - 'ripgrep'
       - 'rofi'
+      - 'dua-cli'
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
