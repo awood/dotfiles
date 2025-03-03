@@ -7,6 +7,9 @@
     excludesfile = ~/.gitignore
     pager = delta --pager='ov -F'
 
+[tag]
+    sort = version:refname
+
 [pager]
     # overload delta pager for some commands
     show = delta --pager='ov -F --header 3' --features solarized-delta
@@ -95,6 +98,8 @@
 
 [diff]
     colorMoved = default
+    mnemonicPrefix = true
+    renames = true
     algorithm = histogram
     tool = meld
 
@@ -123,9 +128,16 @@
     templatedir = ~/.git_template
     defaultBranch = main
 
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
 [push]
-    default = tracking
+    default = simple
+    autoSetupRemote = true
     useForceIfIncludes = true
+    followTags = true
 
 [branch]
     autosetuprebase = always
@@ -139,7 +151,7 @@
     tabwidth = 4
 
 [help]
-    autocorrect = 1
+    autocorrect = prompt
 
 [commit]
     gpgsign = true
@@ -150,6 +162,7 @@
 
 [rerere]
     enabled = true
+    autoupdate = true
 
 [column]
     ui = auto
