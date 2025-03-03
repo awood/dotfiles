@@ -93,8 +93,15 @@
     path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{ $lazygitVersion := "0.47.2" -}}
+["bin/lazygit"]
+    type = "archive-file"
+    executable = true
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v{{$lazygitVersion}}/lazygit_{{$lazygitVersion}}_{{.chezmoi.os | title}}_x86_64.tar.gz"
+    path = "lazygit"
+    refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]
     type = "archive-file"
