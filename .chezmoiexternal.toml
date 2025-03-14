@@ -157,4 +157,20 @@
     url = "https://github.com/Lifailon/lazyjournal/releases/download/{{$lazyjournalVersion}}/lazyjournal-{{$lazyjournalVersion}}-{{.chezmoi.os}}-{{.chezmoi.arch}}"
     path = "k9s"
     refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $trivyVersion := "0.60.0" -}}
+["bin/trivy"]
+    type = "archive-file"
+    executable = true
+    url = "https://github.com/aquasecurity/trivy/releases/download/v{{$trivyVersion}}/trivy_{{$trivyVersion}}_{{.chezmoi.os | title}}-64bit.tar.gz"
+    path = "trivy"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+["bin/trivy-contrib"]
+    type = "archive"
+    url = "https://github.com/aquasecurity/trivy/releases/download/v{{$trivyVersion}}/trivy_{{$trivyVersion}}_{{.chezmoi.os | title}}-64bit.tar.gz"
+    path = "contrib"
+    stripComponents = 1
+    include = ["**/*.tpl"]
+    refreshPeriod = "{{ $refreshPeriod }}"
 {{ end -}}
