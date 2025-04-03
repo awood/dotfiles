@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+.oh-my-zsh/custom/completion/_glab.zsh
+.oh-my-zsh/custom/completion/_oc.zsh
+.oh-my-zsh/custom/completion/_stern.zsh
+{{ end -}}

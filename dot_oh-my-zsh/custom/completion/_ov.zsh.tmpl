@@ -1,1 +1,9 @@
+{{/*
+There is a bit of a chicken-and-egg problem where ov needs to be
+present to run this template, but the template will run before
+the items in .chezmoiexternal.toml are resolved
+*/}}
+
+{{ if lookPath "ov" }}
 {{ output "ov" "--completion" "zsh" }}
+{{ end }}

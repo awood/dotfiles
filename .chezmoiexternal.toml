@@ -35,20 +35,6 @@
     stripComponents = 1
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $kubetailVersion := "1.6.20" -}}
-[".oh-my-zsh/custom/plugins/kubetail"]
-    type = "archive"
-    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "{{ $refreshPeriod }}"
-
-[".oh-my-zsh/custom/completion/_kubetail.zsh"]
-    type = "archive-file"
-    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
-    path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
-    refreshPeriod = "{{ $refreshPeriod }}"
-
 {{ $pluggedVersion := "0.14.0" -}}
 [".vim/autoload/plug.vim"]
     type = "archive-file"
@@ -79,18 +65,41 @@
     path = "ov"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $diveVersion := "0.12.0" -}}
-["bin/dive"]
-    type = "archive-file"
-    url = "https://github.com/wagoodman/dive/releases/download/v{{$diveVersion}}/dive_{{$diveVersion}}_{{$.chezmoi.os}}_{{$.chezmoi.arch}}.tar.gz"
-    path = "dive"
-    refreshPeriod = "{{ $refreshPeriod }}"
-
 {{ $jqpVersion := "0.7.0" -}}
 ["bin/jqp"]
     type = "archive-file"
     url = "https://github.com/noahgorstein/jqp/releases/download/v{{$jqpVersion}}/jqp_{{$.chezmoi.os}}_x86_64.tar.gz"
     path = "jqp"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $hoardVersion := "1.4.2" -}}
+[".oh-my-zsh/custom/hoard.zsh"]
+    type = "archive-file"
+    url = "https://github.com/Hyde46/hoard/archive/refs/tags/v{{$hoardVersion}}.zip"
+    path = "hoard-{{$hoardVersion}}/src/shell/hoard.zsh"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $kubetailVersion := "1.6.20" -}}
+[".oh-my-zsh/custom/plugins/kubetail"]
+    type = "archive"
+    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+[".oh-my-zsh/custom/completion/_kubetail.zsh"]
+    type = "archive-file"
+    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
+    path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+
+{{ $diveVersion := "0.12.0" -}}
+["bin/dive"]
+    type = "archive-file"
+    url = "https://github.com/wagoodman/dive/releases/download/v{{$diveVersion}}/dive_{{$diveVersion}}_{{$.chezmoi.os}}_{{$.chezmoi.arch}}.tar.gz"
+    path = "dive"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $sternVersion := "1.30.0" -}}
@@ -105,6 +114,12 @@
     type = "archive-file"
     url = "https://github.com/ahmetb/kubectx/releases/download/v{{$kubectxVersion}}/kubectx_v{{$kubectxVersion}}_{{.chezmoi.os}}_x86_64.tar.gz"
     path = "kubectx"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+[".oh-my-zsh/custom/completion/_kubectx.zsh"]
+    type = "archive-file"
+    url = "https://github.com/ahmetb/kubectx/archive/refs/tags/v{{$kubectxVersion}}.tar.gz"
+    path = "kubectx-{{$kubectxVersion}}/completion/_kubectx.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $klVersion := "0.4.0" -}}
@@ -135,16 +150,4 @@
     url = "https://github.com/Lifailon/lazyjournal/releases/download/{{$lazyjournalVersion}}/lazyjournal-{{$lazyjournalVersion}}-{{.chezmoi.os}}-{{.chezmoi.arch}}"
     path = "k9s"
     refreshPeriod = "{{ $refreshPeriod }}"
-
-[".oh-my-zsh/custom/completion/_kubectx.zsh"]
-    type = "archive-file"
-    url = "https://github.com/ahmetb/kubectx/archive/refs/tags/v{{$kubectxVersion}}.tar.gz"
-    path = "kubectx-{{$kubectxVersion}}/completion/_kubectx.zsh"
-    refreshPeriod = "{{ $refreshPeriod }}"
-
-{{ $hoardVersion := "1.4.2" -}}
-[".oh-my-zsh/custom/hoard.zsh"]
-    type = "archive-file"
-    url = "https://github.com/Hyde46/hoard/archive/refs/tags/v{{$hoardVersion}}.zip"
-    path = "hoard-{{$hoardVersion}}/src/shell/hoard.zsh"
-    refreshPeriod = "{{ $refreshPeriod }}"
+{{ end -}}

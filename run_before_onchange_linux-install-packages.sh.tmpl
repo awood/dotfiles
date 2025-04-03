@@ -4,10 +4,10 @@
 set -eEuo pipefail
 trap 's=$?; echo >&2 "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
+# Fedora
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 {{ range .packages.fedora.dnf -}}
 sudo dnf install -y {{ . | quote }}
-{{ end -}}
 {{ end -}}
 
 {{ range .packages.fedora.cargo -}}
@@ -24,6 +24,22 @@ pipx install {{ . | quote }} --include-deps
 
 {{ range .packages.fedora.httpie -}}
 httpie cli plugins install {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+# Ubuntu
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+{{ range .packages.ubuntu.apt -}}
+sudo apt-get install -y {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.ubuntu.cargo -}}
+cargo install --locked {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.ubuntu.pipx -}}
+pipx install {{ . | quote }}
+{{ end -}}
 {{ end -}}
 
 {{ end -}}

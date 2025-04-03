@@ -1,4 +1,29 @@
 packages:
+  ubuntu:
+    apt:
+      - 'bat'
+      - 'cargo'
+      - 'fd-find'
+      - 'fzf'
+      - 'git'
+      - 'httpie'
+      - 'keychain'
+      - 'libssl-dev' # for hoard-rs
+      - 'pipx'
+      - 'pkg-config'
+      - 'ripgrep'
+      - 'tmux'
+      - 'vim-gtk3'
+      - 'zsh'
+    pipx:
+      - 'rich-cli'
+      - 'ipython'
+    cargo:
+      # Latest version of atuin requires a more recent version of rust
+      # TODO is to allow specific versions to be installed
+      # - 'atuin'
+      - 'hoard-rs'
+
   fedora:
     dnf:
       - 'bat'
