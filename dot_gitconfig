@@ -104,6 +104,8 @@
     tool = meld
 
 [alias]
+    # Use like so: git compare my-branch...origin/main
+    compare = log --left-right --graph --cherry-pick --oneline
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     ctags = !.git/hooks/ctags
     oldest-ancestor = !bash -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
@@ -134,7 +136,7 @@
     all = true
 
 [push]
-    default = simple
+    default = upstream
     autoSetupRemote = true
     useForceIfIncludes = true
     followTags = true
