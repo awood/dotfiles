@@ -8,6 +8,7 @@ I've listed less used tools here so I don't forget about them!
 * `dive` - container file browser
 * `dua` - disk usage analyzer.  Run `dua i` for a TUI
 * `duf` - Curses version of `df`
+* `hike` - Markdown browser/viewer
 * `hyperfine` - CLI benchmarking
 * `jqp` - interactive `jq` TUI
 * `k9s` - Kubernetes TUI
