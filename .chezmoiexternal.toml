@@ -93,7 +93,7 @@
     path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $lazygitVersion := "0.47.2" -}}
+{{ $lazygitVersion := "0.52.0" -}}
 ["bin/lazygit"]
     type = "archive-file"
     executable = true
@@ -136,7 +136,7 @@
     path = "kl"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $k9sVersion := "0.40.5" -}}
+{{ $k9sVersion := "0.50.6" -}}
 ["bin/k9s"]
     type = "archive-file"
     url = "https://github.com/derailed/k9s/releases/download/v{{$k9sVersion}}/k9s_{{.chezmoi.os | title}}_{{.chezmoi.arch}}.tar.gz"
