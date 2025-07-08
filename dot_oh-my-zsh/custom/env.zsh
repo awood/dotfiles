@@ -18,3 +18,5 @@ export PSQL_PAGER='pspg'
 # Default is underline which I find annoying
 export ZSH_HIGHLIGHT_STYLES[path]=none
 export ZSH_HIGHLIGHT_STYLES[comment]='fg=bright-gray'
+
+export DISABLE_AUTO_TITLE=true

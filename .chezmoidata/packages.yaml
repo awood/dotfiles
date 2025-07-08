@@ -64,6 +64,7 @@ packages:
       - 'posting'
       - 'rexi'
       - 'rich-cli'
+      - 'tmuxp'
       - 'yq'
     httpie:
       # httpie cli plugins install ...
