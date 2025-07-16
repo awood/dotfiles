@@ -155,7 +155,6 @@
     type = "file"
     executable = true
     url = "https://github.com/Lifailon/lazyjournal/releases/download/{{$lazyjournalVersion}}/lazyjournal-{{$lazyjournalVersion}}-{{.chezmoi.os}}-{{.chezmoi.arch}}"
-    path = "k9s"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $trivyVersion := "0.60.0" -}}
