@@ -296,11 +296,11 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_disable_when_zoomed = 1
 
 " Mappings
-nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
-nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
-nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
-nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-w>h :<C-u>TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :<C-u>TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :<C-u>TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :<C-u>TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>\ :<C-u>TmuxNavigatePrevious<cr>
 
 nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>ql :call ToggleQuickfixList()<CR>
