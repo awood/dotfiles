@@ -23,5 +23,6 @@ I've listed less used tools here so I don't forget about them!
 * `qsv` - CSV file Swiss army knife
 * `rexi` - RegEx testing tool
 * `spf` - like Midnight Commander
+* `systemd-manager-tui` - manage systemd units
 * `trivy` - container vulnerability scanner.  Create reports like so
   `trivy image -f template --template '@/home/awood/bin/trivy-contrib/html.tpl' my-container`
