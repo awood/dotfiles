@@ -8,7 +8,7 @@ export VAGRANT_DEFAULT_PROVIDER="libvirt"
 # rather than the text and that doesn't display nicely with my color scheme
 export PRE_COMMIT_COLOR="never"
 
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
 
 export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
