@@ -79,20 +79,6 @@
     path = "hoard-{{$hoardVersion}}/src/shell/hoard.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $kubetailVersion := "1.6.20" -}}
-[".oh-my-zsh/custom/plugins/kubetail"]
-    type = "archive"
-    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "{{ $refreshPeriod }}"
-
-[".oh-my-zsh/custom/completion/_kubetail.zsh"]
-    type = "archive-file"
-    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
-    path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
-    refreshPeriod = "{{ $refreshPeriod }}"
-
 {{ $lazygitVersion := "0.52.0" -}}
 ["bin/lazygit"]
     type = "archive-file"
@@ -114,6 +100,20 @@
     type = "archive-file"
     url = "https://github.com/stern/stern/releases/download/v{{$sternVersion}}/stern_{{$sternVersion}}_{{.chezmoi.os}}_{{.chezmoi.arch}}.tar.gz"
     path = "stern"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $kubetailVersion := "1.6.20" -}}
+[".oh-my-zsh/custom/plugins/kubetail"]
+    type = "archive"
+    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+[".oh-my-zsh/custom/completion/_kubetail.zsh"]
+    type = "archive-file"
+    url = "https://github.com/johanhaleby/kubetail/archive/refs/tags/{{$kubetailVersion}}.tar.gz"
+    path = "kubetail-{{$kubetailVersion}}/completion/kubetail.zsh"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $kubectxVersion := "0.9.5" -}}
