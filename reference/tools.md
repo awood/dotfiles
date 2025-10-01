@@ -8,6 +8,7 @@ I've listed less used tools here so I don't forget about them!
 * `dive` - container file browser
 * `dua` - disk usage analyzer.  Run `dua i` for a TUI
 * `duf` - Curses version of `df`
+* `gruyere` - view and kill ports
 * `hike` - Markdown browser/viewer
 * `hyperfine` - CLI benchmarking
 * `jqp` - interactive `jq` TUI

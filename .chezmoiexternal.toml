@@ -87,6 +87,14 @@
     path = "lazygit"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $gruyereVersion := "1.1.5" -}}
+["bin/gruyere"]
+    type = "archive-file"
+    executable = true
+    url = "https://github.com/savannahostrowski/gruyere/releases/download/v{{$gruyereVersion}}/gruyere_{{$gruyereVersion}}_{{.chezmoi.os | title}}_{{$.chezmoi.arch}}.tar.gz"
+    path = "gruyere"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]

@@ -50,7 +50,8 @@ packages:
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
-      - 'atac'
+      # Problem with v0.22.0
+      # - 'atac'
       - 'csvlens'
       - 'hoard-rs'
       - 'systemd-manager-tui'
