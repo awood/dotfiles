@@ -7,7 +7,11 @@ trap 's=$?; echo >&2 "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 # Fedora
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 {{ range .packages.fedora.dnf -}}
-sudo dnf install -y {{ . | quote }}
+if rpm -q {{ . | quote }} > /dev/null; then
+    echo "Found {{ . }}"
+else
+    sudo dnf install -y {{ . | quote }}
+fi
 {{ end -}}
 
 {{ range .packages.fedora.cargo -}}
