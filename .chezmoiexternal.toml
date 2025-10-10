@@ -151,11 +151,11 @@
     path = "k9s"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $kplayVersion := "0.1.0" -}}
-["bin/kplay"]
+{{ $kteaVersion := "0.6.0" -}}
+["bin/ktea"]
     type = "archive-file"
-    url = "https://github.com/dhth/kplay/releases/download/v{{$kplayVersion}}/kplay_{{$kplayVersion}}_{{.chezmoi.os}}_{{.chezmoi.arch}}.tar.gz"
-    path = "kplay"
+    url = "https://github.com/jonas-grgt/ktea/releases/download/v{{$kteaVersion}}/ktea_{{$kteaVersion}}_{{.chezmoi.os}}_{{.chezmoi.arch}}.tar.gz"
+    path = "ktea"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $lazyjournalVersion := "0.5.0" -}}
