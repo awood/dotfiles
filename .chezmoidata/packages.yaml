@@ -59,6 +59,7 @@ packages:
       - 'gitlint'
     pipx:
       - 'black'
+      - 'gruyere'
       - 'hike'
       - 'ipython'
       - 'kaskade'
@@ -69,6 +70,7 @@ packages:
       - 'tmuxp'
       - 'uv'
       - 'yq'
+      - 'zxcvbn'
     httpie:
       # httpie cli plugins install ...
       - 'httpie-negotiate'

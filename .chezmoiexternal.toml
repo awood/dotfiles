@@ -87,20 +87,20 @@
     path = "lazygit"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $gruyereVersion := "1.1.5" -}}
-["bin/gruyere"]
-    type = "archive-file"
-    executable = true
-    url = "https://github.com/savannahostrowski/gruyere/releases/download/v{{$gruyereVersion}}/gruyere_{{$gruyereVersion}}_{{.chezmoi.os | title}}_{{$.chezmoi.arch}}.tar.gz"
-    path = "gruyere"
-    refreshPeriod = "{{ $refreshPeriod }}"
-
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]
     type = "archive-file"
     url = "https://github.com/wagoodman/dive/releases/download/v{{$diveVersion}}/dive_{{$diveVersion}}_{{$.chezmoi.os}}_{{$.chezmoi.arch}}.tar.gz"
     path = "dive"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $promtoolVersion := "2.54.1" -}}
+["bin/promtool"]
+    type = "archive-file"
+    url = "https://github.com/prometheus/prometheus/releases/download/v{{$promtoolVersion}}/prometheus-{{$promtoolVersion}}.{{.chezmoi.os}}-{{.chezmoi.arch}}.tar.gz"
+    stripComponents = 1
+    path = "promtool"
     refreshPeriod = "{{ $refreshPeriod }}"
 
 {{ $sternVersion := "1.30.0" -}}
