@@ -12,6 +12,7 @@ repos:
       - id: trailing-whitespace
   - repo: local
     hooks:
+      # Requires auth token from patterns.security.redhat.com/token to be installed at ./config/rh-gitleaks/auth.jwt
       - id: rh-pre-commit
         name: Global rh-pre-commit
         language: system
