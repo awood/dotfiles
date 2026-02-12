@@ -11,6 +11,7 @@ I've listed less used tools here so I don't forget about them!
 * `gruyere` - view and kill ports
 * `hike` - Markdown browser/viewer
 * `hyperfine` - CLI benchmarking
+* `jiratui` - Jira TUI
 * `jqp` - interactive `jq` TUI
 * `k9s` - Kubernetes TUI
 * `kaskade` - Kafka TUI
@@ -27,3 +28,4 @@ I've listed less used tools here so I don't forget about them!
 * `systemd-manager-tui` - manage systemd units
 * `trivy` - container vulnerability scanner.  Create reports like so
   `trivy image -f template --template '@/home/awood/bin/trivy-contrib/html.tpl' my-container`
+* `viddy` - fancy version of `watch`.  Allows viewing previous output

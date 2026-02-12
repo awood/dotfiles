@@ -55,6 +55,7 @@ packages:
       - 'csvlens'
       - 'hoard-rs'
       - 'systemd-manager-tui'
+      - 'viddy'
     pipx_include:
       - 'gitlint'
     pipx:
@@ -62,6 +63,7 @@ packages:
       - 'gruyere'
       - 'hike'
       - 'ipython'
+      - 'jiratui'
       - 'kaskade'
       - 'poetry'
       - 'posting'
