@@ -165,7 +165,7 @@
     url = "https://github.com/Lifailon/lazyjournal/releases/download/{{$lazyjournalVersion}}/lazyjournal-{{$lazyjournalVersion}}-{{.chezmoi.os}}-{{.chezmoi.arch}}"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $trivyVersion := "0.60.0" -}}
+{{ $trivyVersion := "0.69.3" -}}
 ["bin/trivy"]
     type = "archive-file"
     executable = true
