@@ -29,6 +29,7 @@ packages:
       - 'bat'
       - 'bmon'
       - 'ctags'
+      - 'dua-cli'
       - 'duf'
       - 'fd-find'
       - 'fzf'
@@ -46,7 +47,7 @@ packages:
       - 'pspg'
       - 'ripgrep'
       - 'rofi'
-      - 'dua-cli'
+      - 'ShellCheck'
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
