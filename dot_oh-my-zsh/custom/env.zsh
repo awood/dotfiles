@@ -20,3 +20,5 @@ export ZSH_HIGHLIGHT_STYLES[path]=none
 export ZSH_HIGHLIGHT_STYLES[comment]='fg=bright-gray'
 
 export DISABLE_AUTO_TITLE=true
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc

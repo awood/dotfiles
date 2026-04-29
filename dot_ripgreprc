@@ -1,0 +1,7 @@
+--max-columns=150
+--max-columns-preview
+--glob=!.local/share/containers/storage/
+--glob=!.git/objects/
+--glob=!.git/tags
+# Weird issue in IQE template with an invalid .gitignore causes error messages
+--glob=!plugin_skel
