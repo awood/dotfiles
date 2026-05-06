@@ -165,6 +165,14 @@
     url = "https://github.com/Lifailon/lazyjournal/releases/download/{{$lazyjournalVersion}}/lazyjournal-{{$lazyjournalVersion}}-{{.chezmoi.os}}-{{.chezmoi.arch}}"
     refreshPeriod = "{{ $refreshPeriod }}"
 
+{{ $wtiVersion := "0.5.0" -}}
+["bin/git-worktreeinclude"]
+    type = "archive-file"
+    executable = true
+    url = "https://github.com/satococoa/git-worktreeinclude/releases/download/v{{$wtiVersion}}/git-worktreeinclude_{{$wtiVersion}}_{{.chezmoi.os | title}}_x86_64.tar.gz"
+    path = "git-worktreeinclude"
+    refreshPeriod = "{{ $refreshPeriod }}"
+
 {{ $trivyVersion := "0.69.3" -}}
 ["bin/trivy"]
     type = "archive-file"

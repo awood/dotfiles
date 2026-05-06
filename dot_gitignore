@@ -21,3 +21,4 @@ dev_scratch
 buildSrc
 .gradletasknamecache
 .venv
+.worktreeinclude
