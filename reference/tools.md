@@ -4,6 +4,7 @@ I've listed less used tools here so I don't forget about them!
 
 * `atac` - TUI version of `postman`
 * `bmon` - TUI network monitor
+* `cheznav` - ChezMoi file manager
 * `csvlens` - CSV file viewer
 * `dive` - container file browser
 * `dua` - disk usage analyzer.  Run `dua i` for a TUI

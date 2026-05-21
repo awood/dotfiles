@@ -61,6 +61,7 @@ packages:
       - 'gitlint'
     pipx:
       - 'black'
+      - 'cheznav'
       - 'gruyere'
       - 'hike'
       - 'ipython'
@@ -68,6 +69,7 @@ packages:
       - 'kaskade'
       - 'poetry'
       - 'posting'
+      - 'pyright'
       - 'rexi'
       - 'rich-cli'
       - 'tmuxp'

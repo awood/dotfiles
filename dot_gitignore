@@ -16,7 +16,7 @@ doc/tags
 .vim/plugged
 .vim/vimspell.*
 .vim/view
-dev_scratch
+dev-scratch
 .gradle
 buildSrc
 .gradletasknamecache
