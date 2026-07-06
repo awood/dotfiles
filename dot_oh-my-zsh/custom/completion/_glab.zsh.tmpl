@@ -1,1 +1,3 @@
+{{- if and (eq .chezmoi.osRelease.id "fedora") (lookPath "glab") -}}
 {{ output "glab" "completion" "--shell" "zsh" }}
+{{- end -}}

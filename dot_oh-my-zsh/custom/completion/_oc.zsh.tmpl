@@ -1,1 +1,3 @@
+{{- if and (eq .chezmoi.osRelease.id "fedora") (lookPath "oc") -}}
 {{ output "oc" "completion" "zsh" }}
+{{- end -}}

@@ -1,1 +1,3 @@
+{{- if and (eq .chezmoi.osRelease.id "fedora") (lookPath "bonfire") -}}
 {{ output "zsh" "-c" "_BONFIRE_COMPLETE=zsh_source bonfire" }}
+{{- end -}}

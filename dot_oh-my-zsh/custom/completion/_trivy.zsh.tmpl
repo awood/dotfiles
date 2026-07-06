@@ -1,1 +1,3 @@
+{{- if and (eq .chezmoi.osRelease.id "fedora") (lookPath "trivy") -}}
 {{ output "trivy" "completion" "zsh" }}
+{{- end -}}
