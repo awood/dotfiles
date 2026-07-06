@@ -1,4 +1,4 @@
---max-columns=150
+--max-columns=300
 --max-columns-preview
 --glob=!.local/share/containers/storage/
 --glob=!.git/objects/
