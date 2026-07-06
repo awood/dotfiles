@@ -6,6 +6,7 @@ packages:
       - 'fd-find'
       - 'fzf'
       - 'git'
+      - 'git-delta'
       - 'httpie'
       - 'keychain'
       - 'libssl-dev' # for hoard-rs
