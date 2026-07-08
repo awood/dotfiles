@@ -29,7 +29,7 @@ set -g status-keys emacs
 set -g allow-passthrough on
 set -g focus-events on
 
-{{ if eq .chezmoi.osRelease.id "fedora" -}}
+{{- if eq .chezmoi.osRelease.id "fedora" }}
 # Send shift-enter
 bind-key -n C-Enter send-keys Escape "[13;5u"
 bind-key -n S-Enter send-keys Escape "[13;2u"
@@ -37,7 +37,7 @@ set -s extended-keys on
 set -as terminal-features ',xterm*:extkeys'
 set -as terminal-features ',*alacritty*:extkeys'
 set -s extended-keys-format csi-u
-{{- end -}}
+{{- end }}
 
 # Window options
 setw -g mode-keys vi
