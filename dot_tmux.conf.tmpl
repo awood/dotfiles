@@ -39,6 +39,17 @@ set -as terminal-features ',*alacritty*:extkeys'
 set -s extended-keys-format csi-u
 {{- end }}
 
+# Update environment when a new session is created
+set -g update-environment \
+  "DISPLAY\
+  SSH_ASKPASS\
+  SSH_AUTH_SOCK\
+  SSH_AGENT_PID\
+  SSH_CONNECTION\
+  SSH_TTY\
+  WINDOWID\
+  XAUTHORITY"
+
 # Window options
 setw -g mode-keys vi
 setw -g clock-mode-style 24
