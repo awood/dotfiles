@@ -79,4 +79,4 @@ packages:
       - 'zxcvbn'
     httpie:
       # httpie cli plugins install ...
-      - 'httpie-negotiate'
+      # - 'httpie-negotiate'
