@@ -3,3 +3,4 @@
 .oh-my-zsh/custom/completion/_oc.zsh
 .oh-my-zsh/custom/completion/_stern.zsh
 {{ end -}}
+CLAUDE.md
