@@ -188,4 +188,13 @@
     stripComponents = 1
     include = ["**/*.tpl"]
     refreshPeriod = "{{ $refreshPeriod }}"
+
+{{ $jiraVersion := "1.7.0" -}}
+["bin/jira"]
+    type = "archive-file"
+    executable = true
+    url = "https://github.com/ankitpokhrel/jira-cli/releases/download/v{{$jiraVersion}}/jira_{{$jiraVersion}}_{{.chezmoi.os}}_x86_64.tar.gz"
+    stripComponents = 1
+    path = "bin/jira"
+    refreshPeriod = "{{ $refreshPeriod }}"
 {{ end -}}
