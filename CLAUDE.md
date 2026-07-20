@@ -1,5 +1,9 @@
 # CLAUDE.md - Local User Preferences
 
+## Output Preferences
+* Do not produce trailing recap or summary blocks (e.g. "※ recap:") at the end
+  of responses.  The work is visible in the diffs and tool output.
+
 ## Language Preferences
 * Do not use "+" or "&" to mean "and".  Instead write the word.
 * Keep emoji usage to a minimum.  Usage for status printed to the terminal is
