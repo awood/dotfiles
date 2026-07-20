@@ -1,0 +1,3 @@
+{{- if and (eq .chezmoi.osRelease.id "fedora") (lookPath "jira") -}}
+{{ output "jira" "completion" "zsh" }}
+{{- end -}}
