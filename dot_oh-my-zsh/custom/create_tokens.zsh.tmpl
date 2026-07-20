@@ -1,0 +1,6 @@
+export GITHUB_PERSONAL_ACCESS_TOKEN=add_me
+{{- if eq .chezmoi.osRelease.id "fedora" }}
+export JIRA_API_TOKEN=add_me
+export GITLAB_TOKEN=add_me
+export SONAR_TOKEN=add_me
+{{- end }}
