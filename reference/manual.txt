@@ -1,0 +1,29 @@
+# Manual Tool Installation
+
+Some tools just don't lend themselves to Chezmoi management.
+
+## rtk - Rust Token Killer
+See https://github.com/rtk-ai/rtk and https://www.rtk-ai.app/docs/
+
+* `cargo install --git https://github.com/rtk-ai/rtk`
+* `rtk init -g`
+* Ensure that the patch to `rtk` is allowed read access in any sandbox settings
+
+## graphify - semantic indexing tool
+See https://github.com/Graphify-Labs/graphify
+
+* uv tool install "graphifyy[mcp,sql]"
+* graphify install
+* In project, create a .mcp.json with
+    ```
+    {
+      "mcpServers": {
+        "graphify": {
+          "command": "uvx",
+          "args": ["--from", "graphifyy[mcp]", "python", "-m", "graphify.serve", "graphify-out/graph.json"]
+        }
+      }
+    }
+    ```
+* In project, `graphify hook install`
+* Generate indexes with the skill: `/graphify . --no-viz`
