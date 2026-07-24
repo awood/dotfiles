@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+# https://github.com/olivergondza/bash-strict-mode
+set -eEuo pipefail
+trap 's=$?; echo >&2 "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+if [ ! -f "$HOME/.local/share/jdtls/bin/jdtls" ]; then
+    echo "JDTLS not installed"
+    exit 1
+fi
+exec "$HOME/.local/share/jdtls/bin/jdtls" -data "$HOME/.cache/jdtls/workspace" "$@"
