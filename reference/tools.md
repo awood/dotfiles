@@ -9,10 +9,8 @@ I've listed less used tools here so I don't forget about them!
 * `dive` - container file browser
 * `dua` - disk usage analyzer.  Run `dua i` for a TUI
 * `duf` - Curses version of `df`
-* `glow` - another Markdown viewer; simpler than `hike`
 * `gruyere` - view and kill ports
 * `gum` - shell-script improvement tool.  See https://github.com/charmbracelet/gum
-* `hike` - Markdown browser/viewer
 * `hyperfine` - CLI benchmarking
 * `jiratui` - Jira TUI
 * `jqp` - interactive `jq` TUI
@@ -21,6 +19,7 @@ I've listed less used tools here so I don't forget about them!
 * `kl` - k8s log viewer
 * `ktea` - Kafka viewer
 * `lazyjournal` - journalctl viewer
+* `leaf` - markdown viewer
 * `marker` - GUI Markdown viewer
 * `ncdu` - Curses version of `du`
 * `ov` - pager

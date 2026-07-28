@@ -302,6 +302,8 @@ nnoremap <silent> <C-w>k :<C-u>TmuxNavigateUp<cr>
 nnoremap <silent> <C-w>l :<C-u>TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>\ :<C-u>TmuxNavigatePrevious<cr>
 
+nnoremap <Leader>md :vertical botright terminal leaf -w %<CR>
+
 nmap <script> <silent> <leader>ll :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>ql :call ToggleQuickfixList()<CR>
 

@@ -24,6 +24,7 @@ packages:
       # TODO is to allow specific versions to be installed
       # - 'atuin'
       - 'hoard-rs'
+      - 'leaf-markdown-viewer'
 
   fedora:
     dnf:
@@ -36,7 +37,6 @@ packages:
       - 'fzf'
       - 'git-delta'
       - 'glab'
-      - 'glow'
       - 'gum'
       - 'htop'
       - 'httpie'
@@ -59,6 +59,7 @@ packages:
       # - 'atac'
       - 'csvlens'
       - 'hoard-rs'
+      - 'leaf-markdown-viewer'
       - 'systemd-manager-tui'
       - 'viddy'
     pipx_include:
@@ -67,7 +68,6 @@ packages:
       - 'black'
       - 'cheznav'
       - 'gruyere'
-      - 'hike'
       - 'ipython'
       - 'jiratui'
       - 'kaskade'
