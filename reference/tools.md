@@ -11,6 +11,7 @@ I've listed less used tools here so I don't forget about them!
 * `duf` - Curses version of `df`
 * `gruyere` - view and kill ports
 * `gum` - shell-script improvement tool.  See https://github.com/charmbracelet/gum
+* `gwm` - Git worktree manager
 * `hyperfine` - CLI benchmarking
 * `jiratui` - Jira TUI
 * `jqp` - interactive `jq` TUI

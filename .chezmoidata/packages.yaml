@@ -58,6 +58,7 @@ packages:
       # Problem with v0.22.0
       # - 'atac'
       - 'csvlens'
+      - 'gwm-cli'
       - 'hoard-rs'
       - 'leaf-markdown-viewer'
       - 'systemd-manager-tui'
