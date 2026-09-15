@@ -150,6 +150,8 @@ set-option -g automatic-rename-format '#{b:pane_current_path}'
 set -g focus-events on
 
 set -g clipboard on
+bind -N "Push OSC52 copy buffer to system clipboard" C-c \
+    run-shell "tmux save-buffer - | xsel -i -b"
 
 # clock
 set-window-option -g clock-mode-colour green #green
