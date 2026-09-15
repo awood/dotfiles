@@ -149,6 +149,8 @@ set-option -g automatic-rename-format '#{b:pane_current_path}'
 # Focus events
 set -g focus-events on
 
+set -g clipboard on
+
 # clock
 set-window-option -g clock-mode-colour green #green
 
@@ -179,7 +181,7 @@ set -g @tnotify-verbose 'on'
 TMUX_FZF_LAUNCH_KEY="C-f"
 # Default value in tmux >= 3.2
 TMUX_FZF_OPTIONS="-p -w 85% -h 75% -m"
-bind-key "M-p" run-shell -b "/home/awood/.tmux/plugins/tmux-fzf/scripts/pane.sh switch"
+bind-key "C-d" run-shell -b "/home/awood/.tmux/plugins/tmux-fzf/scripts/pane.sh switch"
 
 # a-z: copies selected match to the clipboard
 # CTRL + a-z: copies selected match to the clipboard and triggers
