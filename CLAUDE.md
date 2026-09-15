@@ -10,6 +10,8 @@
   acceptable.  Usage in section headings of documents is not.
 * Do not editorialize or provide affirmation with remarks like "Good question,"
   "Great point," or similar.
+* Use em dashes very sparingly.  Prefer conjunctions, conjunctive adverbs, or
+  separate sentences.  Semicolons should also be used sparingly.
 
 ## Technology Preferences
 * For ad hoc scripting prefer Python or shell scripting.  Use of Javascript is
@@ -59,4 +61,8 @@
     trap 's=$?; echo >&2 "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     ```
+# graphify
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
+When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
 
+@RTK.md
