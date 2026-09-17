@@ -24,7 +24,6 @@ packages:
       # TODO is to allow specific versions to be installed
       # - 'atuin'
       - 'hoard-rs'
-      - 'leaf-markdown-viewer'
 
   fedora:
     dnf:
