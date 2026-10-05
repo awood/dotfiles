@@ -5,9 +5,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
+Plug 'vim-scripts/YankRing.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'preservim/nerdtree'
+Plug 'jeetsukumaran/vim-indentwise'
 Plug 'justinmk/vim-sneak'
 Plug 'tommcdo/vim-exchange'
 
@@ -47,10 +49,10 @@ nnoremap K i<CR><Esc>
 " Trigger a highlight in the appropriate direction only when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+autocmd BufEnter * stopinsert " back to Normal mode on every file you open
+
 " Paste over selection without killing register 1
 xnoremap <Leader>p "_dP
-
-noremap <c-n> :NERDTreeToggle<CR>
 
 " Mappings like Vim Unimpaired
 nnoremap [on :set number norelativenumber<cr>
@@ -86,9 +88,10 @@ noremap <leader>fu :action FindUsages<cr>
 " Leader-n (Navigate somewhere)
 noremap <leader>ni :action GotoImplementation<cr>
 noremap <leader>ns :action GotoSuperMethod<cr>
-noremap <leader>nt :action GotoTest<cr>
+noremap <leader>nj :action GotoTest<cr>
 noremap <leader>nl :action RecentLocations<cr>
 noremap <leader>nh :action CallHierarchy<cr>
+noremap <leader>nt :NERDTreeToggle<CR>
 
 " Leader-r (Refactor something)
 noremap <leader>re :action ExtractMethod<cr>
@@ -182,13 +185,12 @@ sethandler <C-L> a:ide
 " CTRL-M - lines downward to first non-blank. Same as '+' and <CR>. 'File
 " structure' in IDE.
 sethandler <C-M> a:ide
-" CTRL-N - same as 'j' or 'down'. Redundant.  'New Directory' in IDE which is
-" also marginal. Instead map to :NERDTreeToggle
+" CTRL-N - YankRing next
 sethandler <C-N> a:vim
 " CTRL-O - go to [count] older position in the jump list.
 sethandler <C-O> a:vim
-" CTRL-P - same as 'k' or 'up'. Redundant.
-sethandler <C-P> a:ide
+" CTRL-P - YankRing next
+sethandler <C-P> a:vim
 " CTRL-Q - blockwise visual selection but in terminals, it's intercepted for
 " control flow.  Cede to IDE for 'Quick documentation'
 sethandler <C-Q> a:ide

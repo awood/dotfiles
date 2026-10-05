@@ -61,6 +61,8 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'justinmk/vim-sneak'
 
+Plug 'jeetsukumaran/vim-indentwise'
+
 Plug 'unblevable/quick-scope'
 
 Plug 'tommcdo/vim-exchange'
@@ -71,6 +73,7 @@ Plug 'vim-scripts/ShowTrailingWhitespace'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/YankRing.vim'
 
 Plug 'fioncat/vim-yaml-folds'
 
@@ -79,17 +82,14 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' " Bound to F8
 
 " tmux syntax highlighting
 Plug 'zaiste/tmux.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'milkypostman/vim-togglelist'
-
-" actually used with rg
-Plug 'mileszs/ack.vim'
+Plug 'milkypostman/vim-togglelist' " bind \ql and \ll to quickfix and loclist
 
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
