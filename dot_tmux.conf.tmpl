@@ -149,7 +149,7 @@ set-option -g automatic-rename-format '#{b:pane_current_path}'
 # Focus events
 set -g focus-events on
 
-set -g clipboard on
+set -g set-clipboard on
 bind -N "Push OSC52 copy buffer to system clipboard" C-c \
     run-shell "tmux save-buffer - | xsel -i -b"
 
