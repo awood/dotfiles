@@ -537,24 +537,49 @@ CTRL-] - jump to definition of a tag
 Typing a shebang line causes the file type to be re-detected. Additionally the
 file will be automatically made executable (chmod +x) after the next write.
 
-## Ack.vim
-The quickfix results window is augmented with these convenience mappings:
+## TagBar
+<F8> shows ctags pane
 
-?    a quick summary of these keys, repeat to close
-o    to open (same as Enter)
-O    to open and close the quickfix window
-go   to preview file, open but maintain focus on ack.vim results
-t    to open in new tab
-T    to open in new tab without moving to it
-h    to open in horizontal split
-H    to open in horizontal split, keeping focus on the results
-v    to open in vertical split
-gv   to open in vertical split, keeping focus on the results
-q    to close the quickfix window
-
-To search for a pattern that contains whitespace, you need to enclose the
-pattern in single quotes. For example: :Ack 'foo bar' to search for 'foo bar'.
-
+## ToggleList
+\ql and \ll show quicklist and loclist
 # Expand Region Plugin
 + expands the text object selected (letter, word, sentence)
 _ narrows the text object selected
+
+## DeleteTrailingWhiteSpace
+\d$ deletes trailing whitespace (works in visual mode too)
+
+## Vim Exchange
+`cx` - On the first use, define the first {motion} to exchange. On the second use, define the second {motion} and perform the exchange.
+`cxx` - Like cx, but use the current line.
+`X` - Like cx, but for Visual mode.
+`cxc` - Clear any {motion} pending for exchange.
+
+## Vim IndentWise
+[- 	Move to the previous line of lesser indent
+]- 	Move to the next line of lesser indent
+[+ 	Move to the previous line of greater indent
+]+ 	Move to the next line of greater indent
+[= 	Move to the previous line of equal indent
+]= 	Move to the next line of equal indent
+[% 	Move to the beginning of the current indent block
+]% 	Move to the end of the current indent block
+
+## YankRing
+Vim keeps a history of deletes in "1-"9, but a yank always overwrites the last
+one. The yank ring adds the missing history - the Emacs kill ring - over yanks,
+deletes and changes alike. Paste with p, then press <C-P> to swap what you just
+pasted for the entry before it, and keep pressing to walk further back. <C-N>
+walks forward again, and a count like 2<C-P> skips.
+
+Cycling replaces the text of the last paste, so it works while the caret is
+still on the line you pasted onto and you have not edited the buffer since;
+otherwise it tells you to paste first. p, P, gp, gP, ]p, [p, ]P and [P are all
+tracked, in normal and visual mode, counts included. One u undoes the paste and
+the cycling together.
+
+:YRShow lists the ring newest first, :YRClear empties it, and :YRReplace
+{offset} {p|P} is what the keys call - a negative offset steps to an older
+entry, a positive one to a newer one.
+
+let g:yankring_max_history = 100 caps how many entries are kept.
