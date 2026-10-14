@@ -103,6 +103,12 @@
     algorithm = histogram
     tool = meld
 
+[pretty]
+    custom = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%<(18,trunc)%ah %C(auto,green)%<(20,trunc)%aN%C(auto,reset)%s
+
+[format]
+    pretty = custom
+
 [alias]
     # Use like so: git compare my-branch...origin/main
     compare = log --left-right --graph --cherry-pick --oneline
