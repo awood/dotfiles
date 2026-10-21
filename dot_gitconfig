@@ -180,5 +180,9 @@
 [rebase]
     updateRefs = true
     autosquash = true
+
 [gpg "ssh"]
-	allowedSignersFile = /home/awood/.config/git/allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers
+
+[include]
+    path = ~/.gitconfig.local
