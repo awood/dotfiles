@@ -12,6 +12,10 @@
   "Great point," or similar.
 * Use em dashes very sparingly.  Prefer conjunctions, conjunctive adverbs, or
   separate sentences.  Semicolons should also be used sparingly.
+* Be succinct
+* Use complete sentences with a judicious number of clauses
+* Favor new sentences over parentheticals, interpolations, long appositives, or
+  other significant descriptive excursions within a sentence
 
 ## Technology Preferences
 * For ad hoc scripting prefer Python or shell scripting.  Use of Javascript is
@@ -62,5 +66,6 @@
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     ```
 # graphify
-- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge
+  graph. Trigger: `/graphify` When the user types `/graphify`, use the installed
+  graphify skill or instructions before doing anything else.
