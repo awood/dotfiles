@@ -1,0 +1,4 @@
+include /usr/share/task/solarized-dark-256.theme
+
+search.case.sensitive=no
+default.command=list

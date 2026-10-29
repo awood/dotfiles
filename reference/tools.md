@@ -2,14 +2,15 @@
 
 I've listed less used tools here so I don't forget about them!
 
-* `atac` - TUI version of `postman`
 * `bmon` - TUI network monitor
 * `cheznav` - ChezMoi file manager
 * `csvlens` - CSV file viewer
 * `dive` - container file browser
 * `dua` - disk usage analyzer.  Run `dua i` for a TUI
 * `duf` - Curses version of `df`
+* `ghostwriter` - GUI Markdown viewer
 * `gruyere` - view and kill ports
+* 'edamame' - live rendering Markdown editor
 * `gum` - shell-script improvement tool.  See https://github.com/charmbracelet/gum
 * `gwm` - Git worktree manager
 * `hyperfine` - CLI benchmarking
@@ -21,7 +22,6 @@ I've listed less used tools here so I don't forget about them!
 * `ktea` - Kafka viewer
 * `lazyjournal` - journalctl viewer
 * `leaf` - markdown viewer
-* `marker` - GUI Markdown viewer
 * `ncdu` - Curses version of `du`
 * `ov` - pager
 * `podman-tui` - podman TUI
@@ -32,4 +32,5 @@ I've listed less used tools here so I don't forget about them!
 * `systemd-manager-tui` - manage systemd units
 * `trivy` - container vulnerability scanner.  Create reports like so
   `trivy image -f template --template '@/home/awood/bin/trivy-contrib/html.tpl' my-container`
+* `tuicr` - TUI code review tool
 * `viddy` - fancy version of `watch`.  Allows viewing previous output

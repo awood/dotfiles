@@ -34,6 +34,7 @@ packages:
       - 'duf'
       - 'fd-find'
       - 'fzf'
+      - 'ghostwriter'
       - 'git-delta'
       - 'glab'
       - 'gum'
@@ -43,7 +44,6 @@ packages:
       - 'jq'
       - 'keychain'
       - 'libxml2'
-      - 'marker'
       - 'ncdu'
       - 'pipx'
       - 'podman-tui'
@@ -51,16 +51,18 @@ packages:
       - 'ripgrep'
       - 'rofi'
       - 'ShellCheck'
+      - 'task'
     cargo:
       # See https://github.com/atuinsh/atuin/issues/2119
       # - 'atuin'
-      # Problem with v0.22.0
-      # - 'atac'
       - 'csvlens'
+      - 'edamame'
       - 'gwm-cli'
       - 'hoard-rs'
       - 'leaf-markdown-viewer'
       - 'systemd-manager-tui'
+      - 'taskwarrior-tui'
+      - 'tuicr'
       - 'viddy'
     pipx_include:
       - 'gitlint'
