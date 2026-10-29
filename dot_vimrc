@@ -295,6 +295,8 @@ let g:tmux_navigator_no_mappings = 1
 " tmux zoomed when moving from Vim to another pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
+let g:yankring_history_dir = '~/.vim/backup'
+
 " Mappings
 nnoremap <silent> <C-w>h :<C-u>TmuxNavigateLeft<cr>
 nnoremap <silent> <C-w>j :<C-u>TmuxNavigateDown<cr>
