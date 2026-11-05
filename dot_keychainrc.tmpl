@@ -5,8 +5,4 @@ theme = modern
 
 [agent]
 timeout = 720
-{{ else }}
-# KCHOPTS="--agents gpg,ssh --quiet"
-SSHKEYS=$(grep -l -e '[DRS]S[AH] PRIVATE KEY' ~/.ssh/id_*)
-GPGKEYS="99779B18"
 {{- end }}

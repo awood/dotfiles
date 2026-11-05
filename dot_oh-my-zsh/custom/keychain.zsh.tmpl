@@ -1,0 +1,12 @@
+{{- /*
+  keychain changed its command-line syntax in version 3: keys are loaded with
+  an "add" subcommand and GPG keys take a "gpgs:" type prefix.  Keychain 2.8
+  treats any bare argument as a key name
+*/ -}}
+{{- if lookPath "keychain" -}}
+{{-   if eq .chezmoi.osRelease.id "fedora" }}
+eval "$(keychain add --eval "${KEYCHAIN_KEYS[@]}" "gpgs:99779B18")"
+{{-   else }}
+eval "$(keychain --eval --quiet --agents ssh,gpg "${KEYCHAIN_KEYS[@]}" 99779B18)"
+{{-   end }}
+{{  end -}}
