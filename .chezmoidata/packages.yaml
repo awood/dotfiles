@@ -58,7 +58,6 @@ packages:
       - 'csvlens'
       - 'edamame'
       - 'gwm-cli'
-      - 'hoard-rs'
       - 'leaf-markdown-viewer'
       - 'systemd-manager-tui'
       - 'taskwarrior-tui'
