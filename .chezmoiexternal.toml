@@ -43,7 +43,7 @@
     path = "plug.vim"
     refreshPeriod = "{{ $refreshPeriod }}"
 
-{{ $superfileVersion := "1.1.7" -}}
+{{ $superfileVersion := "1.6.0" -}}
 ["bin/spf"]
     type = "archive-file"
     url = "https://github.com/yorukot/superfile/releases/download/v{{$superfileVersion}}/superfile-{{$.chezmoi.os}}-v{{$superfileVersion}}-{{$.chezmoi.arch}}.tar.gz"
