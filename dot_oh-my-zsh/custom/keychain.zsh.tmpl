@@ -8,5 +8,10 @@
 eval "$(keychain add --eval "${KEYCHAIN_KEYS[@]}" "gpgs:99779B18")"
 {{-   else }}
 eval "$(keychain --eval --quiet --agents ssh,gpg "${KEYCHAIN_KEYS[@]}" 99779B18)"
+# pinentry-tty needs to know which terminal to prompt on.  Without GPG_TTY,
+# gpg sends no tty name to the agent and pinentry cancels at once.
+export GPG_TTY=$(tty)
+# The agent may have been started from another terminal.  Point it at this one.
+gpg-connect-agent updatestartuptty /bye >/dev/null
 {{-   end }}
 {{  end -}}
