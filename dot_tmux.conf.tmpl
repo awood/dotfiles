@@ -10,6 +10,9 @@ set -g default-terminal "tmux-256color"
 # Use 256 colors
 set -ga terminal-overrides ",xterm*:smcup@:rmcup@,xterm-256color:RGB"
 
+# Support curly underlines
+set -as terminal-features ',xterm-256color:usstyle'
+
 set -g history-limit 50000
 
 # give me nice window titles

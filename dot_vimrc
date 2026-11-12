@@ -77,7 +77,7 @@ Plug 'vim-scripts/YankRing.vim'
 
 Plug 'fioncat/vim-yaml-folds'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -450,12 +450,27 @@ if !exists(":DiffOrig")
                  \ | wincmd p | diffthis
 endif
 
-" The colorscheme needs to be set after QuickScope color customizations
-colorscheme solarized
+set termguicolors
+" Vim only sets these automatically for xterm-like TERMs.  Inside tmux, TERM is
+" tmux-256color, so the true color escape sequences must be given explicitly.
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" vim-colors-solarized sets it (`:verbose highlight SpellBad`) as
-" SpellBad       xxx term=undercurl cterm=undercurl gui=undercurl guisp=Red
-" Unfortunately, xfce4-terminal doesn't support undercurl so we customize
-highlight SpellBad term=underline cterm=underline ctermul=red gui=undercurl guisp=red
+" The colorscheme needs to be set after QuickScope color customizations
+colorscheme solarized8
+
+" vim-solarized8 ships no airline theme.  Airline's colorscheme-name matching
+" can then fall back to its garish 'dark' default, so name the theme explicitly.
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+" Vim takes its undercurl sequence (t_Cs) from the terminfo capability "Cs",
+" but xterm-256color and tmux-256color define "Cs" as "set cursor color".  Vim
+" would then send a malformed cursor-color OSC instead of an undercurl, so
+" supply the real curly-underline sequences.
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+highlight SpellBad term=underline cterm=undercurl ctermul=red gui=undercurl guisp=red
+
 " highlight end of line whitespace
 highlight ShowTrailingWhiteSpace ctermbg=red guibg=red
